@@ -1,0 +1,11 @@
+{
+  "name": "config",
+  "private": "true",
+  "version": "0.0.0-root",
+  "repository": "https://github.com/mouse484/config.git",
+  "author": "mouse_484",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
