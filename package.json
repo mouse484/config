@@ -1,12 +1,12 @@
 {
-  "name": "config",
+  "name": "root",
   "private": "true",
   "version": "0.0.0-root",
   "repository": "https://github.com/mouse484/config.git",
   "author": "mouse_484",
   "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "packages/eslint/*"
   ],
   "devDependencies": {
     "lerna": "^6.1.0"
