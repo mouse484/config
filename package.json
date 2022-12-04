@@ -8,6 +8,11 @@
   "workspaces": [
     "packages/eslint/*"
   ],
+  "scripts": {
+    "release": "yarn lerna:version && yarn lerna:publish",
+    "lerna:version": "lerna version --conventional-commits --yes",
+    "lerna:publish": "lerna publish from-package --yes"
+  },
   "devDependencies": {
     "lerna": "^6.1.0"
   }
