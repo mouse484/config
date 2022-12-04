@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2022-12-04)
+
+
+### Features
+
+* **renovate:** :sparkles: add renovate ([7819ac3](https://github.com/mouse484/config/commit/7819ac3e1f8a2052b42df6db2c3354f199993b96))
+
+
+
+
+
 ## 0.0.4 (2022-12-04)
 
 **Note:** Version bump only for package @mouse_484/eslint-config-base
