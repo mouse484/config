@@ -30,6 +30,6 @@
 ```js
 // .prettierrc.js
 module.exports = {
-  ...require("@mouse_484/prettier-config"),
+  ...require('@mouse_484/prettier-config'),
 };
 ```

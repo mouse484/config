@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "c": "changeset",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.8",
