@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "eslint:base",
         "test",
-        "bump"
+        "bump",
+        "prettier"
     ]
 }
