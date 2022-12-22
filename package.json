@@ -1,0 +1,15 @@
+{
+  "name": "@mouse484/config",
+  "version": "0.0.0-root",
+  "main": " ",
+  "repository": "https://github.com/mouse484/config.git",
+  "author": "mouse_484",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/eslint/*"
+  ],
+  "dependencies": {
+    "@changesets/cli": "^2.26.0"
+  }
+}
