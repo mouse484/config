@@ -1,5 +1,11 @@
 # @mouse_484/prettier-config
 
+## 1.0.2
+
+### Patch Changes
+
+- [`5d2d750`](https://github.com/mouse484/config/commit/5d2d7502f73cec8421602f96a4bdbd72fb91b24d) Thanks [@mouse484](https://github.com/mouse484)! - bump
+
 ## 1.0.1
 
 ### Patch Changes

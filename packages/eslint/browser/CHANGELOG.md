@@ -1,5 +1,14 @@
 # @mouse_484/eslint-config-browser
 
+## 0.0.3
+
+### Patch Changes
+
+- [`5d2d750`](https://github.com/mouse484/config/commit/5d2d7502f73cec8421602f96a4bdbd72fb91b24d) Thanks [@mouse484](https://github.com/mouse484)! - bump
+
+- Updated dependencies [[`5d2d750`](https://github.com/mouse484/config/commit/5d2d7502f73cec8421602f96a4bdbd72fb91b24d)]:
+  - @mouse_484/eslint-config-base@0.0.4
+
 ## 0.0.2
 
 ### Patch Changes
