@@ -1,5 +1,12 @@
 # @mouse_484/config-test
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`7c73c13`](https://github.com/mouse484/config/commit/7c73c135827609257a17bfbb80d7bbb1f34ede32)]:
+  - @mouse_484/eslint-config-base@0.0.3
+
 ## 0.0.1
 
 ### Patch Changes

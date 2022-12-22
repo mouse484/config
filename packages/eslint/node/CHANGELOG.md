@@ -1,5 +1,14 @@
 # @mouse_484/eslint-config-node
 
+## 0.0.2
+
+### Patch Changes
+
+- [#25](https://github.com/mouse484/config/pull/25) [`7c73c13`](https://github.com/mouse484/config/commit/7c73c135827609257a17bfbb80d7bbb1f34ede32) Thanks [@mouse484](https://github.com/mouse484)! - prettier format
+
+- Updated dependencies [[`7c73c13`](https://github.com/mouse484/config/commit/7c73c135827609257a17bfbb80d7bbb1f34ede32)]:
+  - @mouse_484/eslint-config-base@0.0.3
+
 ## 0.0.1
 
 ### Patch Changes
