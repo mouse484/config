@@ -2,5 +2,8 @@
   "name": "@mouse_484/prettier-config",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.1"
+  }
 }
