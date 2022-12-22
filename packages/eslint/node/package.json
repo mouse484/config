@@ -1,12 +1,12 @@
 {
   "name": "@mouse_484/eslint-config-node",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.30.0"
   },
   "dependencies": {
-    "@mouse_484/eslint-config-base": "^0.0.1"
+    "@mouse_484/eslint-config-base": "^0.0.2"
   }
 }
