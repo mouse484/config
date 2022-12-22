@@ -9,6 +9,9 @@
   "workspaces": [
     "packages/eslint/*"
   ],
+  "scripts": {
+    "release": "changeset publish"
+  },
   "dependencies": {
     "@changesets/cli": "^2.26.0"
   }
