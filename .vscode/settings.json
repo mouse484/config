@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "eslint:base",
-        "test"
+        "test",
+        "bump"
     ]
 }

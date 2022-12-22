@@ -6,7 +6,7 @@
   "author": "mouse_484",
   "license": "MIT",
   "workspaces": [
-    "packages/eslint/*"
+    "packages/**/*"
   ],
   "scripts": {
     "c": "changeset",
