@@ -1,0 +1,13 @@
+{
+  "name": "@mouse_484/config-test",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "devDependencies": {
+    "eslint": "^8.30.0"
+  },
+  "dependencies": {
+    "@mouse_484/eslint-config-base": "^0.0.1"
+  }
+}
