@@ -1,5 +1,11 @@
 # @mouse_484/eslint-config-base
 
+## 0.0.5
+
+### Patch Changes
+
+- [`e540a9f`](https://github.com/mouse484/config/commit/e540a9f857fef3f1df431ee8fc23323b7af1801f) Thanks [@mouse484](https://github.com/mouse484)! - npm error fix
+
 ## 0.0.4
 
 ### Patch Changes
