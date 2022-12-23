@@ -1,5 +1,11 @@
 # @mouse_484/prettier-config
 
+## 1.0.3
+
+### Patch Changes
+
+- [#35](https://github.com/mouse484/config/pull/35) [`0b921f9`](https://github.com/mouse484/config/commit/0b921f96d12e14a8f546d10e121ca28acf9d22ea) Thanks [@mouse484](https://github.com/mouse484)! - feat(prettier): :sparkles: Update Prettier config
+
 ## 1.0.2
 
 ### Patch Changes
