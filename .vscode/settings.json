@@ -6,6 +6,7 @@
     "prettier",
     "format",
     "docs",
-    "setup"
+    "setup",
+    "eslint"
   ]
 }
