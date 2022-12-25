@@ -1,0 +1,16 @@
+/** @type {import('eslint/lib/shared/types').ConfigData} */
+module.exports = {
+  overrides: [
+    {
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: { sourceType: 'module' },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+    },
+  ],
+  ignorePatterns: ['dist/'],
+};

@@ -5,6 +5,8 @@
     "bump",
     "prettier",
     "format",
-    "docs"
+    "docs",
+    "setup",
+    "eslint"
   ]
 }
