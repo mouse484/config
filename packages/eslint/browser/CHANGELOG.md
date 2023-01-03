@@ -1,5 +1,11 @@
 # @mouse_484/eslint-config-browser
 
+## 0.0.5
+
+### Patch Changes
+
+- [`4624a5f`](https://github.com/mouse484/config/commit/4624a5fea05b84611011ba5e4054cc9d35e781d2) Thanks [@mouse484](https://github.com/mouse484)! - fix typo browser
+
 ## 0.0.4
 
 ### Patch Changes
