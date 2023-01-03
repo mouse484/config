@@ -2,6 +2,6 @@
 module.exports = {
   extends: '@mouse_484/eslint-config-base',
   env: {
-    brwser: true,
+    browser: true,
   },
 };
