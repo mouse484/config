@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.30.0"
+    "eslint": "^8.31.0"
   },
   "dependencies": {
     "eslint-config-prettier": "^8.5.0"
