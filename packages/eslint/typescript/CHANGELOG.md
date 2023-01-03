@@ -1,5 +1,11 @@
 # @mouse_484/eslint-config-typescript
 
+## 1.0.0
+
+### Major Changes
+
+- [`2e3441b`](https://github.com/mouse484/config/commit/2e3441b0cac028a2d5863bdaebcfdc4c595cfeea) Thanks [@mouse484](https://github.com/mouse484)! - fix error file
+
 ## 0.1.0
 
 ### Minor Changes
