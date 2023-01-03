@@ -1,6 +1,5 @@
 /** @type {import('eslint/lib/shared/types').ConfigData} */
 module.exports = {
-  files: ['*.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: { sourceType: 'module' },
   plugins: ['@typescript-eslint'],
