@@ -809,6 +809,17 @@
     "@typescript-eslint/eslint-plugin" "^5.47.0"
     "@typescript-eslint/parser" "^5.47.0"
 
+"@mouse_484/eslint-config@*":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mouse_484/eslint-config/-/eslint-config-1.1.0.tgz#c2f4f2b1ded08dba30052749f6c9bc5f77d3bb33"
+  integrity sha512-7uyCEMyi13suz22XbhnIqJhGKnD0E7j9FxbGm2z80qPkpcR9aArq40+IGIw3a1Wy3ZhKkufZBSmFXS3Emnc2Rw==
+  dependencies:
+    "@mouse_484/eslint-config-base" "^1.0.0"
+    "@mouse_484/eslint-config-import" "^1.0.0"
+    "@mouse_484/eslint-config-prettier" "^1.0.0"
+    "@mouse_484/eslint-config-typescript" "^1.0.0"
+    eslint-plugin-import "^2.26.0"
+
 "@mouse_484/prettier-config@^1.0.0":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@mouse_484/prettier-config/-/prettier-config-1.0.3.tgz#579b70f70149a86e8b4bdd4c22f9151bf99fc45a"
