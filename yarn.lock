@@ -87,6 +87,16 @@
   resolved "https://registry.yarnpkg.com/@isaacs/string-locale-compare/-/string-locale-compare-1.1.0.tgz#291c227e93fd407a96ecd59879a35809120e432b"
   integrity sha512-SQ7Kzhh9+D+ZW9MA0zkYv3VXhIDNx+LzM6EJ+/65I3QY+enU6Itte7E5XX7EWrqLW2FN4n06GWzBnPoC3th2aQ==
 
+"@mouse_484/eslint-config-base@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@mouse_484/eslint-config-base/-/eslint-config-base-0.0.5.tgz#907994d780a7c8116c6d875137eb1b79803f7fef"
+  integrity sha512-edGES2Pkn7gCEunNZugDQdOrULPLA/d8mlQpBbrLctXMKAPtdo56CeGg31uerL3kmtHvKE5XigMWwOhp8B0mCw==
+
+"@mouse_484/prettier-config@^1.0.0":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@mouse_484/prettier-config/-/prettier-config-1.0.3.tgz#579b70f70149a86e8b4bdd4c22f9151bf99fc45a"
+  integrity sha512-UNHYinL61o8RU0a2tVVa+75wfzq5rsGTjddJpe4romNd2Y8zAxsEsGoV3qE92eU65SLOOaC8Or+kG/0oMCRO2Q==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
