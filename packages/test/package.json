@@ -8,6 +8,7 @@
     "eslint": "^8.30.0"
   },
   "dependencies": {
+    "@mouse_484/eslint-config": "^0.0.0-dev",
     "@mouse_484/eslint-config-base": "^0.0.5"
   }
 }
