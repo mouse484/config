@@ -97,6 +97,13 @@
   resolved "https://registry.yarnpkg.com/@mouse_484/eslint-config-base/-/eslint-config-base-1.0.0.tgz#98b79a0d91bb982d6b62be6705aaaf3a5c4882fd"
   integrity sha512-GBYJPmtIEnfn0B6qKlvzMfvQMuHroDR7f1eZw8wcy2YBl6Y276KOMWbeVaYG4dOL+zuPxhk7Fj+5d+h3+Iz9Bg==
 
+"@mouse_484/eslint-config-import@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@mouse_484/eslint-config-import/-/eslint-config-import-1.0.0.tgz#9e59d383ddb0e857775f8a92e21b814ebef1910f"
+  integrity sha512-BonWdLzOEcw6qCmvO2nad73xhftDulm69PwOOH/FD0ERDhpkYyQ/g+JSqiVCe+oYTNaryMR+zj4fTBjlybICHw==
+  dependencies:
+    eslint-plugin-import "^2.26.0"
+
 "@mouse_484/eslint-config-prettier@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@mouse_484/eslint-config-prettier/-/eslint-config-prettier-1.0.0.tgz#f828714f193eb27d1db514a27ad0d7435742f937"
@@ -112,11 +119,6 @@
     "@mouse_484/eslint-config-base" "^0.0.5"
     "@typescript-eslint/eslint-plugin" "^5.47.0"
     "@typescript-eslint/parser" "^5.47.0"
-
-"@mouse_484/prettier-config@^1.0.0":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@mouse_484/prettier-config/-/prettier-config-1.0.3.tgz#579b70f70149a86e8b4bdd4c22f9151bf99fc45a"
-  integrity sha512-UNHYinL61o8RU0a2tVVa+75wfzq5rsGTjddJpe4romNd2Y8zAxsEsGoV3qE92eU65SLOOaC8Or+kG/0oMCRO2Q==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
