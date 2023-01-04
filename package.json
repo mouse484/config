@@ -10,16 +10,15 @@
     "docs/"
   ],
   "scripts": {
-    "c": "changeset",
-    "release": "changeset publish",
+    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
     "format": "prettier --write ."
   },
-  "dependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@mouse_484/prettier-config": "^1.0.0",
+    "@semantic-release/github": "^8.0.7",
     "prettier": "^2.8.1",
-    "@mouse_484/prettier-config": "^1.0.0"
+    "semantic-release": "^19.0.5",
+    "semantic-release-monorepo": "^7.0.5"
   }
 }
