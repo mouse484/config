@@ -3,6 +3,9 @@
   "version": "0.0.0-dev",
   "main": "index.js",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@mouse_484/eslint-config-base": "^0.0.5",
     "eslint": "^8.31.0"

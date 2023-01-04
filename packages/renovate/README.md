@@ -3,6 +3,7 @@
 ## How to Use
 
 `renovate.json`
+
 ```json
 {
   "extends": ["github>mouse484/config//packages/renovate/default"]
