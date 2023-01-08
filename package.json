@@ -5,17 +5,12 @@
   "repository": "https://github.com/mouse484/config.git",
   "author": "mouse_484",
   "license": "MIT",
-  "workspaces": [
-    "packages/*",
-    "packages/eslint/*",
-    "docs/"
-  ],
   "scripts": {
-    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
+    "release": "pnpm -r --workspace-concurrency=1 exec -- shopt -s expand_aliases && alias npm=\"pnpm\" && npx --no-install semantic-release -e semantic-release-monorepo",
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@mouse_484/prettier-config": "*",
+    "@mouse_484/prettier-config": "workspace:*",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.7",

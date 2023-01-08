@@ -21,10 +21,9 @@
 
 # [@mouse_484/eslint-config-svelte-v1.1.0](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-svelte-v1.0.0...@mouse_484/eslint-config-svelte-v1.1.0) (2023-01-04)
 
-
 ### Features
 
-* add svelte default rule(extend) ([d3d2929](https://github.com/mouse484/config/commit/d3d2929b0e7b2791d61bb6759bdfa23196d5b3b5))
+- add svelte default rule(extend) ([d3d2929](https://github.com/mouse484/config/commit/d3d2929b0e7b2791d61bb6759bdfa23196d5b3b5))
 
 # @mouse_484/eslint-config-svelte
 
