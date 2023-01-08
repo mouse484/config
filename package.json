@@ -6,7 +6,8 @@
   "author": "mouse_484",
   "license": "MIT",
   "workspaces": [
-    "packages/**/*",
+    "packages/*",
+    "packages/eslint/*",
     "docs/"
   ],
   "scripts": {
