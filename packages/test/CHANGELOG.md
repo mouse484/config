@@ -1,3 +1,10 @@
+# [@mouse_484/config-test-v1.3.0](https://github.com/mouse484/config/compare/@mouse_484/config-test-v1.2.1...@mouse_484/config-test-v1.3.0) (2023-01-08)
+
+
+### Features
+
+* use pnpm ([7176ebe](https://github.com/mouse484/config/commit/7176ebe72468a0d1f994924b15e29624b3418925))
+
 # [@mouse_484/config-test-v1.2.1](https://github.com/mouse484/config/compare/@mouse_484/config-test-v1.2.0...@mouse_484/config-test-v1.2.1) (2023-01-08)
 
 
