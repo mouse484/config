@@ -1,3 +1,10 @@
+# [@mouse_484/eslint-config-svelte-v1.2.1](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-svelte-v1.2.0...@mouse_484/eslint-config-svelte-v1.2.1) (2023-01-08)
+
+
+### Reverts
+
+* Revert "feat: use pnpm" ([207c58a](https://github.com/mouse484/config/commit/207c58ae991a5335e2752b815b681bdfd823412c))
+
 # [@mouse_484/eslint-config-svelte-v1.2.0](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-svelte-v1.1.0...@mouse_484/eslint-config-svelte-v1.2.0) (2023-01-08)
 
 
