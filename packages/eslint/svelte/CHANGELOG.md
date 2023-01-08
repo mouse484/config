@@ -1,3 +1,10 @@
+# [@mouse_484/eslint-config-svelte-v1.4.0](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-svelte-v1.3.0...@mouse_484/eslint-config-svelte-v1.4.0) (2023-01-08)
+
+
+### Features
+
+* use pnpm ([#66](https://github.com/mouse484/config/issues/66)) ([6190da7](https://github.com/mouse484/config/commit/6190da707abc66308bcf1c1c3b97874857cc982f))
+
 # [@mouse_484/eslint-config-svelte-v1.3.0](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-svelte-v1.2.1...@mouse_484/eslint-config-svelte-v1.3.0) (2023-01-08)
 
 
