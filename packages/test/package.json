@@ -8,7 +8,7 @@
     "eslint": "^8.30.0"
   },
   "dependencies": {
-    "@mouse_484/eslint-config": "*",
-    "@mouse_484/eslint-config-base": "*"
+    "@mouse_484/eslint-config": "workspace:*",
+    "@mouse_484/eslint-config-base": "workspace:*"
   }
 }
