@@ -7,7 +7,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@mouse_484/eslint-config": "*",
+    "@mouse_484/eslint-config": "workspace:*",
     "eslint": "^8.31.0"
   }
 }
