@@ -1,3 +1,10 @@
+# [@mouse_484/eslint-config-typescript-v1.3.1](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-typescript-v1.3.0...@mouse_484/eslint-config-typescript-v1.3.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* **deps:** update typescript-eslint monorepo to ^5.48.1 ([0ed5811](https://github.com/mouse484/config/commit/0ed5811c038db2e672a9bfbccdab16b840d5ba2d))
+
 # [@mouse_484/eslint-config-typescript-v1.3.0](https://github.com/mouse484/config/compare/@mouse_484/eslint-config-typescript-v1.2.0...@mouse_484/eslint-config-typescript-v1.3.0) (2023-01-08)
 
 
