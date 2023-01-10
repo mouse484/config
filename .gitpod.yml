@@ -1,5 +1,5 @@
 tasks:
-  - init: echo "npm install"
+  - init: npm install
 
 vscode:
   extensions:
