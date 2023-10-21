@@ -1,6 +1,6 @@
 {
   "name": "@mouse_484/eslint-config-browser",
-  "version": "0.0.0-dev",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
@@ -10,6 +10,6 @@
     "eslint": "^8.52.0"
   },
   "dependencies": {
-    "@mouse_484/eslint-config-base": "*"
+    "@mouse_484/eslint-config-base": "1.0.0"
   }
 }
