@@ -1,7 +1,7 @@
 {
   "name": "@mouse_484/config-test",
   "version": "0.0.0-dev",
-  "description": "",
+  "description": "mouse484/config",
   "main": "index.js",
   "license": "MIT",
   "private": "true",

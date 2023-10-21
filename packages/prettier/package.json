@@ -1,7 +1,7 @@
 {
   "name": "@mouse_484/prettier-config",
   "version": "0.0.0-dev",
-  "description": "",
+  "description": "mouse484/config",
   "type": "module",
   "main": "index.js",
   "license": "MIT",
