@@ -1,0 +1,12 @@
+{
+  "name": "@mouse_484/eslint-config-base",
+  "version": "0.0.0-dev",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0"
+  }
+}

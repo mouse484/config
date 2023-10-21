@@ -1,0 +1,19 @@
+{
+  "name": "@mouse_484/eslint-config",
+  "version": "0.0.0-dev",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0"
+  },
+  "dependencies": {
+    "@mouse_484/eslint-config-base": "*",
+    "@mouse_484/eslint-config-import": "*",
+    "@mouse_484/eslint-config-prettier": "*",
+    "@mouse_484/eslint-config-typescript": "*",
+    "eslint-plugin-import": "^2.28.1"
+  }
+}

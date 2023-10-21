@@ -1,0 +1,13 @@
+{
+  "name": "@mouse_484/eslint-config-svelte",
+  "version": "0.0.0-dev",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mouse_484/eslint-config": "*",
+    "eslint": "^8.52.0"
+  }
+}

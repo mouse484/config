@@ -1,0 +1,12 @@
+{
+  "conventionalCommits.scopes": [
+    "eslint:base",
+    "test",
+    "bump",
+    "prettier",
+    "format",
+    "docs",
+    "setup",
+    "eslint"
+  ]
+}

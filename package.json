@@ -1,0 +1,27 @@
+{
+  "name": "@mouse_484/config",
+  "version": "0.0.0-dev",
+  "private": true,
+  "repository": "https://github.com/mouse484/config.git",
+  "author": "mouse_484",
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "packages/eslint/*",
+    "docs/"
+  ],
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@mouse_484/prettier-config": "*",
+    "@qiwi/multi-semantic-release": "^7.1.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.1",
+    "@semantic-release/npm": "^11.0.0",
+    "prettier": "^3.0.3"
+  }
+}

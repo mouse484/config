@@ -1,0 +1,13 @@
+{
+  "name": "@mouse_484/prettier-config",
+  "version": "0.0.0-dev",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}
