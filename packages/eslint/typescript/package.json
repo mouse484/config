@@ -1,6 +1,6 @@
 {
   "name": "@mouse_484/eslint-config-typescript",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "mouse484/config",
   "main": "index.js",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "eslint": "^8.52.0"
   },
   "dependencies": {
-    "@mouse_484/eslint-config-base": "2.0.0",
+    "@mouse_484/eslint-config-base": "2.0.1",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0"
   }
