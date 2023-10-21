@@ -1,6 +1,7 @@
 {
   "name": "@mouse_484/eslint-config-import",
   "version": "0.0.0-dev",
+  "description": "",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
