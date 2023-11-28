@@ -1,5 +1,9 @@
 ### Dependencies
 
+* **@mouse_484/eslint-config:** upgraded to 2.0.3
+
+### Dependencies
+
 * **@mouse_484/eslint-config:** upgraded to 2.0.2
 
 ### Dependencies
