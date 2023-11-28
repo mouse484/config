@@ -1,6 +1,6 @@
 {
   "name": "@mouse_484/eslint-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "mouse484/config",
   "main": "index.js",
   "license": "MIT",
@@ -11,10 +11,10 @@
     "eslint": "^8.54.0"
   },
   "dependencies": {
-    "@mouse_484/eslint-config-base": "2.0.1",
-    "@mouse_484/eslint-config-import": "2.0.1",
-    "@mouse_484/eslint-config-prettier": "2.0.1",
-    "@mouse_484/eslint-config-typescript": "2.0.1",
+    "@mouse_484/eslint-config-base": "2.0.2",
+    "@mouse_484/eslint-config-import": "2.0.2",
+    "@mouse_484/eslint-config-prettier": "2.0.2",
+    "@mouse_484/eslint-config-typescript": "2.0.2",
     "eslint-plugin-import": "^2.29.0"
   }
 }
