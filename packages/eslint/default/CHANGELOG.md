@@ -1,5 +1,9 @@
 ### Dependencies
 
+* **@mouse_484/eslint-config-typescript:** upgraded to 2.0.4
+
+### Dependencies
+
 * **@mouse_484/eslint-config-prettier:** upgraded to 2.0.3
 
 ### Dependencies
