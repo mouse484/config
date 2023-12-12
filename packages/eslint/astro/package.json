@@ -1,0 +1,13 @@
+{
+  "name": "@mouse_484/eslint-config-astro",
+  "version": "0.0.0-dev",
+  "description": "mouse484/config",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0"
+  }
+}
