@@ -8,6 +8,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^8.55.0"
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-astro": "^0.30.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0"
   }
 }
