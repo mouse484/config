@@ -8,7 +8,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^8.55.0"
+    "eslint": "^8.56.0"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0"
