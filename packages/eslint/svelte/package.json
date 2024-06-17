@@ -11,6 +11,6 @@
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
     "eslint-plugin-svelte": "^2.40.0",
-    "svelte-eslint-parser": "^0.38.0"
+    "svelte-eslint-parser": "^0.39.1"
   }
 }
