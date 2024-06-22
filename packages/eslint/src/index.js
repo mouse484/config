@@ -1,9 +1,15 @@
-import antfu, { GLOB_SRC } from '@antfu/eslint-config'
+// @ts-check
+import antfu, {
+  GLOB_SRC,
+  GLOB_TS,
+  GLOB_TSX,
+  interopDefault,
+  renameRules,
+  resolveSubOptions,
+} from '@antfu/eslint-config'
 
 /**
  * @typedef {import('@antfu/eslint-config').OptionsConfig} OptionsConfig
- * @typedef {import('@antfu/eslint-config').TypedFlatConfigItem} TypedFlatConfigItem
- * @typedef {import('@antfu/eslint-config').Awaitable} Awaitable
  * @typedef {import('@antfu/eslint-config').TypedFlatConfigItem} TypedFlatConfigItem
  */
 
@@ -13,12 +19,12 @@ import antfu, { GLOB_SRC } from '@antfu/eslint-config'
  *
  * @param {OptionsConfig & TypedFlatConfigItem} options
  *  The options for generating the ESLint configurations.
- * @param {Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
+ * @param {import('@antfu/eslint-config').Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
  *  The user configurations to be merged with the generated configurations.
  * @returns {Promise<TypedFlatConfigItem[]>}
  *  The merged ESLint configurations.
  */
-export function mouse(options, ...userConfigs) {
+export async function mouse(options, ...userConfigs) {
   /** @type {TypedFlatConfigItem[]} */
   const configs = []
 
@@ -33,6 +39,40 @@ export function mouse(options, ...userConfigs) {
       }],
     },
   })
+
+  if (options?.typescript) {
+    const pluginTs = await interopDefault(
+      import('@typescript-eslint/eslint-plugin'),
+    )
+
+    /**
+     * @param {string} key
+     * @returns {import("eslint").Linter.RulesRecord}
+     * if tsconfigPath is defined, append '-type-checked' to the key
+     */
+    const getRules = (key) => {
+      const typescriptOptions = resolveSubOptions(options, 'typescript')
+      const tsconfigPath = 'tsconfigPath' in typescriptOptions
+        ? typescriptOptions.tsconfigPath
+        : undefined
+
+      return renameRules(
+        pluginTs.configs[
+          tsconfigPath ? `${key}-type-checked` : key
+        ]?.rules ?? {},
+        { '@typescript-eslint': 'ts' },
+      )
+    }
+
+    configs.push({
+      name: 'mouse/typescript',
+      files: [GLOB_TS, GLOB_TSX],
+      rules: {
+        ...getRules('strict'),
+        ...getRules('stylistic'),
+      },
+    })
+  }
 
   return antfu(options, ...configs, ...userConfigs)
 }
