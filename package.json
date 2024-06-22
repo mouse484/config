@@ -8,7 +8,6 @@
   "license": "MIT",
   "workspaces": [
     "packages/*",
-    "packages/eslint/*",
     "docs/"
   ],
   "scripts": {

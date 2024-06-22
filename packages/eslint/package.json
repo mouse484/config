@@ -1,0 +1,19 @@
+{
+  "name": "@mouse_484/eslint-config",
+  "version": "3.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mouse484/config.git"
+  },
+  "keywords": [
+    "eslint-config"
+  ],
+  "author": "mouse_484",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mouse484/config/issues"
+  },
+  "homepage": "https://github.com/mouse484/config/tree/main/packages/eslint"
+}
