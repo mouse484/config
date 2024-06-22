@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "lint:view": "npx @eslint/config-inspector"
   },
   "devDependencies": {
     "@mouse_484/eslint-config": "*",

@@ -1,4 +1,4 @@
-import antfu from '@antfu/eslint-config'
+import antfu, { GLOB_SRC } from '@antfu/eslint-config'
 
 /**
  * @typedef {import('@antfu/eslint-config').OptionsConfig} OptionsConfig
@@ -19,5 +19,20 @@ import antfu from '@antfu/eslint-config'
  *  The merged ESLint configurations.
  */
 export function mouse(options, ...userConfigs) {
-  return antfu(options, ...userConfigs)
+  /** @type {TypedFlatConfigItem[]} */
+  const configs = []
+
+  configs.push({
+    name: 'mouse/source-files',
+    files: [GLOB_SRC],
+    rules: {
+      'style/max-len': ['error', {
+        code: 80,
+        tabWidth: 2,
+        comments: 120,
+      }],
+    },
+  })
+
+  return antfu(options, ...configs, ...userConfigs)
 }
