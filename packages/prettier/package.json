@@ -1,10 +1,10 @@
 {
   "name": "@mouse_484/prettier-config",
+  "type": "module",
   "version": "0.0.0-dev",
   "description": "mouse484/config",
-  "type": "module",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },

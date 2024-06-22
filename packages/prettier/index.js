@@ -21,4 +21,4 @@ export default {
   vueIndentScriptAndStyle: true,
   endOfLine: 'lf',
   singleAttributePerLine: true,
-};
+}

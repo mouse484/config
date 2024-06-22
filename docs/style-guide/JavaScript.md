@@ -23,10 +23,10 @@
 
     ```js
     {
-      foo: bar;
+      foo: bar
     } // ture
     {
-      foo: bar;
+      foo: bar
     } // false
     ```
 
