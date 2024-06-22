@@ -1,6 +1,0 @@
-extends: '@mouse_484/eslint-config-base'
-env:
-  es2022: true
-rules:
-  no-var: error
-  prefer-const: error
