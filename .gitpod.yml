@@ -1,5 +1,5 @@
 tasks:
-  - init: npm install
+  - init: npm i -g @antfu/ni && ni
 
 vscode:
   extensions:
