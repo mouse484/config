@@ -82,5 +82,17 @@ export async function mouse(options, ...userConfigs) {
     })
   }
 
+  if (options?.stylistic) {
+    configs.push({
+      name: 'mouse/stylistic',
+      rules: {
+        'style/brace-style': [
+          'error',
+          '1tbs',
+        ],
+      },
+    })
+  }
+
   return antfu(options, ...configs, ...userConfigs)
 }
