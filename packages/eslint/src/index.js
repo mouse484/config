@@ -25,6 +25,11 @@ import antfu, {
  *  The merged ESLint configurations.
  */
 export async function mouse(options, ...userConfigs) {
+  options = {
+    lessOpinionated: true,
+    ...options,
+  }
+
   /** @type {TypedFlatConfigItem[]} */
   const configs = []
 
@@ -32,11 +37,14 @@ export async function mouse(options, ...userConfigs) {
     name: 'mouse/source-files',
     files: [GLOB_SRC],
     rules: {
-      'style/max-len': ['error', {
-        code: 80,
-        tabWidth: 2,
-        comments: 120,
-      }],
+      'style/max-len': [
+        'error',
+        {
+          code: 80,
+          tabWidth: 2,
+          comments: 120,
+        },
+      ],
     },
   })
 
@@ -52,14 +60,14 @@ export async function mouse(options, ...userConfigs) {
      */
     const getRules = (key) => {
       const typescriptOptions = resolveSubOptions(options, 'typescript')
-      const tsconfigPath = 'tsconfigPath' in typescriptOptions
-        ? typescriptOptions.tsconfigPath
-        : undefined
+      const tsconfigPath
+        = 'tsconfigPath' in typescriptOptions
+          ? typescriptOptions.tsconfigPath
+          : undefined
 
       return renameRules(
-        pluginTs.configs[
-          tsconfigPath ? `${key}-type-checked` : key
-        ]?.rules ?? {},
+        pluginTs.configs[tsconfigPath ? `${key}-type-checked` : key]?.rules
+        ?? {},
         { '@typescript-eslint': 'ts' },
       )
     }
