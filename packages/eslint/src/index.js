@@ -8,29 +8,13 @@ import antfu, {
   resolveSubOptions,
 } from '@antfu/eslint-config'
 
-/**
- * @typedef {import('@antfu/eslint-config').OptionsConfig} OptionsConfig
- * @typedef {import('@antfu/eslint-config').TypedFlatConfigItem} TypedFlatConfigItem
- */
-
-/**
- * Construct an array of ESLint flat config items.
- * ref: https://github.com/antfu/eslint-config/blob/main/src/factory.ts
- *
- * @param {OptionsConfig & TypedFlatConfigItem} options
- *  The options for generating the ESLint configurations.
- * @param {import('@antfu/eslint-config').Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
- *  The user configurations to be merged with the generated configurations.
- * @returns {Promise<TypedFlatConfigItem[]>}
- *  The merged ESLint configurations.
- */
 export async function mouse(options, ...userConfigs) {
   options = {
     lessOpinionated: true,
     ...options,
   }
 
-  /** @type {TypedFlatConfigItem[]} */
+  /** @type {import('@antfu/eslint-config').TypedFlatConfigItem[]} */
   const configs = []
 
   configs.push({
