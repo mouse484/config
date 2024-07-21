@@ -16,6 +16,7 @@
     "eslint-config"
   ],
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "dependencies": {
     "@antfu/eslint-config": "^2.23.0"
   },
