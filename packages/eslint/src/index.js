@@ -24,7 +24,7 @@ export async function mouse(options, ...userConfigs) {
       'style/max-len': [
         'error',
         {
-          code: 80,
+          code: 100,
           tabWidth: 2,
           comments: 120,
         },
