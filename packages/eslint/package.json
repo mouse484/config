@@ -21,6 +21,6 @@
     "@antfu/eslint-config": "^2.23.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.16.1"
+    "@typescript-eslint/eslint-plugin": "^7.17.0"
   }
 }
