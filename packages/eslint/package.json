@@ -18,7 +18,7 @@
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "dependencies": {
-    "@antfu/eslint-config": "^2.23.2"
+    "@antfu/eslint-config": "^2.24.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.17.0"
