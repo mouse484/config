@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { spawn, exec as _exec } from 'node:child_process'
+import { exec as _exec, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
