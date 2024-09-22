@@ -17,6 +17,7 @@
   ],
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "bin": "bin/cli.js",
   "dependencies": {
     "@antfu/eslint-config": "^3.7.1"
   },
