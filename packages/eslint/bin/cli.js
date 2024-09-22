@@ -21,7 +21,9 @@ const execCLI = () => {
   })
 }
 
-await execCLI()
+await execCLI().catch(console.error).then(console.info)
+
+console.log(`Start replacing the config from ${antfu} to ${mouse}`)
 
 // Replace the config
 const cwd = process.cwd()
@@ -33,13 +35,13 @@ const pkg = JSON.parse(packageJSON)
 
 // Replace ESLint config
 const eslintConfigPath = path.join(cwd, `eslint.config.${pkg.type === 'module' ? 'js' : 'mjs'}`)
-const eslintConfig = await fs.readFile(eslintConfigPath, 'utf-8')
+let eslintConfig = await fs.readFile(eslintConfigPath, 'utf-8')
 
-eslintConfig.replace(
+eslintConfig = eslintConfig.replace(
   `import antfu from '${antfu}'`,
   `import { mouse } from '${mouse}'`,
 )
-eslintConfig.replace(
+eslintConfig = eslintConfig.replace(
   'antfu',
   'mouse',
 )
@@ -63,3 +65,5 @@ pkg.scripts = {
 }
 
 await fs.writeFile(packageJSONPath, JSON.stringify(pkg, null, 2))
+
+console.log(`Replaced the config from ${antfu} to ${mouse}`)
