@@ -19,7 +19,7 @@
   "types": "src/index.d.ts",
   "bin": "bin/cli.js",
   "dependencies": {
-    "@antfu/eslint-config": "^3.7.2"
+    "@antfu/eslint-config": "^3.7.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.7.0"
