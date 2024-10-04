@@ -1,5 +1,6 @@
 // @ts-check
 import antfu, {
+  GLOB_ASTRO,
   GLOB_SRC,
   GLOB_TS,
   GLOB_TSX,
@@ -8,6 +9,7 @@ import antfu, {
   resolveSubOptions,
 } from '@antfu/eslint-config'
 
+/** @type {import('@antfu/eslint-config')["antfu"]} */
 export async function mouse(options, ...userConfigs) {
   options = {
     lessOpinionated: true,
@@ -74,6 +76,16 @@ export async function mouse(options, ...userConfigs) {
           'error',
           '1tbs',
         ],
+      },
+    })
+  }
+
+  if (options?.astro) {
+    configs.push({
+      name: 'mouse/astro',
+      files: [GLOB_ASTRO],
+      rules: {
+        'astro/no-set-html-directive': 'error',
       },
     })
   }
