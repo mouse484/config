@@ -4,5 +4,5 @@ ESLint Config based on [@antfu/eslint-config](https://github.com/antfu/eslint-co
 
 ## Usage
 ```
-npx @mouse_484/eslint-config@latest
+@mouse_484/eslint-config@latest
 ```
