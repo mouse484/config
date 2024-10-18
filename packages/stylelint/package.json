@@ -1,5 +1,6 @@
 {
   "name": "@mouse_484/stylelint-config",
+  "type": "module",
   "version": "0.0.0-dev",
   "license": "MIT",
   "main": "index.js",
