@@ -76,6 +76,7 @@ export async function mouse(options, ...userConfigs) {
           'error',
           '1tbs',
         ],
+        'style/semi': ['error', 'always'],
       },
     })
   }
