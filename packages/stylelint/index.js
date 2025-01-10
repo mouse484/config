@@ -5,4 +5,7 @@ export default {
     '@stylistic/stylelint-config',
     'stylelint-config-clean-order',
   ],
+  rules: {
+    '@stylistic/string-quotes': 'single',
+  },
 }
