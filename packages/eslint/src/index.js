@@ -10,7 +10,7 @@ import antfu, {
 } from '@antfu/eslint-config'
 
 /** @type {import('@antfu/eslint-config')["antfu"]} */
-export async function mouse(options, ...userConfigs) {
+async function mouse(options, ...userConfigs) {
   options = {
     lessOpinionated: true,
     ...options,
@@ -93,3 +93,7 @@ export async function mouse(options, ...userConfigs) {
 
   return antfu(options, ...configs, ...userConfigs)
 }
+
+export default mouse
+export { mouse }
+export * from '@antfu/eslint-config'
