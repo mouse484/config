@@ -4,66 +4,100 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import { promisify } from 'node:util'
+import { resolveCommand } from 'package-manager-detector/commands'
+import { detect } from 'package-manager-detector/detect'
 
 const exec = promisify(_exec)
 
-const antfu = '@antfu/eslint-config'
-const mouse = '@mouse_484/eslint-config'
+/**
+ * @typedef {object} PackageInfo
+ * @property {string} name - Package name
+ * @property {string} import - Import name in config
+ */
 
-// Run the original CLI
-const execCLI = () => {
-  const child = spawn('npx', [antfu], {
-    stdio: 'inherit',
-  })
+/** @type {PackageInfo} */
+const SOURCE = {
+  name: '@antfu/eslint-config',
+  import: 'antfu',
+}
+
+/** @type {PackageInfo} */
+const TARGET = {
+  name: '@mouse_484/eslint-config',
+  import: 'mouse',
+}
+
+/**
+ *
+ * @param {string} command
+ * @param {string} args
+ * @param {import('node:child_process').SpawnOptions} options
+ * @returns {Promise} - Promise Spawn Result
+ */
+function spawnAsync(command, args, options = { stdio: 'inherit' }) {
   return new Promise((resolve, reject) => {
-    child.on('exit', resolve)
+    const child = spawn(command, args, options)
+    child.on('close', resolve)
     child.on('error', reject)
   })
 }
 
-await execCLI().catch(console.error).then(console.info)
+async function main() {
+  const pm = await detect()
 
-console.log(`Start replacing the config from ${antfu} to ${mouse}`)
+  // Install source config
+  const installCmd = resolveCommand(pm.agent, 'add', ['-D', SOURCE.name])
+  await spawnAsync(installCmd.command, installCmd.args)
+  console.log(`Installed ${SOURCE.name}`)
 
-// Replace the config
-const cwd = process.cwd()
+  // Run source config setup
+  const execCmd = resolveCommand(pm.agent, 'execute', [SOURCE.name])
+  await spawnAsync(execCmd.command, execCmd.args)
 
-const packageJSONPath = path.join(cwd, 'package.json')
-const packageJSON = await fs.readFile(packageJSONPath, 'utf-8')
-/** @type {Record<string,unknown>} */
-const pkg = JSON.parse(packageJSON)
+  console.log(`Start replacing the config from ${SOURCE.name} to ${TARGET.name}`)
 
-// Replace ESLint config
-const eslintConfigPath = path.join(cwd, `eslint.config.${pkg.type === 'module' ? 'js' : 'mjs'}`)
-let eslintConfig = await fs.readFile(eslintConfigPath, 'utf-8')
+  // Update package.json
+  const cwd = process.cwd()
+  const packageJSONPath = path.join(cwd, 'package.json')
+  const packageJSON = await fs.readFile(packageJSONPath, 'utf-8')
+  /** @type {Record<string,unknown>} */
+  const pkg = JSON.parse(packageJSON)
 
-eslintConfig = eslintConfig.replace(
-  `import antfu from '${antfu}'`,
-  `import { mouse } from '${mouse}'`,
-)
-eslintConfig = eslintConfig.replace(
-  'antfu',
-  'mouse',
-)
+  // Initialize devDependencies if it doesn't exist
+  pkg.devDependencies = pkg.devDependencies || {}
+  delete pkg.devDependencies[SOURCE.name]
 
-await fs.writeFile(eslintConfigPath, eslintConfig)
+  // Get latest version of target package
+  const { stdout } = await exec(`npm view ${TARGET.name} dist-tags.latest`)
+    .catch(() => ({ stdout: 'latest' }))
+  pkg.devDependencies[TARGET.name] = stdout.trim()
 
-// Replace package.json
-delete pkg.devDependencies[antfu]
+  // Update scripts
+  pkg.scripts = {
+    ...pkg.scripts,
+    'lint': 'eslint .',
+    'lint:fix': 'eslint --fix .',
+  }
+  await fs.writeFile(packageJSONPath, JSON.stringify(pkg, null, 2))
 
-const version = (await exec(`npm view ${mouse} dist-tags.latest`).catch(() => {
-  console.info(`Failed to get the latest version of ${mouse}`)
-  return { stdout: 'latest' }
-})).stdout.trim()
+  // Update or create ESLint config
+  const configExt = pkg.type === 'module' ? 'js' : 'mjs'
+  const configPath = path.join(cwd, `eslint.config.${configExt}`)
 
-pkg.devDependencies[mouse] = version
+  let configContent = await fs.readFile(configPath, 'utf-8')
+  configContent = configContent
+    .replace(
+      `import ${SOURCE.import} from '${SOURCE.name}'`,
+      `import ${TARGET.import} from '${TARGET.name}'`,
+    )
+    .replace(SOURCE.import, TARGET.import)
+  await fs.writeFile(configPath, configContent)
 
-pkg.scripts = {
-  ...pkg.scripts,
-  'lint': 'eslint .',
-  'lint:fix': 'eslint --fix .',
+  // Install dependencies after all changes
+  const finalInstallCmd = resolveCommand(pm.agent, 'install')
+  await spawnAsync(finalInstallCmd.command, finalInstallCmd.args)
+
+  console.log(`Successfully replaced the config from ${SOURCE.name} to ${TARGET.name}`)
 }
 
-await fs.writeFile(packageJSONPath, JSON.stringify(pkg, null, 2))
-
-console.log(`Replaced the config from ${antfu} to ${mouse}`)
+main()

@@ -5,4 +5,5 @@ declare function mouse(
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]
 ): Promise<TypedFlatConfigItem>
 
+export default mouse
 export { mouse }
