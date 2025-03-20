@@ -10,7 +10,10 @@
   "packageRules": [
     {
       "groupName": "linters",
-      "extends": "packages:linters"
+      "extends": "packages:linters",
+      "matchPackagePatterns": [
+        "eslint"
+      ]
     },
     {
       "groupName": "unifiedjs",
