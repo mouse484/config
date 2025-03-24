@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
+  "extends": ["config:best-practices", ":timezone(Asia/Tokyo)"],
   "labels": ["dependencies", "renovate"],
   "rangeStrategy": "bump",
   "automerge": true,
