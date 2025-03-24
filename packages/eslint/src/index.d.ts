@@ -7,3 +7,4 @@ declare function mouse(
 
 export default mouse
 export { mouse }
+export * from '@antfu/eslint-config'
