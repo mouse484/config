@@ -18,12 +18,12 @@
   "devDependencies": {
     "@mouse_484/eslint-config": "*",
     "@mouse_484/prettier-config": "*",
-    "@qiwi/multi-semantic-release": "^7.1.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "@semantic-release/npm": "^12.0.1",
+    "@qiwi/multi-semantic-release": "7.1.2",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "11.0.1",
+    "@semantic-release/npm": "12.0.1",
     "eslint": "^9.23.0",
     "prettier": "^3.5.3"
   }
