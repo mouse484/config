@@ -1,2 +1,0 @@
-tasks:
-  - init: npm i -g @antfu/ni && ni
