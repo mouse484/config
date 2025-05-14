@@ -39,22 +39,24 @@ function spawnAsync(command, args, options = { stdio: 'inherit' }) {
     const child = spawn(command, args, options)
     child.on('close', resolve)
     child.on('error', reject)
-  })
+  }).catch(console.error)
 }
 
 async function main() {
+  console.info('Starting ESLint config setup...')
+
   const pm = await detect()
 
   // Install source config
   const installCmd = resolveCommand(pm.agent, 'add', ['-D', SOURCE.name])
   await spawnAsync(installCmd.command, installCmd.args)
-  console.log(`Installed ${SOURCE.name}`)
+  console.info(`Installed ${SOURCE.name}`)
 
   // Run source config setup
   const execCmd = resolveCommand(pm.agent, 'execute', [SOURCE.name])
   await spawnAsync(execCmd.command, execCmd.args)
 
-  console.log(`Start replacing the config from ${SOURCE.name} to ${TARGET.name}`)
+  console.info(`Start replacing the config from ${SOURCE.name} to ${TARGET.name}`)
 
   // Update package.json
   const cwd = process.cwd()
@@ -97,7 +99,7 @@ async function main() {
   const finalInstallCmd = resolveCommand(pm.agent, 'install')
   await spawnAsync(finalInstallCmd.command, finalInstallCmd.args)
 
-  console.log(`Successfully replaced the config from ${SOURCE.name} to ${TARGET.name}`)
+  console.info(`Successfully replaced the config from ${SOURCE.name} to ${TARGET.name}`)
 }
 
 main()
