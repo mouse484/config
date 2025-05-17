@@ -1,7 +1,6 @@
 // @ts-check
 import antfu, {
   GLOB_ASTRO,
-  GLOB_SRC,
   GLOB_SVELTE,
 } from '@antfu/eslint-config'
 
@@ -31,9 +30,11 @@ async function mouse(options, ...userConfigs) {
         'antfu/top-level-function': 'off',
       },
     },
-    {
-      name: 'mouse/source-files',
-      files: [GLOB_SRC],
+  ]
+
+  if (options?.stylistic) {
+    configs.push({
+      name: 'mouse/stylistic',
       rules: {
         'style/max-len': [
           'error',
@@ -41,16 +42,9 @@ async function mouse(options, ...userConfigs) {
             code: 100,
             tabWidth: 2,
             comments: 120,
+            ignoreUrls: true,
           },
         ],
-      },
-    },
-  ]
-
-  if (options?.stylistic) {
-    configs.push({
-      name: 'mouse/stylistic',
-      rules: {
         'style/brace-style': [
           'error',
           '1tbs',
@@ -71,18 +65,27 @@ async function mouse(options, ...userConfigs) {
   }
 
   if (options?.svelte) {
-    configs.push({
-      name: 'mouse/svelte',
-      files: [GLOB_SVELTE],
-      rules: {
-        'unicorn/filename-case': [
-          'error',
-          {
-            case: CASES.PascalCase,
-          },
-        ],
+    configs.push(
+      {
+        name: 'mouse/svelte/components',
+        files: [GLOB_SVELTE],
+        rules: {
+          'unicorn/filename-case': [
+            'error',
+            {
+              case: CASES.PascalCase,
+            },
+          ],
+        },
       },
-    })
+      {
+        name: 'mouse/svelte/kit-routes',
+        files: ['**/src/routes/**/+([a-zA-Z0-9_]+).svelte'],
+        rules: {
+          'unicorn/filename-case': 'off',
+        },
+      },
+    )
   }
 
   if (options?.unicorn) {
@@ -97,6 +100,19 @@ async function mouse(options, ...userConfigs) {
             },
           },
         ],
+      },
+    }, {
+      name: 'mouse/unicorn/filename-case',
+      files: [
+        '**/README.md',
+        /**
+         * Code block in markdown
+         * @see https://github.com/eslint/markdown/blob/32d8cbd8b6d2d121225b5291c2f9a0ea6c2ccd00/docs/processors/markdown.md?plain=1#L96
+         */
+        '**/*.md/**',
+      ],
+      rules: {
+        'unicorn/filename-case': 'off',
       },
     })
   }
