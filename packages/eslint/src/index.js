@@ -24,22 +24,28 @@ async function mouse(options, ...userConfigs) {
   }
 
   /** @type {import('@antfu/eslint-config').TypedFlatConfigItem[]} */
-  const configs = []
-
-  configs.push({
-    name: 'mouse/source-files',
-    files: [GLOB_SRC],
-    rules: {
-      'style/max-len': [
-        'error',
-        {
-          code: 100,
-          tabWidth: 2,
-          comments: 120,
-        },
-      ],
+  const configs = [
+    {
+      name: 'mouse/antfu-config',
+      rules: {
+        'antfu/top-level-function': 'off',
+      },
     },
-  })
+    {
+      name: 'mouse/source-files',
+      files: [GLOB_SRC],
+      rules: {
+        'style/max-len': [
+          'error',
+          {
+            code: 100,
+            tabWidth: 2,
+            comments: 120,
+          },
+        ],
+      },
+    },
+  ]
 
   if (options?.stylistic) {
     configs.push({
