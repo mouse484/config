@@ -2,12 +2,24 @@
 import antfu, {
   GLOB_ASTRO,
   GLOB_SRC,
+  GLOB_SVELTE,
 } from '@antfu/eslint-config'
+
+/** @type {Record<string, "camelCase" | "pascalCase" | "snakeCase" | "kebabCase">} */
+const CASES = {
+  'camelCase': 'camelCase',
+  'PascalCase': 'pascalCase',
+  'snake_case': 'snakeCase',
+  'kebab-case': 'kebabCase',
+}
 
 /** @type {import('@antfu/eslint-config')["antfu"]} */
 async function mouse(options, ...userConfigs) {
   options = {
     lessOpinionated: true,
+    unicorn: {
+      allRecommended: true,
+    },
     ...options,
   }
 
@@ -48,6 +60,21 @@ async function mouse(options, ...userConfigs) {
       files: [GLOB_ASTRO],
       rules: {
         'astro/no-set-html-directive': 'error',
+      },
+    })
+  }
+
+  if (options?.svelte) {
+    configs.push({
+      name: 'mouse/svelte',
+      files: [GLOB_SVELTE],
+      rules: {
+        'unicorn/filename-case': [
+          'error',
+          {
+            case: CASES.PascalCase,
+          },
+        ],
       },
     })
   }
