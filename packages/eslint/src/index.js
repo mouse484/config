@@ -85,6 +85,22 @@ async function mouse(options, ...userConfigs) {
     })
   }
 
+  if (options?.unicorn) {
+    configs.push({
+      name: 'mouse/unicorn',
+      rules: {
+        'unicorn/prevent-abbreviations': [
+          'error',
+          {
+            allowList: {
+              Props: true,
+            },
+          },
+        ],
+      },
+    })
+  }
+
   return antfu(options, ...configs, ...userConfigs)
 }
 
