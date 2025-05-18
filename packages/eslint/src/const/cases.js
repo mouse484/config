@@ -3,4 +3,4 @@ export const CASES = /** @type {const} */({
   'PascalCase': 'pascalCase',
   'snake_case': 'snakeCase',
   'kebab-case': 'kebabCase',
-})
+});
