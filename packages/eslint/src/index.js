@@ -1,16 +1,9 @@
-// @ts-check
 import antfu, {
   GLOB_ASTRO,
   GLOB_SVELTE,
 } from '@antfu/eslint-config'
-
-/** @type {Record<string, "camelCase" | "pascalCase" | "snakeCase" | "kebabCase">} */
-const CASES = {
-  'camelCase': 'camelCase',
-  'PascalCase': 'pascalCase',
-  'snake_case': 'snakeCase',
-  'kebab-case': 'kebabCase',
-}
+import { CASES } from './const/cases.js'
+import { GLOB_MARKDOWN_CODE_BLOCK, GLOB_README, GLOB_SVELTE_ROUTES } from './const/glob.js'
 
 /** @type {import('@antfu/eslint-config')["antfu"]} */
 async function mouse(options, ...userConfigs) {
@@ -73,14 +66,14 @@ async function mouse(options, ...userConfigs) {
           'unicorn/filename-case': [
             'error',
             {
-              case: CASES.PascalCase,
+              case: CASES.camelCase,
             },
           ],
         },
       },
       {
         name: 'mouse/svelte/kit-routes',
-        files: ['**/src/routes/**/\+*.svelte'],
+        files: [GLOB_SVELTE_ROUTES],
         rules: {
           'unicorn/filename-case': 'off',
         },
@@ -105,12 +98,8 @@ async function mouse(options, ...userConfigs) {
     }, {
       name: 'mouse/unicorn/filename-case',
       files: [
-        '**/README.md',
-        /**
-         * Code block in markdown
-         * @see https://github.com/eslint/markdown/blob/32d8cbd8b6d2d121225b5291c2f9a0ea6c2ccd00/docs/processors/markdown.md?plain=1#L96
-         */
-        '**/*.md/**',
+        GLOB_README,
+        GLOB_MARKDOWN_CODE_BLOCK,
       ],
       rules: {
         'unicorn/filename-case': 'off',
@@ -123,4 +112,5 @@ async function mouse(options, ...userConfigs) {
 
 export default mouse
 export { mouse }
+export * from './const/glob.js'
 export * from '@antfu/eslint-config'
