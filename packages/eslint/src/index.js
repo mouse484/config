@@ -80,7 +80,7 @@ async function mouse(options, ...userConfigs) {
       },
       {
         name: 'mouse/svelte/kit-routes',
-        files: ['**/src/routes/**/+([a-zA-Z0-9_]+).svelte'],
+        files: ['**/src/routes/**/\+*.svelte'],
         rules: {
           'unicorn/filename-case': 'off',
         },
