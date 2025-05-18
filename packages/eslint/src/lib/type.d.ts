@@ -7,12 +7,14 @@ type AntfuUserConfigs = AntfuParameters['1'][];
 
 export type Options = AntfuOptions & {};
 
-export declare function mouse(options: Options, ...configs: AntfuUserConfigs): ReturnType<typeof antfu>;
-
+export declare function mouse(
+  options: Options,
+  ...configs: AntfuUserConfigs
+): ReturnType<typeof antfu>;
 
 // factoty
 export declare function createConfigs(parameters: {
   name: string
   baseWithOptions?: (keyof Options)[]
-  configs: (TypedFlatConfigItem & {withOptions?: (keyof Options)[]})[]
+  configs: (TypedFlatConfigItem & { withOptions?: (keyof Options)[] })[]
 }): (options: Options) => TypedFlatConfigItem[];

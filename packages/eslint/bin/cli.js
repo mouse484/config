@@ -129,7 +129,9 @@ async function main() {
   });
 
   const configExtension = package_.type === 'module' ? 'js' : 'mjs';
-  const eslintConfigFile = configExtension === 'js' ? ESLINT_CONFIG_JS_FILE : ESLINT_CONFIG_MJS_FILE;
+  const eslintConfigFile = configExtension === 'js'
+    ? ESLINT_CONFIG_JS_FILE
+    : ESLINT_CONFIG_MJS_FILE;
   const configPath = path.join(cwd, eslintConfigFile);
 
   let configContent = await fs.readFile(configPath, 'utf8');

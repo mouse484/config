@@ -8,19 +8,21 @@ import unicorn from './configs/unicorn.js';
 /** @type {import('./lib/type.js').mouse} */
 async function mouse(options, ...userConfigs) {
   options = {
-    lessOpinionated: true,
     unicorn: {
       allRecommended: true,
     },
+    stylistic: true,
     ...options,
   };
 
   const configs = [
-    ...astro(options),
     ...base(options),
+    // Code style
     ...stylistic(options),
-    ...svelte(options),
     ...unicorn(options),
+    // Language specific
+    ...astro(options),
+    ...svelte(options),
   ];
 
   return antfu(options, ...configs, ...userConfigs);

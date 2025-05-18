@@ -8,4 +8,4 @@ export default {
   rules: {
     '@stylistic/string-quotes': 'single',
   },
-}
+};
