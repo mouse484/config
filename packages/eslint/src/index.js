@@ -3,6 +3,7 @@ import astro from './configs/astro.js';
 import base from './configs/base.js';
 import stylistic from './configs/stylistic.js';
 import svelte from './configs/svelte.js';
+import tailwind from './configs/tailwind.js';
 import unicorn from './configs/unicorn.js';
 
 /** @type {import('./lib/type.js').mouse} */
@@ -23,6 +24,8 @@ async function mouse(options, ...userConfigs) {
     // Language specific
     ...astro(options),
     ...svelte(options),
+    // Tools
+    ...tailwind(options),
   ];
 
   return antfu(options, ...configs, ...userConfigs);

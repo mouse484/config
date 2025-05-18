@@ -3,7 +3,7 @@ import { createConfigs } from '../lib/factory.js';
 
 export default createConfigs({
   name: 'unicorn',
-  baseWithOptions: ['unicorn'],
+  baseWithOption: 'unicorn',
   configs: [
     {
       name: 'general',

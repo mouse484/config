@@ -3,7 +3,7 @@ import { createConfigs } from '../lib/factory.js';
 
 export default createConfigs({
   name: 'stylistic',
-  baseWithOptions: ['stylistic'],
+  baseWithOption: 'stylistic',
   configs: [
     {
       name: 'general',

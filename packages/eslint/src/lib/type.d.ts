@@ -5,7 +5,9 @@ type AntfuParameters = Parameters<typeof antfu>;
 type AntfuOptions = AntfuParameters['0'];
 type AntfuUserConfigs = AntfuParameters['1'][];
 
-export type Options = AntfuOptions & {};
+export type Options = AntfuOptions & {
+  tailwind?: boolean | { entryPoint?: string }
+};
 
 export declare function mouse(
   options: Options,
@@ -13,8 +15,10 @@ export declare function mouse(
 ): ReturnType<typeof antfu>;
 
 // factoty
-export declare function createConfigs(parameters: {
+type ConfigItem = TypedFlatConfigItem & { withOptions?: (keyof Options)[], name: string };
+type OnlyObject<T> = T extends object ? T : never;
+export declare function createConfigs<T extends keyof Options = undefined>(parameters: {
   name: string
-  baseWithOptions?: (keyof Options)[]
-  configs: (TypedFlatConfigItem & { withOptions?: (keyof Options)[] })[]
+  baseWithOption?: T
+  configs: (ConfigItem | ((meta?: OnlyObject<Options[T]>) => ConfigItem))[]
 }): (options: Options) => TypedFlatConfigItem[];

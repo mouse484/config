@@ -3,7 +3,7 @@ import { createConfigs } from '../lib/factory.js';
 
 export default createConfigs({
   name: 'astro',
-  baseWithOptions: ['astro'],
+  baseWithOption: 'astro',
   configs: [
     {
       name: 'general',

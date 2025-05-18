@@ -5,7 +5,7 @@ import { createConfigs } from '../lib/factory.js';
 
 export default createConfigs({
   name: 'svelte',
-  baseWithOptions: ['svelte'],
+  baseWithOption: 'svelte',
   configs: [
     {
       name: 'components',
