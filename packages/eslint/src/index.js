@@ -97,6 +97,7 @@ async function mouse(options, ...userConfigs) {
           {
             allowList: {
               Props: true,
+              args: true,
             },
           },
         ],

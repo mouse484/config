@@ -60,13 +60,13 @@ function runCommand(command, args = []) {
 /**
  * Update JSON file with transform function
  * @param {string} filePath - JSON file path
- * @param {(data: any) => any} updateFn - Transform function
+ * @param {(data: any) => any} updateFunction - Transform function
  */
-async function updateJSONFile(filePath, updateFn) {
-  const content = await fs.readFile(filePath, 'utf-8')
+async function updateJSONFile(filePath, updateFunction) {
+  const content = await fs.readFile(filePath, 'utf8')
   const data = JSON.parse(content)
-  const updated = updateFn(data)
-  await fs.writeFile(filePath, JSON.stringify(updated, null, 2))
+  const updated = updateFunction(data)
+  await fs.writeFile(filePath, JSON.stringify(updated, undefined, 2))
   return updated
 }
 
@@ -103,9 +103,9 @@ async function main() {
   const cwd = process.cwd()
   const packageJSONPath = path.join(cwd, PACKAGE_JSON_FILE)
 
-  const pkg = await updateJSONFile(packageJSONPath, (pkgData) => {
-    pkgData.devDependencies = pkgData.devDependencies || {}
-    delete pkgData.devDependencies[SOURCE.name]
+  const package_ = await updateJSONFile(packageJSONPath, (packageData) => {
+    packageData.devDependencies = packageData.devDependencies || {}
+    delete packageData.devDependencies[SOURCE.name]
 
     let targetVersion
     try {
@@ -119,28 +119,28 @@ async function main() {
       targetVersion = 'latest'
     }
     TARGET.version = targetVersion
-    pkgData.devDependencies[TARGET.name] = targetVersion
+    packageData.devDependencies[TARGET.name] = targetVersion
 
-    pkgData.scripts = {
-      ...pkgData.scripts,
+    packageData.scripts = {
+      ...packageData.scripts,
       'lint': 'eslint .',
       'lint:fix': 'eslint --fix .',
     }
 
-    return pkgData
+    return packageData
   })
 
-  const configExt = pkg.type === 'module' ? 'js' : 'mjs'
-  const eslintConfigFile = configExt === 'js' ? ESLINT_CONFIG_JS_FILE : ESLINT_CONFIG_MJS_FILE
+  const configExtension = package_.type === 'module' ? 'js' : 'mjs'
+  const eslintConfigFile = configExtension === 'js' ? ESLINT_CONFIG_JS_FILE : ESLINT_CONFIG_MJS_FILE
   const configPath = path.join(cwd, eslintConfigFile)
 
-  let configContent = await fs.readFile(configPath, 'utf-8')
+  let configContent = await fs.readFile(configPath, 'utf8')
   configContent = configContent
     .replace(
       `import ${SOURCE.import} from '${SOURCE.name}'`,
       `import ${TARGET.import} from '${TARGET.name}'`,
     )
-    .replace(new RegExp(`(?<!['"])${SOURCE.import}(?!['"])`, 'g'), TARGET.import)
+    .replaceAll(new RegExp(`(?<!['"])${SOURCE.import}(?!['"])`, 'g'), TARGET.import)
   await fs.writeFile(configPath, configContent)
 
   const finalInstallCmd = resolveCommand(pm.agent, 'install', [])
@@ -149,4 +149,4 @@ async function main() {
   console.info(`Successfully replaced the config from ${SOURCE.name} to ${TARGET.name}`)
 }
 
-main()
+await main()
