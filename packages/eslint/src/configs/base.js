@@ -6,7 +6,7 @@ export default createConfigs({
     {
       name: 'antfu',
       rules: {
-        'antfu/top-level-function': 'off',
+        'antfu/no-top-level-await': 'off',
       },
     },
   ],
