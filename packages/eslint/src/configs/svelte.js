@@ -15,7 +15,7 @@ export default createConfigs({
         'unicorn/filename-case': [
           'error',
           {
-            case: CASES.camelCase,
+            case: CASES.PascalCase,
           },
         ],
       },
