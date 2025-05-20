@@ -5,9 +5,7 @@ export default createConfigs({
   configs: [
     {
       name: 'antfu',
-      rules: {
-        'antfu/no-top-level-await': 'off',
-      },
+      rules: {},
     },
   ],
 });
