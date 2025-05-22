@@ -21,7 +21,11 @@ export default createConfigs({
     },
     {
       name: 'filename-case',
-      files: [GLOB_README, GLOB_MARKDOWN_CODE_BLOCK],
+      files: [
+        GLOB_README,
+        GLOB_MARKDOWN_CODE_BLOCK,
+        '**/src/vite-env.d.ts',
+      ],
       rules: {
         'unicorn/filename-case': 'off',
       },

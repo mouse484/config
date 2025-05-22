@@ -21,7 +21,7 @@ export default createConfigs({
           'error',
           '1tbs',
         ],
-        'style/semi': ['error', 'always'],
+        'style/semi': ['error', 'never'],
       },
     },
     {

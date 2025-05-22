@@ -7,6 +7,7 @@ export default createConfigs({
       name: 'antfu',
       rules: {
         'antfu/no-top-level-await': 'off',
+        'antfu/if-newline': 'off',
       },
     },
   ],
