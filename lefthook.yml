@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: lint
+      run: npm run lint:fix -- {staged_files}
+      stage_fixed: true
+    - name: generate eslint config rule types
+      root: packages/eslint
+      run: node scripts/typegen.js
+      glob:
+        - '**/*.js'
+        - '**/*.d.ts'
+      stage_fixed: true
