@@ -1,5 +1,5 @@
-import { GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js';
-import { createConfigs } from '../lib/factory.js';
+import { GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'unicorn',
@@ -17,6 +17,7 @@ export default createConfigs({
             },
           },
         ],
+        'unicorn/no-abusive-eslint-disable': 'off',
       },
     },
     {
@@ -31,4 +32,4 @@ export default createConfigs({
       },
     },
   ],
-});
+})

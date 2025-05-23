@@ -1,5 +1,5 @@
-import { GLOB_MARKDOWN } from '@antfu/eslint-config';
-import { createConfigs } from '../lib/factory.js';
+import { GLOB_MARKDOWN } from '@antfu/eslint-config'
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'stylistic',
@@ -39,4 +39,4 @@ export default createConfigs({
       },
     },
   ],
-});
+})

@@ -1,7 +1,7 @@
-import { GLOB_SVELTE } from '@antfu/eslint-config';
-import { CASES } from '../const/cases.js';
-import { GLOB_SVELTE_ROUTES } from '../const/glob.js';
-import { createConfigs } from '../lib/factory.js';
+import { GLOB_SVELTE } from '@antfu/eslint-config'
+import { CASES } from '../const/cases.js'
+import { GLOB_SVELTE_ROUTES } from '../const/glob.js'
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'svelte',
@@ -29,4 +29,4 @@ export default createConfigs({
       },
     },
   ],
-});
+})

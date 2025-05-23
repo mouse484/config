@@ -9,15 +9,15 @@ function createConfig(name, withOptions, config) {
   return (options) => {
     const allowApply = withOptions
       ? withOptions.every(key => key in options)
-      : true;
+      : true
     if (!allowApply) {
-      return [];
+      return []
     }
     return {
       name: `mouse/${name}`,
       ...config,
-    };
-  };
+    }
+  }
 }
 
 /** @type {import('./type').createConfigs} */
@@ -26,18 +26,18 @@ export function createConfigs({ name, baseWithOption, configs }) {
     return configs.flatMap((configItem) => {
       if (typeof configItem === 'function') {
         if (!baseWithOption) {
-          throw new Error('baseWithOption is required when configItem is a function');
+          throw new Error('baseWithOption is required when configItem is a function')
         }
-        const meta = options[baseWithOption];
+        const meta = options[baseWithOption]
         // @ts-ignore
-        configItem = configItem(typeof meta === 'object' ? meta : undefined);
+        configItem = configItem(typeof meta === 'object' ? meta : undefined)
       }
-      const { name: configName, withOptions = [], ...restConfig } = configItem;
+      const { name: configName, withOptions = [], ...restConfig } = configItem
       return createConfig(
         `${name}/${configName}`,
         baseWithOption ? [baseWithOption, ...withOptions] : withOptions,
         restConfig,
-      )(options);
-    });
-  };
+      )(options)
+    })
+  }
 }

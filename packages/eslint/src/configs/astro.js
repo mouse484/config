@@ -1,5 +1,5 @@
-import { GLOB_ASTRO } from '@antfu/eslint-config';
-import { createConfigs } from '../lib/factory.js';
+import { GLOB_ASTRO } from '@antfu/eslint-config'
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'astro',
@@ -13,4 +13,4 @@ export default createConfigs({
       },
     },
   ],
-});
+})

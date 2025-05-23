@@ -1,4 +1,4 @@
-import { createConfigs } from '../lib/factory.js';
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'base',
@@ -11,4 +11,4 @@ export default createConfigs({
       },
     },
   ],
-});
+})

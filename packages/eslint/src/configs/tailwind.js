@@ -1,5 +1,5 @@
-import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind';
-import { createConfigs } from '../lib/factory.js';
+import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind'
+import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'tailwind',
@@ -14,7 +14,7 @@ export default createConfigs({
         rules: {
           ...eslintPluginReadableTailwind.configs.warning.rules,
           'readable-tailwind/multiline': ['warn', {
-            group: 'emptyLine',
+            group: 'newLine',
           }],
         },
         settings: {
@@ -22,7 +22,7 @@ export default createConfigs({
             entryPoint: meta?.entryPoint,
           },
         },
-      };
+      }
     },
   ],
-});
+})
