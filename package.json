@@ -16,7 +16,7 @@
     "lint:view": "npx @eslint/config-inspector"
   },
   "devDependencies": {
-    "@anolilab/multi-semantic-release": "1.1.11",
+    "@anolilab/multi-semantic-release": "1.1.12",
     "@mouse_484/eslint-config": "*",
     "@mouse_484/prettier-config": "*",
     "@semantic-release/changelog": "6.0.3",
