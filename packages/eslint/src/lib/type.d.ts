@@ -15,6 +15,7 @@ export declare function mouse(
   options: Options,
   ...configs: AntfuUserConfigs
 ): ReturnType<typeof antfu>
+export default mouse
 
 // factoty
 type ConfigItem = TypedFlatConfigItem & { withOptions?: (keyof Options)[], name: string }

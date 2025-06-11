@@ -29,6 +29,7 @@ export default createConfigs({
       ],
       rules: {
         'unicorn/filename-case': 'off',
+        'unicorn/prevent-abbreviations': 'off',
       },
     },
   ],
