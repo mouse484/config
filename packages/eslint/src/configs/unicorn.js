@@ -1,3 +1,4 @@
+import { CASES } from '../const/cases.js'
 import { GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
 import { createConfigs } from '../lib/factory.js'
 
@@ -30,6 +31,19 @@ export default createConfigs({
       rules: {
         'unicorn/filename-case': 'off',
         'unicorn/prevent-abbreviations': 'off',
+      },
+    },
+    {
+      name: 'react-components',
+      withOptions: ['react'],
+      files: [
+        `**/src/components/**/*.{j,t}sx`,
+      ],
+      rules: {
+        'unicorn/filename-case': [
+          'error',
+          { case: CASES.PascalCase },
+        ],
       },
     },
   ],
