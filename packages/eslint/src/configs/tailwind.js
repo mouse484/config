@@ -9,7 +9,7 @@ export default createConfigs({
       return {
         name: 'tailwind',
         plugins: {
-          tailwindcss: eslintPluginBetterTailwindcss,
+          tailwind: eslintPluginBetterTailwindcss,
         },
         rules: {
           // stylistic
