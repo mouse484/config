@@ -1,4 +1,4 @@
-import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind'
+import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -7,18 +7,26 @@ export default createConfigs({
   configs: [
     (meta) => {
       return {
-        name: 'readable-tailwind',
+        name: 'tailwind',
         plugins: {
-          'readable-tailwind': eslintPluginReadableTailwind,
+          tailwindcss: eslintPluginBetterTailwindcss,
         },
         rules: {
-          ...eslintPluginReadableTailwind.configs.warning.rules,
-          'readable-tailwind/multiline': ['warn', {
+          // stylistic
+          'tailwind/multiline': ['warn', {
             group: 'newLine',
           }],
+          'tailwind/no-unnecessary-whitespace': 'warn',
+          'tailwind/sort-classes': 'warn',
+          'tailwind/no-duplicate-classes': 'error',
+          'tailwind/enforce-consistent-variable-syntax': 'error',
+          // correctness
+          'tailwind/no-unregistered-classes': 'error',
+          'tailwind/no-conflicting-classes': 'error',
+          'tailwind/no-restricted-classes': 'off',
         },
         settings: {
-          'readable-tailwind': {
+          tailwind: {
             entryPoint: meta?.entryPoint,
           },
         },

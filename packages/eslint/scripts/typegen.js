@@ -1,9 +1,9 @@
 import fs from 'node:fs/promises'
-import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind'
+import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 
 const dts = await pluginsToRulesDTS({
-  'readable-tailwind': eslintPluginReadableTailwind,
+  tailwind: eslintPluginBetterTailwindcss,
 })
 
 await fs.writeFile('./src/lib/rules.gen.d.ts', dts)
