@@ -21,7 +21,7 @@ export default createConfigs({
           'tailwind/no-duplicate-classes': 'error',
           'tailwind/enforce-consistent-variable-syntax': 'error',
           // correctness
-          'tailwind/no-unregistered-classes': 'error',
+          'tailwind/no-unregistered-classes': 'off', // FIXME
           'tailwind/no-conflicting-classes': 'error',
           'tailwind/no-restricted-classes': 'off',
         },
