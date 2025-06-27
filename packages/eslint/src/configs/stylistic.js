@@ -38,5 +38,12 @@ export default createConfigs({
         ],
       },
     },
+    {
+      name: 'json',
+      files: ['**/*.json*'],
+      rules: {
+        'style/max-len': 'off',
+      },
+    },
   ],
 })
