@@ -1,6 +1,7 @@
 import antfu from '@antfu/eslint-config'
 import astro from './configs/astro.js'
 import base from './configs/base.js'
+import perfectionist from './configs/perfectionist.js'
 import stylistic from './configs/stylistic.js'
 import svelte from './configs/svelte.js'
 import tailwind from './configs/tailwind.js'
@@ -21,6 +22,7 @@ async function mouse(options, ...userConfigs) {
     // Code style
     ...stylistic(options),
     ...unicorn(options),
+    ...perfectionist(options),
     // Language specific
     ...astro(options),
     ...svelte(options),
