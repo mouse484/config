@@ -28,14 +28,7 @@ export default createConfigs({
       name: 'markdown',
       files: [GLOB_MARKDOWN],
       rules: {
-        'style/max-len': [
-          'error',
-          {
-            code: 120,
-            ignoreUrls: true,
-            ignorePattern: String.raw`^\s*\|`,
-          },
-        ],
+        'style/max-len': 'off',
       },
     },
     {
