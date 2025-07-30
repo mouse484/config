@@ -1,5 +1,5 @@
 import { CASES } from '../const/cases.js'
-import { GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
+import { GLOB_D_TS, GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -31,6 +31,14 @@ export default createConfigs({
       rules: {
         'unicorn/filename-case': 'off',
         'unicorn/prevent-abbreviations': 'off',
+      },
+    },
+    {
+      name: 'd.ts',
+      withOptions: ['typescript'],
+      files: [GLOB_D_TS],
+      rules: {
+        'unicorn/require-module-specifiers': 'off',
       },
     },
     {
