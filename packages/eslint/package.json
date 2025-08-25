@@ -1,7 +1,7 @@
 {
   "name": "@mouse_484/eslint-config",
   "type": "module",
-  "version": "3.0.0",
+  "version": "0.0.0-dev",
   "author": "mouse_484",
   "license": "MIT",
   "homepage": "https://github.com/mouse484/config/tree/main/packages/eslint",
