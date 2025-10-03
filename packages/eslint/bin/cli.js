@@ -40,7 +40,7 @@ const isRunningFromSourcePackage = process.argv[1].includes(SOURCE.name)
  */
 function runCommand(command, args = []) {
   console.info(`Running: ${command} ${args.join(' ')}`)
-  const spawnedProcess = spawn(command, args, { stdio: 'inherit' })
+  const spawnedProcess = spawn(command, args, { stdio: 'inherit', shell: true })
 
   return new Promise((resolve, reject) => {
     spawnedProcess.on('close', (code) => {
@@ -53,6 +53,36 @@ function runCommand(command, args = []) {
       }
     })
     spawnedProcess.on('error', reject)
+  })
+}
+
+/**
+ * Execute antfu's CLI directly via node
+ * @returns {Promise<void>}
+ */
+async function runAntfuCLI() {
+  console.info('Running @antfu/eslint-config setup...')
+
+  const cwd = process.cwd()
+  const cliPath = path.join(cwd, 'node_modules', SOURCE.name, 'bin', 'index.js')
+
+  return new Promise((resolve, reject) => {
+    const nodeProcess = spawn('node', [cliPath], {
+      stdio: 'inherit',
+      cwd,
+      shell: true,
+    })
+
+    nodeProcess.on('close', (code) => {
+      if (code === 0) {
+        setTimeout(() => {
+          resolve()
+        }, 300)
+      } else {
+        reject(new Error(`Antfu CLI failed with exit code ${code}`))
+      }
+    })
+    nodeProcess.on('error', reject)
   })
 }
 
@@ -94,12 +124,12 @@ async function main() {
   await runCommand(installCmd.command, installCmd.args)
   console.info(`Installed ${SOURCE.name}`)
 
-  const execCmd = resolveCommand(pm.agent, 'execute', [SOURCE.name])
-  await runCommand(execCmd.command, execCmd.args)
+  await runAntfuCLI()
 
   console.info(`Start replacing the config from ${SOURCE.name} to ${TARGET.name}`)
 
   const cwd = process.cwd()
+
   const packageJSONPath = path.join(cwd, PACKAGE_JSON_FILE)
 
   const package_ = await updateJSONFile(packageJSONPath, (packageData) => {
