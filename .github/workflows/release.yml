@@ -8,7 +8,7 @@ on:
 
 permissions:
   id-token: write # for OIDC
-  contents: read
+  contents: write
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
