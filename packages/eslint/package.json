@@ -24,7 +24,7 @@
   "dependencies": {
     "@antfu/eslint-config": "^6.0.0",
     "eslint-plugin-better-tailwindcss": "^3.7.10",
-    "package-manager-detector": "^1.4.0"
+    "package-manager-detector": "^1.4.1"
   },
   "devDependencies": {
     "eslint-typegen": "2.3.0"
