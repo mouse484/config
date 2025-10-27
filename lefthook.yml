@@ -6,8 +6,4 @@ pre-commit:
       stage_fixed: true
     - name: generate eslint config rule types
       root: packages/eslint
-      run: node scripts/typegen.js
-      glob:
-        - '**/*.js'
-        - '**/*.d.ts'
-      stage_fixed: true
+      run: node scripts/typegen.js && git add src/lib/rules.gen.d.ts

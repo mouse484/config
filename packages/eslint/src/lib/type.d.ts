@@ -12,12 +12,12 @@ export type Options = AntfuOptions & {
 }
 
 export declare function mouse(
-  options: Options,
+  options?: Options,
   ...configs: AntfuUserConfigs
 ): ReturnType<typeof antfu>
 export default mouse
 
-// factoty
+// factory
 type ConfigItem = TypedFlatConfigItem & { withOptions?: (keyof Options)[], name: string }
 type OnlyObject<T> = T extends object ? T : never
 export declare function createConfigs<T extends keyof Options = undefined>(parameters: {

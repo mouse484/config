@@ -61,7 +61,7 @@ export interface RuleOptions {
    */
   'tailwind/no-restricted-classes'?: Linter.RuleEntry<TailwindNoRestrictedClasses>
   /**
-   * Disallow unnecessary whitespace in tailwind classes.
+   * Disallow unnecessary whitespace between Tailwind CSS classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unnecessary-whitespace.md
    */
   'tailwind/no-unnecessary-whitespace'?: Linter.RuleEntry<TailwindNoUnnecessaryWhitespace>
@@ -146,6 +146,8 @@ type TailwindEnforceConsistentClassOrder = []|[{
   
   tailwindConfig?: string
   
+  tsconfig?: string
+  
   order?: ("asc" | "desc" | "official" | "improved")
 }]
 // ----- tailwind/enforce-consistent-important-position -----
@@ -215,6 +217,8 @@ type TailwindEnforceConsistentImportantPosition = []|[{
   
   tailwindConfig?: string
   
+  tsconfig?: string
+  
   position?: ("legacy" | "recommended")
 }]
 // ----- tailwind/enforce-consistent-line-wrapping -----
@@ -283,6 +287,8 @@ type TailwindEnforceConsistentLineWrapping = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
   
   classesPerLine?: number
   
@@ -427,6 +433,8 @@ type TailwindEnforceShorthandClasses = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
 }]
 // ----- tailwind/multiline -----
 type TailwindMultiline = []|[{
@@ -494,6 +502,8 @@ type TailwindMultiline = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
   
   classesPerLine?: number
   
@@ -573,6 +583,8 @@ type TailwindNoConflictingClasses = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
 }]
 // ----- tailwind/no-deprecated-classes -----
 type TailwindNoDeprecatedClasses = []|[{
@@ -640,6 +652,8 @@ type TailwindNoDeprecatedClasses = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
 }]
 // ----- tailwind/no-duplicate-classes -----
 type TailwindNoDuplicateClasses = []|[{
@@ -907,6 +921,8 @@ type TailwindNoUnregisteredClasses = []|[{
   
   tailwindConfig?: string
   
+  tsconfig?: string
+  
   detectComponentClasses?: boolean
   
   ignore?: string[]
@@ -977,6 +993,8 @@ type TailwindSortClasses = []|[{
   entryPoint?: string
   
   tailwindConfig?: string
+  
+  tsconfig?: string
   
   order?: ("asc" | "desc" | "official" | "improved")
 }]
