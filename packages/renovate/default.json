@@ -10,13 +10,6 @@
   "minimumReleaseAge": "7 days",
   "packageRules": [
     {
-      "groupName": "linters",
-      "extends": "packages:linters",
-      "matchPackagePatterns": [
-        "eslint"
-      ]
-    },
-    {
       "groupName": "unifiedjs",
       "matchPackageNames": ["unified"],
       "matchPackagePatterns": [
