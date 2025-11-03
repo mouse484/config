@@ -5,6 +5,7 @@ import perfectionist from './configs/perfectionist.js'
 import stylistic from './configs/stylistic.js'
 import svelte from './configs/svelte.js'
 import tailwind from './configs/tailwind.js'
+import typescript from './configs/typescript.js'
 import unicorn from './configs/unicorn.js'
 
 /** @type {import('.').mouse} */
@@ -25,6 +26,7 @@ async function mouse(options, ...userConfigs) {
     ...unicorn(options),
     ...perfectionist(options),
     // Language specific
+    ...typescript(options),
     ...astro(options),
     ...svelte(options),
     // Tools

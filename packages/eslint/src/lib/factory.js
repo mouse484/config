@@ -30,7 +30,10 @@ export function createConfigs({ name, baseWithOption, configs }) {
         }
         const meta = options[baseWithOption]
         // @ts-ignore
-        configItem = configItem(typeof meta === 'object' ? meta : undefined)
+        configItem = configItem(typeof meta === 'object' ? meta : undefined) ?? {}
+      }
+      if (!configItem) {
+        return []
       }
       const { name: configName, withOptions = [], ...restConfig } = configItem
       return createConfig(
