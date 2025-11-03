@@ -6,28 +6,38 @@ export default createConfigs({
   baseWithOption: 'tailwind',
   configs: [
     (meta) => {
+      if (!meta?.entryPoint) return
+
       return {
         name: 'tailwind',
         plugins: {
           tailwind: eslintPluginBetterTailwindcss,
         },
         rules: {
-          // stylistic
-          'tailwind/multiline': ['warn', {
+          // Stylistic rules
+          'tailwind/enforce-consistent-line-wrapping': ['warn', {
             group: 'newLine',
           }],
-          'tailwind/no-unnecessary-whitespace': 'warn',
-          'tailwind/sort-classes': 'warn',
+          'tailwind/enforce-consistent-class-order': ['warn', {
+            order: 'improved',
+          }],
+          'tailwind/enforce-consistent-variable-syntax': 'warn',
+          'tailwind/enforce-consistent-important-position': 'error',
+          'tailwind/enforce-shorthand-classes': 'warn',
           'tailwind/no-duplicate-classes': 'error',
-          'tailwind/enforce-consistent-variable-syntax': 'error',
-          // correctness
-          'tailwind/no-unregistered-classes': 'off', // FIXME
+          'tailwind/no-deprecated-classes': 'error',
+          'tailwind/no-unnecessary-whitespace': 'warn',
+          // Correctness rules
+          'tailwind/no-unregistered-classes': ['error', {
+            ignore: [],
+            detectComponentClasses: true,
+          }],
           'tailwind/no-conflicting-classes': 'error',
-          'tailwind/no-restricted-classes': 'off',
+          'tailwind/no-restricted-classes': 'off', // arbitrary valuesの制限を今後検討
         },
         settings: {
-          tailwind: {
-            entryPoint: meta?.entryPoint,
+          'better-tailwindcss': {
+            entryPoint: meta.entryPoint,
           },
         },
       }
