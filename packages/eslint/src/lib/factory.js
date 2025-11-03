@@ -1,9 +1,9 @@
 /**
  *
  * @param {string} name
- * @param {(keyof import('./type').Options)[]} withOptions
+ * @param {(keyof import('..').Options)[]} withOptions
  * @param {Omit<import('@antfu/eslint-config').TypedFlatConfigItem,'name'>} config
- * @returns {(options: import('./type').Options) => import('@antfu/eslint-config').TypedFlatConfigItem|[]} _
+ * @returns {(options: import('..').Options) => import('@antfu/eslint-config').TypedFlatConfigItem|[]} _
  */
 function createConfig(name, withOptions, config) {
   return (options) => {

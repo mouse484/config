@@ -16,7 +16,7 @@
     "eslint-config"
   ],
   "main": "src/index.js",
-  "types": "src/lib/type.d.ts",
+  "types": "src/index.d.ts",
   "bin": "bin/cli.js",
   "scripts": {
     "typegen": "node scripts/typegen.js"

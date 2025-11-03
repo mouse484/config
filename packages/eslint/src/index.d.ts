@@ -1,5 +1,3 @@
-/// <reference types="./rules.gen.d.ts" />
-
 import type antfu from '@antfu/eslint-config'
 
 type AntfuParameters = Parameters<typeof antfu>

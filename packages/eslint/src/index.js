@@ -7,7 +7,7 @@ import svelte from './configs/svelte.js'
 import tailwind from './configs/tailwind.js'
 import unicorn from './configs/unicorn.js'
 
-/** @type {import('./lib/type.js').mouse} */
+/** @type {import('.').mouse} */
 async function mouse(options, ...userConfigs) {
   options = {
     unicorn: {
