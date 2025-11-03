@@ -1,11 +1,8 @@
-import type { Rules, TypedFlatConfigItem } from '@antfu/eslint-config'
-import type { Options } from '..'
-import type { RuleOptions } from './rules.gen'
+import type { Options, TypedFlatConfigItem } from '..'
 
 interface ConfigItem extends TypedFlatConfigItem {
   withOptions?: (keyof Options)[]
   name: string
-  rules?: Rules & RuleOptions
 }
 
 type OnlyObject<T> = T extends object ? T : never
