@@ -5,7 +5,7 @@ type AntfuOptions = AntfuParameters['0']
 type AntfuUserConfigs = AntfuParameters['1'][]
 
 export type Options = AntfuOptions & {
-  tailwind?: boolean | { entryPoint?: string }
+  tailwind?: false | { entryPoint: string }
 }
 
 export declare function mouse(
