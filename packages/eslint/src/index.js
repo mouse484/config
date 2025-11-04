@@ -33,7 +33,12 @@ async function mouse(options, ...userConfigs) {
     ...tailwind(options),
   ]
 
-  return antfu(options, ...configs, ...userConfigs)
+  const normalizedOptions = {
+    ...options,
+    ignores: typeof options?.ignores === 'function' ? options.ignores([]) : options?.ignores,
+  }
+
+  return antfu(normalizedOptions, ...configs, ...userConfigs)
 }
 
 export default mouse
