@@ -24,6 +24,7 @@ function logger(message) {
  */
 function runAgentCommand(agent, command_, args_) {
   const { command, args } = resolveCommand(agent, command_, args_)
+  console.info(`Running command: ${command} ${args.join(' ')}`)
   return new Promise((resolve, reject) => {
     const child = spawn(
       command,
@@ -62,7 +63,7 @@ async function main() {
   await runAgentCommand(
     packageManager.agent,
     'execute',
-    [PACKAGE_NAME.BASE],
+    ['-y', `${PACKAGE_NAME.BASE}@latest`],
   )
   logger('Modifying base config to custom config')
 
@@ -110,5 +111,6 @@ export default mouse()
   })
 }
 
+console.info('---------------- Setting up @mouse_484/eslint-config ----------------')
 await main()
 console.info('---------------- Setup Complete ----------------')
