@@ -95,11 +95,17 @@ async function main() {
 
   logger('Updating config file')
   const configPath = path.join(cwd, `eslint.config.${packageJson.type === 'module' ? 'js' : 'mjs'}`)
-  await writeFile(configPath, `
-import mouse from '${PACKAGE_NAME.CUSTOM}'
-
-export default mouse()
-`.trim(), 'utf8')
+  const config = await readFile(configPath, 'utf8')
+  await writeFile(
+    configPath,
+    config
+      .replace(
+        'import antfu from \'@antfu/eslint-config\'',
+        'import mouse from \'@mouse_484/eslint-config\'',
+      )
+      .replace('antfu', 'mouse'),
+    'utf8',
+  )
 
   logger('Linting the project to verify setup')
   await runAgentCommand(

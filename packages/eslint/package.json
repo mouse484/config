@@ -17,7 +17,9 @@
   ],
   "main": "src/index.js",
   "types": "src/index.d.ts",
-  "bin": "bin/cli.js",
+  "bin": {
+    "setup": "./bin/cli.js"
+  },
   "scripts": {
     "typegen": "node scripts/typegen.js"
   },
