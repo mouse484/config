@@ -15,7 +15,6 @@ async function mouse(options, ...userConfigs) {
       allRecommended: true,
     },
     stylistic: true,
-    typescript: true,
     ...options,
   }
 
