@@ -1,7 +1,7 @@
 /**
  *
  * @param {string} name
- * @param {(keyof import('..').Options)[]} withOptions
+ * @param {(keyof import('..').Options)[]?} withOptions
  * @param {Omit<import('@antfu/eslint-config').TypedFlatConfigItem,'name'>} config
  * @returns {(options: import('..').Options) => import('@antfu/eslint-config').TypedFlatConfigItem|[]} _
  */
@@ -29,10 +29,10 @@ export function createConfigs({ name, baseWithOption, configs }) {
           throw new Error('baseWithOption is required when configItem is a function')
         }
         const meta = options[baseWithOption]
-        // @ts-ignore
-        configItem = configItem(typeof meta === 'object' ? meta : undefined) ?? {}
+        // @ts-expect-error: may be undefined
+        configItem = configItem(typeof meta === 'object' ? meta : undefined)
       }
-      if (!configItem) {
+      if (configItem === undefined) {
         return []
       }
       const { name: configName, withOptions = [], ...restConfig } = configItem

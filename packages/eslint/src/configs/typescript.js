@@ -6,7 +6,7 @@ export default createConfigs({
   baseWithOption: 'typescript',
   configs: [
     (meta) => {
-      if (meta && 'tsconfigPath' in meta && meta.tsconfigPath) {
+      if (meta && 'tsconfigPath' in meta && meta.tsconfigPath !== undefined) {
         return {
           name: 'type-aware',
           files: [GLOB_TS],

@@ -6,7 +6,7 @@ export default createConfigs({
   baseWithOption: 'tailwind',
   configs: [
     (meta) => {
-      if (!meta?.entryPoint) return
+      if (meta?.entryPoint === undefined) return
 
       return {
         name: 'tailwind',

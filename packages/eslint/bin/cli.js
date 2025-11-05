@@ -22,8 +22,12 @@ function logger(message) {
 /**
  * @type {(...args: Parameters<typeof import("package-manager-detector/commands").resolveCommand>) => Promise<void>}
  */
-function runAgentCommand(agent, command_, args_) {
-  const { command, args } = resolveCommand(agent, command_, args_)
+async function runAgentCommand(agent, command_, args_) {
+  const result = resolveCommand(agent, command_, args_)
+  if (!result) {
+    throw new Error(`Unsupported package manager or command: ${agent} ${command_}`)
+  }
+  const { command, args } = result
   console.info(`Running command: ${command} ${args.join(' ')}`)
   return new Promise((resolve, reject) => {
     const child = spawn(
@@ -82,10 +86,14 @@ async function main() {
 
   logger('Updating package.json scripts')
   const packageJsonPath = path.join(cwd, 'package.json')
+
+  const packageJsonRaw = await readFile(packageJsonPath, 'utf8')
   /**
-   * @type {{ scripts: Record<string, string>, type?: "module" }}
+   * @type {{ scripts?: Record<string, string>, type?: "module" }}
    */
-  const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf8'))
+  // eslint-disable-next-line ts/no-unsafe-assignment
+  const packageJson = JSON.parse(packageJsonRaw) ?? {}
+
   packageJson.scripts = {
     ...packageJson.scripts,
     'lint': 'eslint .',
@@ -113,10 +121,11 @@ async function main() {
     'run',
     ['lint:fix'],
   ).catch((error) => {
-    logger(`Linting failed: ${error.message}`)
+    if (error instanceof Error) {
+      logger(`Linting failed: ${error.message}`)
+    }
   })
 }
 
-console.info('---------------- Setting up @mouse_484/eslint-config ----------------')
 await main()
 console.info('---------------- Setup Complete ----------------')
