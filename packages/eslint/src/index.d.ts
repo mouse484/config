@@ -1,6 +1,10 @@
 import type {
   TypedFlatConfigItem as AntfuTypedFlatConfigItem,
   OptionsConfig,
+  OptionsOverrides,
+  OptionsTypescript,
+  OptionsTypeScriptErasableOnly,
+  OptionsTypeScriptWithTypes,
   Rules,
 } from '@antfu/eslint-config'
 import type { Linter } from 'eslint'
@@ -19,9 +23,11 @@ type Config = Awaitable<
 >
 export interface Options extends OptionsConfig, Omit<TypedFlatConfigItem, 'files'> {
   tailwind?: false | { entryPoint: string }
-  typescript?: OptionsConfig['typescript'] & {
-    allowJS?: boolean
-  }
+  typescript?: boolean
+    | OptionsTypescript
+    | (OptionsTypeScriptWithTypes & { allowJS?: boolean })
+    & OptionsOverrides
+    & OptionsTypeScriptErasableOnly
 }
 
 export declare function mouse(

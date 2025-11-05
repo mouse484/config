@@ -37,27 +37,29 @@ async function mouse(options, ...userConfigs) {
     ignores: typeof options?.ignores === 'function' ? options.ignores([]) : options?.ignores,
   }
 
+  const composer = antfu(normalizedOptions, ...configs, ...userConfigs)
+
   /**
-   *
-   * @param {import("eslint").Linter.Config} config
+   * Override TypeScript configs for JS/JSX files if `allowJS` is enabled.
    */
-  const overrideTypeScriptAllowJS = (config) => {
-    if (!options?.typescript?.allowJS) {
-      return config
-    }
-    return {
-      ...config,
-      files: [...(config.files ?? []), GLOB_JS, GLOB_JSX],
+  if (
+    typeof options.typescript === 'object'
+    && 'allowJS' in options.typescript
+    && options.typescript.allowJS
+  ) {
+    /** @type {import("eslint").Linter.Config} */
+    const overrideTypeScriptAllowJS = { files: [GLOB_JS, GLOB_JSX] }
+
+    await composer.override('antfu/typescript/parser', overrideTypeScriptAllowJS)
+    await composer.override('antfu/typescript/rules', overrideTypeScriptAllowJS)
+
+    if (options.typescript.tsconfigPath !== undefined) {
+      await composer.override('antfu/typescript/type-aware-parser', overrideTypeScriptAllowJS)
+      await composer.override('antfu/typescript/rules-type-aware', overrideTypeScriptAllowJS)
     }
   }
 
-  return antfu(normalizedOptions, ...configs, ...userConfigs)
-    .overrides({
-      'antfu/typescript/parser': overrideTypeScriptAllowJS,
-      'antfu/typescript/type-aware-parser': overrideTypeScriptAllowJS,
-      'antfu/typescript/rules': overrideTypeScriptAllowJS,
-      'antfu/typescript/rules-type-aware': overrideTypeScriptAllowJS,
-    })
+  return composer
 }
 
 export default mouse
