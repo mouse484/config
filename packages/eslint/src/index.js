@@ -1,4 +1,4 @@
-import antfu from '@antfu/eslint-config'
+import antfu, { GLOB_JS, GLOB_JSX } from '@antfu/eslint-config'
 import astro from './configs/astro.js'
 import base from './configs/base.js'
 import perfectionist from './configs/perfectionist.js'
@@ -37,7 +37,27 @@ async function mouse(options, ...userConfigs) {
     ignores: typeof options?.ignores === 'function' ? options.ignores([]) : options?.ignores,
   }
 
+  /**
+   *
+   * @param {import("eslint").Linter.Config} config
+   */
+  const overrideTypeScriptAllowJS = (config) => {
+    if (!options?.typescript?.allowJS) {
+      return config
+    }
+    return {
+      ...config,
+      files: [...(config.files ?? []), GLOB_JS, GLOB_JSX],
+    }
+  }
+
   return antfu(normalizedOptions, ...configs, ...userConfigs)
+    .overrides({
+      'antfu/typescript/parser': overrideTypeScriptAllowJS,
+      'antfu/typescript/type-aware-parser': overrideTypeScriptAllowJS,
+      'antfu/typescript/rules': overrideTypeScriptAllowJS,
+      'antfu/typescript/rules-type-aware': overrideTypeScriptAllowJS,
+    })
 }
 
 export default mouse

@@ -19,6 +19,9 @@ type Config = Awaitable<
 >
 export interface Options extends OptionsConfig, Omit<TypedFlatConfigItem, 'files'> {
   tailwind?: false | { entryPoint: string }
+  typescript?: OptionsConfig['typescript'] & {
+    allowJS?: boolean
+  }
 }
 
 export declare function mouse(
