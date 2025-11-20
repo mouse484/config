@@ -1,4 +1,5 @@
 import { GLOB_ASTRO } from '@antfu/eslint-config'
+import { CASES } from '../const/cases.js'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -10,6 +11,17 @@ export default createConfigs({
       files: [GLOB_ASTRO],
       rules: {
         'astro/no-set-html-directive': 'error',
+      },
+    },
+    {
+      name: 'astro-components-filename-case',
+      files: [GLOB_ASTRO],
+      ignores: [`**/pages/${GLOB_ASTRO}`],
+      rules: {
+        'unicorn/filename-case': [
+          'error',
+          { case: CASES.PascalCase },
+        ],
       },
     },
   ],
