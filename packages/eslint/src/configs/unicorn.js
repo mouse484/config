@@ -19,6 +19,12 @@ export default createConfigs({
           },
         ],
         'unicorn/no-abusive-eslint-disable': 'off',
+        'unicorn/consistent-function-scoping': [
+          'error',
+          {
+            checkArrowFunctions: false,
+          },
+        ],
       },
     },
     {
