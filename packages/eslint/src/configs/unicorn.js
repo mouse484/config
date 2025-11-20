@@ -42,9 +42,10 @@ export default createConfigs({
       },
     },
     {
-      name: 'components',
+      name: 'react-components',
+      withOptions: ['react'],
       files: [
-        `**/src/components/**/*.*`,
+        `**/src/components/**/*.{j,t}sx`,
       ],
       rules: {
         'unicorn/filename-case': [
