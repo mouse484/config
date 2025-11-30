@@ -1,6 +1,6 @@
 import { GLOB_ASTRO } from '@antfu/eslint-config'
 
-export { GLOB_SVELTE as GLOB_SVELTE_COMPONENTS } from '@antfu/eslint-config'
+export const GLOB_SVELTE_COMPONENTS = '"**/*.svelte'
 
 export const GLOB_SVELTE_ROUTES = '**/src/routes/**/\+*.svelte'
 
