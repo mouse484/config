@@ -11,7 +11,7 @@
     "stylelint-config-standard": "^39.0.1"
   },
   "devDependencies": {
-    "stylelint": "16.26.0"
+    "stylelint": "16.26.1"
   },
   "publishConfig": {
     "access": "public"
