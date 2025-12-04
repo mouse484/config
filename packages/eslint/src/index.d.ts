@@ -1,4 +1,5 @@
 import type {
+  antfu,
   TypedFlatConfigItem as AntfuTypedFlatConfigItem,
   OptionsConfig,
   OptionsOverrides,
