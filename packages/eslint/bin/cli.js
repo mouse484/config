@@ -64,10 +64,14 @@ async function main() {
   logger(`Detected package manager: ${packageManager.name}`)
 
   logger(`Setting up base package ${PACKAGE_NAME.BASE}`)
+
   await runAgentCommand(
     packageManager.agent,
     'execute',
-    ['-y', `${PACKAGE_NAME.BASE}@latest`],
+    [
+      ...(packageManager.agent === 'npm' ? ['-y'] : []),
+      `${PACKAGE_NAME.BASE}@latest`,
+    ],
   )
   logger('Modifying base config to custom config')
 
