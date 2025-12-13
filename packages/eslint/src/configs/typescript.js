@@ -1,4 +1,4 @@
-import { GLOB_TS } from '@antfu/eslint-config'
+import { GLOB_ASTRO_TS, GLOB_TS } from '@antfu/eslint-config'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -10,6 +10,7 @@ export default createConfigs({
         return {
           name: 'type-aware',
           files: [GLOB_TS],
+          ignores: [GLOB_ASTRO_TS],
           rules: {
             'ts/no-deprecated': 'error',
           },
