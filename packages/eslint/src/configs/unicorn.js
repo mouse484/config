@@ -28,14 +28,23 @@ export default createConfigs({
       },
     },
     {
-      name: 'filename-case',
+      name: 'ignore-filename-case',
       files: [
         GLOB_README,
+        '**/AGENTS.md',
         GLOB_MARKDOWN_CODE_BLOCK,
         '**/*env.d.ts',
       ],
       rules: {
         'unicorn/filename-case': 'off',
+      },
+    },
+    {
+      name: 'allow-abbreviations',
+      files: [
+        '**/*env.d.ts',
+      ],
+      rules: {
         'unicorn/prevent-abbreviations': 'off',
       },
     },
