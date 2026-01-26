@@ -8,7 +8,7 @@
     "automerge": false
   },
   "minimumReleaseAge": "7 days",
-  "prCreation": "not-pending",
+  "prCreation": "immediate",
   "internalChecksFilter": "strict",
   "packageRules": [
     {
@@ -36,6 +36,10 @@
       "groupName": "vite-plugin-pwa",
       "matchPackageNames": ["vite-plugin-pwa"],
       "matchPackagePrefixes": ["@vite-pwa"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "minimumReleaseAge": "3 days"
     }
   ]
 }
