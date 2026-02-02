@@ -10,6 +10,11 @@ declare module 'eslint' {
 
 export interface RuleOptions {
   /**
+   * Enforce canonical class names.
+   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-canonical-classes.md
+   */
+  'tailwind/enforce-canonical-classes'?: Linter.RuleEntry<TailwindEnforceCanonicalClasses>
+  /**
    * Enforce a consistent order for tailwind classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-class-order.md
    */
@@ -21,7 +26,7 @@ export interface RuleOptions {
   'tailwind/enforce-consistent-important-position'?: Linter.RuleEntry<TailwindEnforceConsistentImportantPosition>
   /**
    * Enforce consistent line wrapping for tailwind classes.
-   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/multiline.md
+   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-line-wrapping.md
    */
   'tailwind/enforce-consistent-line-wrapping'?: Linter.RuleEntry<TailwindEnforceConsistentLineWrapping>
   /**
@@ -34,12 +39,6 @@ export interface RuleOptions {
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-shorthand-classes.md
    */
   'tailwind/enforce-shorthand-classes'?: Linter.RuleEntry<TailwindEnforceShorthandClasses>
-  /**
-   * Enforce consistent line wrapping for tailwind classes.
-   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/multiline.md
-   * @deprecated
-   */
-  'tailwind/multiline'?: Linter.RuleEntry<TailwindMultiline>
   /**
    * Disallow classes that produce conflicting styles.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-conflicting-classes.md
@@ -61,238 +60,337 @@ export interface RuleOptions {
    */
   'tailwind/no-restricted-classes'?: Linter.RuleEntry<TailwindNoRestrictedClasses>
   /**
+   * Disallow any css classes that are not registered in tailwindcss.
+   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unknown-classes.md
+   */
+  'tailwind/no-unknown-classes'?: Linter.RuleEntry<TailwindNoUnknownClasses>
+  /**
    * Disallow unnecessary whitespace between Tailwind CSS classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unnecessary-whitespace.md
    */
   'tailwind/no-unnecessary-whitespace'?: Linter.RuleEntry<TailwindNoUnnecessaryWhitespace>
-  /**
-   * Disallow any css classes that are not registered in tailwindcss.
-   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unregistered-classes.md
-   */
-  'tailwind/no-unregistered-classes'?: Linter.RuleEntry<TailwindNoUnregisteredClasses>
-  /**
-   * Enforce a consistent order for tailwind classes.
-   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-class-order.md
-   * @deprecated
-   */
-  'tailwind/sort-classes'?: Linter.RuleEntry<TailwindSortClasses>
 }
 
 /* ======= Declarations ======= */
-// ----- tailwind/enforce-consistent-class-order -----
-type TailwindEnforceConsistentClassOrder = []|[{
+// ----- tailwind/enforce-canonical-classes -----
+type TailwindEnforceCanonicalClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
   
-  order?: ("asc" | "desc" | "official" | "improved")
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  collapse?: boolean
+  
+  logical?: boolean
+}]
+// ----- tailwind/enforce-consistent-class-order -----
+type TailwindEnforceConsistentClassOrder = []|[{
+  
+  callees?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  attributes?: (string | [string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]])[]
+  
+  variables?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  tags?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  componentClassOrder?: ("asc" | "desc" | "preserve")
+  
+  componentClassPosition?: ("start" | "end")
+  
+  order?: ("asc" | "desc" | "official" | "strict")
+  
+  unknownClassOrder?: ("asc" | "desc" | "preserve")
+  
+  unknownClassPosition?: ("start" | "end")
 }]
 // ----- tailwind/enforce-consistent-important-position -----
 type TailwindEnforceConsistentImportantPosition = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
   
   position?: ("legacy" | "recommended")
 }]
 // ----- tailwind/enforce-consistent-line-wrapping -----
 type TailwindEnforceConsistentLineWrapping = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
   
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
   classesPerLine?: number
   
-  group?: ("emptyLine" | "never" | "newLine")
+  group?: ("newLine" | "emptyLine" | "never")
   
   indent?: ("tab" | number)
   
@@ -301,485 +399,460 @@ type TailwindEnforceConsistentLineWrapping = []|[{
   preferSingleLine?: boolean
   
   printWidth?: number
+  
+  strictness?: ("strict" | "loose")
 }]
 // ----- tailwind/enforce-consistent-variable-syntax -----
 type TailwindEnforceConsistentVariableSyntax = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  syntax?: ("arbitrary" | "parentheses" | "shorthand" | "variable")
+  tags?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  syntax?: ("shorthand" | "variable")
 }]
 // ----- tailwind/enforce-shorthand-classes -----
 type TailwindEnforceShorthandClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
-  tailwindConfig?: string
-  
-  tsconfig?: string
-}]
-// ----- tailwind/multiline -----
-type TailwindMultiline = []|[{
-  
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]])[]
-  
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  entryPoint?: string
+  messageStyle?: ("visual" | "compact" | "raw")
   
   tailwindConfig?: string
   
   tsconfig?: string
   
-  classesPerLine?: number
+  detectComponentClasses?: boolean
   
-  group?: ("emptyLine" | "never" | "newLine")
-  
-  indent?: ("tab" | number)
-  
-  lineBreakStyle?: ("unix" | "windows")
-  
-  preferSingleLine?: boolean
-  
-  printWidth?: number
+  rootFontSize?: number
 }]
 // ----- tailwind/no-conflicting-classes -----
 type TailwindNoConflictingClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
 }]
 // ----- tailwind/no-deprecated-classes -----
 type TailwindNoDeprecatedClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
 }]
 // ----- tailwind/no-duplicate-classes -----
 type TailwindNoDuplicateClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
 }]
 // ----- tailwind/no-restricted-classes -----
 type TailwindNoRestrictedClasses = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
   restrict?: ({
     
     fix?: string
@@ -789,135 +862,72 @@ type TailwindNoRestrictedClasses = []|[{
     pattern: string
   } | string)[]
 }]
-// ----- tailwind/no-unnecessary-whitespace -----
-type TailwindNoUnnecessaryWhitespace = []|[{
+// ----- tailwind/no-unknown-classes -----
+type TailwindNoUnknownClasses = []|[{
   
-  allowMultiline?: boolean
-  
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-}]
-// ----- tailwind/no-unregistered-classes -----
-type TailwindNoUnregisteredClasses = []|[{
-  
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]])[]
-  
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
-    
-    pathPattern?: string
-  })[]] | string)[]
-  
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
-    
-    match?: "strings"
-  } | {
-    
-    match?: "objectKeys"
-    
-    pathPattern?: string
-  } | {
-    
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
   
   tailwindConfig?: string
   
@@ -925,76 +935,84 @@ type TailwindNoUnregisteredClasses = []|[{
   
   detectComponentClasses?: boolean
   
+  rootFontSize?: number
+  
   ignore?: string[]
 }]
-// ----- tailwind/sort-classes -----
-type TailwindSortClasses = []|[{
+// ----- tailwind/no-unnecessary-whitespace -----
+type TailwindNoUnnecessaryWhitespace = []|[{
   
-  callees?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  callees?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  attributes?: (string | []|[string]|[string, string] | []|[string]|[string, ({
+  attributes?: (string | [string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]])[]
   
-  variables?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  variables?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
-  tags?: ([]|[string]|[string, string] | []|[string]|[string, ({
+  tags?: ([string, ({
     
-    match?: "strings"
+    match: "strings"
   } | {
     
-    match?: "objectKeys"
+    match: "objectKeys"
     
     pathPattern?: string
   } | {
     
-    match?: "objectValues"
+    match: "objectValues"
     
     pathPattern?: string
   })[]] | string)[]
   
   entryPoint?: string
   
+  messageStyle?: ("visual" | "compact" | "raw")
+  
   tailwindConfig?: string
   
   tsconfig?: string
   
-  order?: ("asc" | "desc" | "official" | "improved")
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  allowMultiline?: boolean
 }]
