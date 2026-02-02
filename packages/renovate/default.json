@@ -1,7 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", ":timezone(Asia/Tokyo)"],
-  "labels": ["dependencies", "renovate"],
+  "extends": [
+    "config:best-practices",
+    ":timezone(Asia/Tokyo)",
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
   "rangeStrategy": "bump",
   "automerge": true,
   "major": {
@@ -13,7 +20,9 @@
   "packageRules": [
     {
       "groupName": "unifiedjs",
-      "matchPackageNames": ["unified"],
+      "matchPackageNames": [
+        "unified"
+      ],
       "matchPackagePatterns": [
         "remark",
         "rehype",
@@ -29,16 +38,27 @@
     },
     {
       "groupName": "svelte",
-      "matchPackageNames": ["svelte", "svelte-check"],
-      "matchPackagePrefixes": ["@sveltejs"]
+      "matchPackageNames": [
+        "svelte",
+        "svelte-check"
+      ],
+      "matchPackagePrefixes": [
+        "@sveltejs"
+      ]
     },
     {
       "groupName": "vite-plugin-pwa",
-      "matchPackageNames": ["vite-plugin-pwa"],
-      "matchPackagePrefixes": ["@vite-pwa"]
+      "matchPackageNames": [
+        "vite-plugin-pwa"
+      ],
+      "matchPackagePrefixes": [
+        "@vite-pwa"
+      ]
     },
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "minimumReleaseAge": "3 days"
     }
   ]
