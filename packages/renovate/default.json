@@ -19,43 +19,6 @@
   "internalChecksFilter": "strict",
   "packageRules": [
     {
-      "groupName": "unifiedjs",
-      "matchPackageNames": [
-        "unified"
-      ],
-      "matchPackagePatterns": [
-        "remark",
-        "rehype",
-        "retext",
-        "redot",
-        "unist",
-        "mdast",
-        "hast",
-        "xast",
-        "esast",
-        "nlcst"
-      ]
-    },
-    {
-      "groupName": "svelte",
-      "matchPackageNames": [
-        "svelte",
-        "svelte-check"
-      ],
-      "matchPackagePrefixes": [
-        "@sveltejs"
-      ]
-    },
-    {
-      "groupName": "vite-plugin-pwa",
-      "matchPackageNames": [
-        "vite-plugin-pwa"
-      ],
-      "matchPackagePrefixes": [
-        "@vite-pwa"
-      ]
-    },
-    {
       "matchManagers": [
         "github-actions"
       ],
