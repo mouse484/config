@@ -14,6 +14,5 @@
   "major": {
     "automerge": false
   },
-  "minimumReleaseAge": "7 days",
-  "internalChecksFilter": "flexible"
+  "minimumReleaseAge": "7 days"
 }
