@@ -16,13 +16,5 @@
   },
   "minimumReleaseAge": "7 days",
   "prCreation": "immediate",
-  "internalChecksFilter": "flexible",
-  "packageRules": [
-    {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "minimumReleaseAge": "3 days"
-    }
-  ]
+  "internalChecksFilter": "flexible"
 }
