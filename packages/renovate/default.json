@@ -16,7 +16,7 @@
   },
   "minimumReleaseAge": "7 days",
   "prCreation": "immediate",
-  "internalChecksFilter": "strict",
+  "internalChecksFilter": "flexible",
   "packageRules": [
     {
       "matchManagers": [
