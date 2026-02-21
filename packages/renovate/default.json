@@ -15,6 +15,5 @@
     "automerge": false
   },
   "minimumReleaseAge": "7 days",
-  "prCreation": "immediate",
   "internalChecksFilter": "flexible"
 }
