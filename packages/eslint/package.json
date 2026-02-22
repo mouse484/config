@@ -30,6 +30,6 @@
     "package-manager-detector": "^1.6.0"
   },
   "devDependencies": {
-    "eslint-typegen": "2.3.0"
+    "eslint-typegen": "2.3.1"
   }
 }
