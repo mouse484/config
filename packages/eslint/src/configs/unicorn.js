@@ -32,7 +32,7 @@ export default createConfigs({
       files: [
         GLOB_README,
         '**/AGENTS.md',
-        '**/skill/**/SKILL.md',
+        '**/*skill*/**/SKILL.md',
         GLOB_MARKDOWN_CODE_BLOCK,
         '**/*env.d.ts',
       ],
