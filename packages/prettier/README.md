@@ -8,11 +8,11 @@
 
 ## Usage
 
-#### install
+### install
 
 `yarn add @mouse_484/prettier-config`
 
-#### configure
+### configure
 
 ```js
 import mouse484 from '@mouse_484/prettier-config'

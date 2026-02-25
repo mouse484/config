@@ -7,7 +7,7 @@ ESLint Config based on [@antfu/eslint-config](https://github.com/antfu/eslint-co
 
 ## Usage
 Run the setup command:
-```
+```sh
 npx @mouse_484/eslint-config@latest
 ```
 
@@ -27,7 +27,7 @@ npx @mouse_484/eslint-config@latest
 
 ## Advanced Configuration
 
-#### TypeScript
+### TypeScript
 
 for type-aware linting
 
@@ -39,7 +39,7 @@ export default mouse({
 })
 ```
 
-#### Tailwind CSS
+### Tailwind CSS
 
 ```js
 export default mouse({
