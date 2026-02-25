@@ -75,6 +75,116 @@ export interface RuleOptions {
 // ----- tailwind/enforce-canonical-classes -----
 type TailwindEnforceCanonicalClasses = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -153,6 +263,116 @@ type TailwindEnforceCanonicalClasses = []|[{
 }]
 // ----- tailwind/enforce-consistent-class-order -----
 type TailwindEnforceConsistentClassOrder = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
   
   callees?: ([string, ({
     
@@ -239,6 +459,116 @@ type TailwindEnforceConsistentClassOrder = []|[{
 // ----- tailwind/enforce-consistent-important-position -----
 type TailwindEnforceConsistentImportantPosition = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -315,6 +645,116 @@ type TailwindEnforceConsistentImportantPosition = []|[{
 }]
 // ----- tailwind/enforce-consistent-line-wrapping -----
 type TailwindEnforceConsistentLineWrapping = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
   
   callees?: ([string, ({
     
@@ -405,6 +845,116 @@ type TailwindEnforceConsistentLineWrapping = []|[{
 // ----- tailwind/enforce-consistent-variable-syntax -----
 type TailwindEnforceConsistentVariableSyntax = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -482,6 +1032,116 @@ type TailwindEnforceConsistentVariableSyntax = []|[{
 // ----- tailwind/enforce-shorthand-classes -----
 type TailwindEnforceShorthandClasses = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -556,6 +1216,116 @@ type TailwindEnforceShorthandClasses = []|[{
 }]
 // ----- tailwind/no-conflicting-classes -----
 type TailwindNoConflictingClasses = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
   
   callees?: ([string, ({
     
@@ -632,6 +1402,116 @@ type TailwindNoConflictingClasses = []|[{
 // ----- tailwind/no-deprecated-classes -----
 type TailwindNoDeprecatedClasses = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -707,6 +1587,116 @@ type TailwindNoDeprecatedClasses = []|[{
 // ----- tailwind/no-duplicate-classes -----
 type TailwindNoDuplicateClasses = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -781,6 +1771,116 @@ type TailwindNoDuplicateClasses = []|[{
 }]
 // ----- tailwind/no-restricted-classes -----
 type TailwindNoRestrictedClasses = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
   
   callees?: ([string, ({
     
@@ -865,6 +1965,116 @@ type TailwindNoRestrictedClasses = []|[{
 // ----- tailwind/no-unknown-classes -----
 type TailwindNoUnknownClasses = []|[{
   
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
+  
   callees?: ([string, ({
     
     match: "strings"
@@ -941,6 +2151,116 @@ type TailwindNoUnknownClasses = []|[{
 }]
 // ----- tailwind/no-unnecessary-whitespace -----
 type TailwindNoUnnecessaryWhitespace = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  } | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    })[]
+    
+    name: string
+  })[]
   
   callees?: ([string, ({
     
