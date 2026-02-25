@@ -18,6 +18,7 @@ export default createConfigs({
             },
           },
         ],
+        'unicorn/expiring-todo-comments': 'off',
         'unicorn/no-abusive-eslint-disable': 'off',
         'unicorn/consistent-function-scoping': [
           'error',
