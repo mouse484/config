@@ -8,15 +8,6 @@ export default createConfigs({
     {
       name: 'general',
       rules: {
-        'style/max-len': [
-          'error',
-          {
-            code: 100,
-            tabWidth: 2,
-            comments: 120,
-            ignoreUrls: true,
-          },
-        ],
         'style/brace-style': [
           'error',
           '1tbs',
