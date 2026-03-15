@@ -24,7 +24,7 @@
     "typegen": "node scripts/typegen.js"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^7.7.0",
+    "@antfu/eslint-config": "^7.7.2",
     "baseline-browser-mapping": "^2.10.0",
     "eslint-plugin-better-tailwindcss": "^4.3.2",
     "package-manager-detector": "^1.6.0"
