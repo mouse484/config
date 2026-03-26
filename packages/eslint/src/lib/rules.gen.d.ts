@@ -13,67 +13,67 @@ export interface RuleOptions {
    * Enforce canonical class names.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-canonical-classes.md
    */
-  'tailwind/enforce-canonical-classes'?: Linter.RuleEntry<TailwindEnforceCanonicalClasses>
+  'better-tailwindcss/enforce-canonical-classes'?: Linter.RuleEntry<BetterTailwindcssEnforceCanonicalClasses>
   /**
    * Enforce a consistent order for tailwind classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-class-order.md
    */
-  'tailwind/enforce-consistent-class-order'?: Linter.RuleEntry<TailwindEnforceConsistentClassOrder>
+  'better-tailwindcss/enforce-consistent-class-order'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentClassOrder>
   /**
    * Enforce consistent important position for classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-important-position.md
    */
-  'tailwind/enforce-consistent-important-position'?: Linter.RuleEntry<TailwindEnforceConsistentImportantPosition>
+  'better-tailwindcss/enforce-consistent-important-position'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentImportantPosition>
   /**
    * Enforce consistent line wrapping for tailwind classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-line-wrapping.md
    */
-  'tailwind/enforce-consistent-line-wrapping'?: Linter.RuleEntry<TailwindEnforceConsistentLineWrapping>
+  'better-tailwindcss/enforce-consistent-line-wrapping'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentLineWrapping>
   /**
    * Enforce consistent syntax for css variables.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-variable-syntax.md
    */
-  'tailwind/enforce-consistent-variable-syntax'?: Linter.RuleEntry<TailwindEnforceConsistentVariableSyntax>
+  'better-tailwindcss/enforce-consistent-variable-syntax'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentVariableSyntax>
   /**
    * Enforce shorthand class names instead of longhand class names.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-shorthand-classes.md
    */
-  'tailwind/enforce-shorthand-classes'?: Linter.RuleEntry<TailwindEnforceShorthandClasses>
+  'better-tailwindcss/enforce-shorthand-classes'?: Linter.RuleEntry<BetterTailwindcssEnforceShorthandClasses>
   /**
    * Disallow classes that produce conflicting styles.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-conflicting-classes.md
    */
-  'tailwind/no-conflicting-classes'?: Linter.RuleEntry<TailwindNoConflictingClasses>
+  'better-tailwindcss/no-conflicting-classes'?: Linter.RuleEntry<BetterTailwindcssNoConflictingClasses>
   /**
    * Disallow the use of deprecated Tailwind CSS classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-deprecated-classes.md
    */
-  'tailwind/no-deprecated-classes'?: Linter.RuleEntry<TailwindNoDeprecatedClasses>
+  'better-tailwindcss/no-deprecated-classes'?: Linter.RuleEntry<BetterTailwindcssNoDeprecatedClasses>
   /**
    * Disallow duplicate class names in tailwind classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-duplicate-classes.md
    */
-  'tailwind/no-duplicate-classes'?: Linter.RuleEntry<TailwindNoDuplicateClasses>
+  'better-tailwindcss/no-duplicate-classes'?: Linter.RuleEntry<BetterTailwindcssNoDuplicateClasses>
   /**
    * Disallow restricted classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-restricted-classes.md
    */
-  'tailwind/no-restricted-classes'?: Linter.RuleEntry<TailwindNoRestrictedClasses>
+  'better-tailwindcss/no-restricted-classes'?: Linter.RuleEntry<BetterTailwindcssNoRestrictedClasses>
   /**
    * Disallow any css classes that are not registered in tailwindcss.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unknown-classes.md
    */
-  'tailwind/no-unknown-classes'?: Linter.RuleEntry<TailwindNoUnknownClasses>
+  'better-tailwindcss/no-unknown-classes'?: Linter.RuleEntry<BetterTailwindcssNoUnknownClasses>
   /**
    * Disallow unnecessary whitespace between Tailwind CSS classes.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/no-unnecessary-whitespace.md
    */
-  'tailwind/no-unnecessary-whitespace'?: Linter.RuleEntry<TailwindNoUnnecessaryWhitespace>
+  'better-tailwindcss/no-unnecessary-whitespace'?: Linter.RuleEntry<BetterTailwindcssNoUnnecessaryWhitespace>
 }
 
 /* ======= Declarations ======= */
-// ----- tailwind/enforce-canonical-classes -----
-type TailwindEnforceCanonicalClasses = []|[{
+// ----- better-tailwindcss/enforce-canonical-classes -----
+type BetterTailwindcssEnforceCanonicalClasses = []|[{
   
   selectors?: ({
     
@@ -261,8 +261,8 @@ type TailwindEnforceCanonicalClasses = []|[{
   
   logical?: boolean
 }]
-// ----- tailwind/enforce-consistent-class-order -----
-type TailwindEnforceConsistentClassOrder = []|[{
+// ----- better-tailwindcss/enforce-consistent-class-order -----
+type BetterTailwindcssEnforceConsistentClassOrder = []|[{
   
   selectors?: ({
     
@@ -456,8 +456,8 @@ type TailwindEnforceConsistentClassOrder = []|[{
   
   unknownClassPosition?: ("start" | "end")
 }]
-// ----- tailwind/enforce-consistent-important-position -----
-type TailwindEnforceConsistentImportantPosition = []|[{
+// ----- better-tailwindcss/enforce-consistent-important-position -----
+type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
   
   selectors?: ({
     
@@ -643,8 +643,8 @@ type TailwindEnforceConsistentImportantPosition = []|[{
   
   position?: ("legacy" | "recommended")
 }]
-// ----- tailwind/enforce-consistent-line-wrapping -----
-type TailwindEnforceConsistentLineWrapping = []|[{
+// ----- better-tailwindcss/enforce-consistent-line-wrapping -----
+type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
   
   selectors?: ({
     
@@ -842,8 +842,8 @@ type TailwindEnforceConsistentLineWrapping = []|[{
   
   strictness?: ("strict" | "loose")
 }]
-// ----- tailwind/enforce-consistent-variable-syntax -----
-type TailwindEnforceConsistentVariableSyntax = []|[{
+// ----- better-tailwindcss/enforce-consistent-variable-syntax -----
+type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
   
   selectors?: ({
     
@@ -1029,8 +1029,8 @@ type TailwindEnforceConsistentVariableSyntax = []|[{
   
   syntax?: ("shorthand" | "variable")
 }]
-// ----- tailwind/enforce-shorthand-classes -----
-type TailwindEnforceShorthandClasses = []|[{
+// ----- better-tailwindcss/enforce-shorthand-classes -----
+type BetterTailwindcssEnforceShorthandClasses = []|[{
   
   selectors?: ({
     
@@ -1214,8 +1214,8 @@ type TailwindEnforceShorthandClasses = []|[{
   
   rootFontSize?: number
 }]
-// ----- tailwind/no-conflicting-classes -----
-type TailwindNoConflictingClasses = []|[{
+// ----- better-tailwindcss/no-conflicting-classes -----
+type BetterTailwindcssNoConflictingClasses = []|[{
   
   selectors?: ({
     
@@ -1399,8 +1399,8 @@ type TailwindNoConflictingClasses = []|[{
   
   rootFontSize?: number
 }]
-// ----- tailwind/no-deprecated-classes -----
-type TailwindNoDeprecatedClasses = []|[{
+// ----- better-tailwindcss/no-deprecated-classes -----
+type BetterTailwindcssNoDeprecatedClasses = []|[{
   
   selectors?: ({
     
@@ -1584,8 +1584,8 @@ type TailwindNoDeprecatedClasses = []|[{
   
   rootFontSize?: number
 }]
-// ----- tailwind/no-duplicate-classes -----
-type TailwindNoDuplicateClasses = []|[{
+// ----- better-tailwindcss/no-duplicate-classes -----
+type BetterTailwindcssNoDuplicateClasses = []|[{
   
   selectors?: ({
     
@@ -1769,8 +1769,8 @@ type TailwindNoDuplicateClasses = []|[{
   
   rootFontSize?: number
 }]
-// ----- tailwind/no-restricted-classes -----
-type TailwindNoRestrictedClasses = []|[{
+// ----- better-tailwindcss/no-restricted-classes -----
+type BetterTailwindcssNoRestrictedClasses = []|[{
   
   selectors?: ({
     
@@ -1962,8 +1962,8 @@ type TailwindNoRestrictedClasses = []|[{
     pattern: string
   } | string)[]
 }]
-// ----- tailwind/no-unknown-classes -----
-type TailwindNoUnknownClasses = []|[{
+// ----- better-tailwindcss/no-unknown-classes -----
+type BetterTailwindcssNoUnknownClasses = []|[{
   
   selectors?: ({
     
@@ -2149,8 +2149,8 @@ type TailwindNoUnknownClasses = []|[{
   
   ignore?: string[]
 }]
-// ----- tailwind/no-unnecessary-whitespace -----
-type TailwindNoUnnecessaryWhitespace = []|[{
+// ----- better-tailwindcss/no-unnecessary-whitespace -----
+type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
   
   selectors?: ({
     
