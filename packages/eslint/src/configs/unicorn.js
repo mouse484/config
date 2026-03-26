@@ -14,6 +14,7 @@ export default createConfigs({
           {
             allowList: {
               Props: true,
+              Ref: true,
               args: true,
             },
           },
