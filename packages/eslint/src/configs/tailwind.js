@@ -10,14 +10,11 @@ export default createConfigs({
 
       return {
         name: 'tailwind',
-        plugins: {
-          tailwind: eslintPluginBetterTailwindcss,
-        },
+        extends: [
+          eslintPluginBetterTailwindcss.configs.recommended,
+        ],
         rules: {
-          ...eslintPluginBetterTailwindcss.configs.recommended.rules,
-          ...eslintPluginBetterTailwindcss.configs.correctness.rules,
-          ...eslintPluginBetterTailwindcss.configs.stylistic.rules,
-          'tailwind/no-unknown-classes': ['error', {
+          'better-tailwindcss/no-unknown-classes': ['error', {
             detectComponentClasses: true,
           }],
         },
