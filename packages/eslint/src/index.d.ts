@@ -31,8 +31,12 @@ export interface Options extends OptionsConfig, Omit<TypedFlatConfigItem, 'files
     & OptionsTypeScriptErasableOnly
 }
 
-export declare function mouse(
+declare function mouse(
   options?: Options,
   ...configs: Config[]
 ): ReturnType<typeof antfu>
+
 export default mouse
+export { mouse }
+export * from './lib/factory'
+export * from '@antfu/eslint-config'
