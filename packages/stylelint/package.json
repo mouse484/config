@@ -2,7 +2,16 @@
   "name": "@mouse_484/stylelint-config",
   "type": "module",
   "version": "0.0.0-dev",
+  "author": "mouse_484",
   "license": "MIT",
+  "homepage": "https://github.com/mouse484/config/tree/main/packages/stylelint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mouse484/config"
+  },
+  "bugs": {
+    "url": "https://github.com/mouse484/config/issues"
+  },
   "main": "index.js",
   "dependencies": {
     "@stylistic/stylelint-config": "^5.0.0",
