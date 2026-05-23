@@ -3,7 +3,16 @@
   "type": "module",
   "version": "0.0.0-dev",
   "description": "mouse484/config",
+  "author": "mouse_484",
   "license": "MIT",
+  "homepage": "https://github.com/mouse484/config/tree/main/packages/prettier",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mouse484/config"
+  },
+  "bugs": {
+    "url": "https://github.com/mouse484/config/issues"
+  },
   "main": "index.js",
   "publishConfig": {
     "access": "public"
