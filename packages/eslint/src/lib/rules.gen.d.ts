@@ -35,6 +35,16 @@ export interface RuleOptions {
    */
   'better-tailwindcss/enforce-consistent-variable-syntax'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentVariableSyntax>
   /**
+   * Enforce a consistent variant order for Tailwind classes.
+   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-variant-order.md
+   */
+  'better-tailwindcss/enforce-consistent-variant-order'?: Linter.RuleEntry<BetterTailwindcssEnforceConsistentVariantOrder>
+  /**
+   * Enforce logical property class names instead of physical directions.
+   * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-logical-properties.md
+   */
+  'better-tailwindcss/enforce-logical-properties'?: Linter.RuleEntry<BetterTailwindcssEnforceLogicalProperties>
+  /**
    * Enforce shorthand class names instead of longhand class names.
    * @see https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-shorthand-classes.md
    */
@@ -92,6 +102,24 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -114,11 +142,33 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -138,12 +188,34 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -160,10 +232,70 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -180,6 +312,24 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -257,7 +407,11 @@ type BetterTailwindcssEnforceCanonicalClasses = []|[{
   
   rootFontSize?: number
   
+  cwd?: string
+  
   collapse?: boolean
+  
+  ignore?: string[]
   
   logical?: boolean
 }]
@@ -281,6 +435,24 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -303,11 +475,33 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -327,12 +521,34 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -349,10 +565,70 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -369,6 +645,24 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -445,6 +739,8 @@ type BetterTailwindcssEnforceConsistentClassOrder = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
   
   componentClassOrder?: ("asc" | "desc" | "preserve")
   
@@ -476,6 +772,24 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -498,11 +812,33 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -522,12 +858,34 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -544,10 +902,70 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -564,6 +982,24 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -640,6 +1076,8 @@ type BetterTailwindcssEnforceConsistentImportantPosition = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
   
   position?: ("legacy" | "recommended")
 }]
@@ -663,6 +1101,24 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -685,11 +1141,33 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -709,12 +1187,34 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -731,10 +1231,70 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -751,6 +1311,24 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -828,6 +1406,8 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
   
   rootFontSize?: number
   
+  cwd?: string
+  
   classesPerLine?: number
   
   group?: ("newLine" | "emptyLine" | "never")
@@ -841,6 +1421,8 @@ type BetterTailwindcssEnforceConsistentLineWrapping = []|[{
   printWidth?: number
   
   strictness?: ("strict" | "loose")
+  
+  tabWidth?: number
 }]
 // ----- better-tailwindcss/enforce-consistent-variable-syntax -----
 type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
@@ -862,6 +1444,24 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -884,11 +1484,33 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -908,12 +1530,34 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -930,10 +1574,70 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -950,6 +1654,24 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1027,7 +1749,665 @@ type BetterTailwindcssEnforceConsistentVariableSyntax = []|[{
   
   rootFontSize?: number
   
+  cwd?: string
+  
   syntax?: ("shorthand" | "variable")
+}]
+// ----- better-tailwindcss/enforce-consistent-variant-order -----
+type BetterTailwindcssEnforceConsistentVariantOrder = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+    
+    path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+  })[]
+  
+  callees?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  attributes?: (string | [string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]])[]
+  
+  variables?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  tags?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  cwd?: string
+}]
+// ----- better-tailwindcss/enforce-logical-properties -----
+type BetterTailwindcssEnforceLogicalProperties = []|[{
+  
+  selectors?: ({
+    
+    kind: "attribute"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+  } | ({
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+    
+    path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  } | {
+    
+    callTarget?: ("all" | "first" | "last" | number)
+    
+    kind: "callee"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+    
+    path?: string
+  } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
+    
+    kind: "variable"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name: string
+  })[]
+  
+  callees?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  attributes?: (string | [string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]])[]
+  
+  variables?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  tags?: ([string, ({
+    
+    match: "strings"
+  } | {
+    
+    match: "objectKeys"
+    
+    pathPattern?: string
+  } | {
+    
+    match: "objectValues"
+    
+    pathPattern?: string
+  })[]] | string)[]
+  
+  entryPoint?: string
+  
+  messageStyle?: ("visual" | "compact" | "raw")
+  
+  tailwindConfig?: string
+  
+  tsconfig?: string
+  
+  detectComponentClasses?: boolean
+  
+  rootFontSize?: number
+  
+  cwd?: string
+  
+  ignore?: string[]
 }]
 // ----- better-tailwindcss/enforce-shorthand-classes -----
 type BetterTailwindcssEnforceShorthandClasses = []|[{
@@ -1049,6 +2429,24 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1071,11 +2469,33 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -1095,12 +2515,34 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -1117,10 +2559,70 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -1137,6 +2639,24 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1213,6 +2733,8 @@ type BetterTailwindcssEnforceShorthandClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
 }]
 // ----- better-tailwindcss/no-conflicting-classes -----
 type BetterTailwindcssNoConflictingClasses = []|[{
@@ -1234,6 +2756,24 @@ type BetterTailwindcssNoConflictingClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1256,11 +2796,33 @@ type BetterTailwindcssNoConflictingClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -1280,12 +2842,34 @@ type BetterTailwindcssNoConflictingClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -1302,10 +2886,70 @@ type BetterTailwindcssNoConflictingClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -1322,6 +2966,24 @@ type BetterTailwindcssNoConflictingClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1398,6 +3060,8 @@ type BetterTailwindcssNoConflictingClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
 }]
 // ----- better-tailwindcss/no-deprecated-classes -----
 type BetterTailwindcssNoDeprecatedClasses = []|[{
@@ -1419,6 +3083,24 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1441,11 +3123,33 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -1465,12 +3169,34 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -1487,10 +3213,70 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -1507,6 +3293,24 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1583,6 +3387,8 @@ type BetterTailwindcssNoDeprecatedClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
 }]
 // ----- better-tailwindcss/no-duplicate-classes -----
 type BetterTailwindcssNoDuplicateClasses = []|[{
@@ -1604,6 +3410,24 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1626,11 +3450,33 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -1650,12 +3496,34 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -1672,10 +3540,70 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -1692,6 +3620,24 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1768,6 +3714,8 @@ type BetterTailwindcssNoDuplicateClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
 }]
 // ----- better-tailwindcss/no-restricted-classes -----
 type BetterTailwindcssNoRestrictedClasses = []|[{
@@ -1789,6 +3737,24 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1811,11 +3777,33 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -1835,12 +3823,34 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -1857,10 +3867,70 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -1877,6 +3947,24 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -1953,6 +4041,8 @@ type BetterTailwindcssNoRestrictedClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
   restrict?: ({
     
     fix?: string
@@ -1982,6 +4072,24 @@ type BetterTailwindcssNoUnknownClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -2004,11 +4112,33 @@ type BetterTailwindcssNoUnknownClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -2028,12 +4158,34 @@ type BetterTailwindcssNoUnknownClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -2050,10 +4202,70 @@ type BetterTailwindcssNoUnknownClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -2070,6 +4282,24 @@ type BetterTailwindcssNoUnknownClasses = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -2146,6 +4376,8 @@ type BetterTailwindcssNoUnknownClasses = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
   
   ignore?: string[]
 }]
@@ -2169,6 +4401,24 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -2191,11 +4441,33 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
     
     path?: string
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
   } | {
     
     callTarget?: ("all" | "first" | "last" | number)
@@ -2215,12 +4487,34 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name?: string
     
     path: string
-  }) | {
+    
+    targetArgument?: ("all" | "first" | "last" | number)
+    
+    targetCall?: ("all" | "first" | "last" | number)
+  }) | ({
     
     kind: "tag"
     
@@ -2237,10 +4531,70 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
+    
+    path?: string
   } | {
+    
+    kind: "tag"
+    
+    match?: ({
+      
+      type: "strings"
+    } | {
+      
+      path?: string
+      
+      type: "objectKeys"
+    } | {
+      
+      path?: string
+      
+      type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
+    })[]
+    
+    name?: string
+    
+    path: string
+  }) | {
     
     kind: "variable"
     
@@ -2257,6 +4611,24 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
       path?: string
       
       type: "objectValues"
+    } | {
+      
+      match: ({
+        
+        type: "strings"
+      } | {
+        
+        path?: string
+        
+        type: "objectKeys"
+      } | {
+        
+        path?: string
+        
+        type: "objectValues"
+      })[]
+      
+      type: "anonymousFunctionReturn"
     })[]
     
     name: string
@@ -2333,6 +4705,8 @@ type BetterTailwindcssNoUnnecessaryWhitespace = []|[{
   detectComponentClasses?: boolean
   
   rootFontSize?: number
+  
+  cwd?: string
   
   allowMultiline?: boolean
 }]

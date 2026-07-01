@@ -1,3 +1,4 @@
+import { GLOB_SRC } from '@antfu/eslint-config'
 import { CASES } from '../const/cases.js'
 import { GLOB_D_TS, GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
 import { createConfigs } from '../lib/factory.js'
@@ -8,8 +9,9 @@ export default createConfigs({
   configs: [
     {
       name: 'general',
+      files: [GLOB_SRC],
       rules: {
-        'unicorn/prevent-abbreviations': [
+        'unicorn/name-replacements': [
           'error',
           {
             allowList: {
@@ -48,7 +50,7 @@ export default createConfigs({
         '**/*env.d.ts',
       ],
       rules: {
-        'unicorn/prevent-abbreviations': 'off',
+        'unicorn/name-replacements': 'off',
       },
     },
     {
