@@ -120,15 +120,17 @@ async function main() {
   )
 
   logger('Linting the project to verify setup')
-  await runAgentCommand(
-    packageManager.agent,
-    'run',
-    ['lint:fix'],
-  ).catch((error) => {
+  try {
+    await runAgentCommand(
+      packageManager.agent,
+      'run',
+      ['lint:fix'],
+    )
+  } catch (error) {
     if (error instanceof Error) {
       logger(`Linting failed: ${error.message}`)
     }
-  })
+  }
 }
 
 await main()
