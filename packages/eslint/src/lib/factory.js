@@ -7,10 +7,10 @@
  */
 function createConfig(name, withOptions, config) {
   return (options) => {
-    const allowApply = withOptions
-      ? withOptions.every(key => key in options)
+    const canApply = withOptions
+      ? withOptions.every(key => Object.hasOwn(options, key))
       : true
-    if (!allowApply) {
+    if (!canApply) {
       return []
     }
     return {

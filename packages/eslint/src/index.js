@@ -9,7 +9,7 @@ import typescript from './configs/typescript.js'
 import unicorn from './configs/unicorn.js'
 
 /** @type {import('.').mouse} */
-async function mouse(options, ...userConfigs) {
+export default async function mouse(options, ...userConfigs) {
   options = {
     unicorn: {
       allRecommended: true,
@@ -62,7 +62,6 @@ async function mouse(options, ...userConfigs) {
   return composer
 }
 
-export default mouse
 export { mouse }
 export * from './const/glob.js'
 export * from '@antfu/eslint-config'
