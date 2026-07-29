@@ -14,6 +14,7 @@ export default createConfigs({
           'error',
           {
             allowList: {
+              props: true,
               Props: true,
               Ref: true,
               args: true,
