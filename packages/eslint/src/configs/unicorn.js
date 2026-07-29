@@ -1,5 +1,4 @@
 import { GLOB_SRC } from '@antfu/eslint-config'
-import { CASES } from '../const/cases.js'
 import { GLOB_D_TS, GLOB_MARKDOWN_CODE_BLOCK, GLOB_README } from '../const/glob.js'
 import { createConfigs } from '../lib/factory.js'
 
@@ -59,19 +58,6 @@ export default createConfigs({
       files: [GLOB_D_TS],
       rules: {
         'unicorn/require-module-specifiers': 'off',
-      },
-    },
-    {
-      name: 'react-components',
-      withOptions: ['react'],
-      files: [
-        `**/src/components/**/*.{j,t}sx`,
-      ],
-      rules: {
-        'unicorn/filename-case': [
-          'error',
-          { case: CASES.PascalCase },
-        ],
       },
     },
   ],
