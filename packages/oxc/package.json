@@ -14,6 +14,7 @@
   },
   "main": "src/index.js",
   "dependencies": {
+    "eslint-plugin-perfectionist": "^5.10.0",
     "oxlint": "^1.76.0"
   },
   "publishConfig": {
