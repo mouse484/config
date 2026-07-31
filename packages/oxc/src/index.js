@@ -1,6 +1,8 @@
 import { defineConfig } from 'oxlint'
 import tanstackRouter from './customs/tanstack-router.js'
 import eslint from './rules/eslint.js'
+import oxc from './rules/oxc.js'
+import typescript from './rules/typescript.js'
 
 /** @type {Record<keyof import('.').Options, import('oxlint').OxlintConfig>} */
 const customs = {
@@ -28,6 +30,8 @@ export default function mouse(options = {}) {
     },
     extends: [
       eslint,
+      oxc,
+      typescript,
       ...enabledCustoms,
     ],
   })
