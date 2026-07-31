@@ -2,7 +2,7 @@ import { defineConfig } from 'oxlint'
 import configs from './configs/index.js'
 
 /** @param {import('.').Options} [options] */
-export default function mouse(options = {}) {
+export function lint(options = {}) {
   return defineConfig({
     categories: {
       correctness: 'error',
