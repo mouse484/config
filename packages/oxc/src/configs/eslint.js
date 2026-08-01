@@ -7,6 +7,8 @@ export default defineConfig({
     'eslint/no-magic-numbers': ['error', { ignore: [0, 1, -1] }],
     'eslint/no-undefined': ['off'],
     'eslint/no-ternary': ['off'],
+    'eslint/no-nested-ternary': ['error'],
+    'eslint/no-unneeded-ternary': ['error'],
     /**
      * Prefer `perfectionist` plugin for sorting
      */
