@@ -6,24 +6,22 @@ import typeAware from './type-aware.js'
 import typescript from './typescript.js'
 
 /**
- * @satisfies {Record<string, { enabled: boolean, config: import('oxlint').OxlintConfig }>}
+ * @satisfies {Record<string, [boolean, import('oxlint').OxlintConfig ]>}
  */
-const customs = {
-  typeAware: { enabled: true, config: typeAware },
-  tanstackRouter: { enabled: false, config: tanstackRouter },
-  perfectionist: { enabled: true, config: perfectionist },
+const _configs = {
+  eslint: [true, eslint],
+  oxc: [true, oxc],
+  perfectionist: [true, perfectionist],
+  tanstackRouter: [false, tanstackRouter],
+  typeAware: [true, typeAware],
+  typescript: [true, typescript],
 }
 
-/** @typedef {Partial<Record<keyof typeof customs, boolean>>} CustomOptions */
+/** @typedef {Partial<Record<keyof typeof _configs, boolean>>} ConfigOptions */
 
-/** @param {CustomOptions} [options] */
+/** @param {ConfigOptions} [options] */
 export default function configs(options = {}) {
-  return [
-    eslint,
-    oxc,
-    typescript,
-    ...Object.entries(customs).flatMap(([key, { enabled, config }]) =>
-      options[/** @type {keyof typeof customs} */ (key)] ?? enabled ? [config] : [],
-    ),
-  ]
+  return Object.entries(_configs).flatMap(([name, [defaultEnabled, config]]) => {
+    return (Object.hasOwn(options, name) ? options[/** @type {keyof ConfigOptions} */ (name)] : defaultEnabled) ? [config] : []
+  })
 }
