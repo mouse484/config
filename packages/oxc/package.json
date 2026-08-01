@@ -14,7 +14,9 @@
   },
   "main": "src/index.js",
   "dependencies": {
-    "oxlint": "^1.76.0"
+    "eslint-plugin-perfectionist": "^5.10.0",
+    "oxlint": "^1.76.0",
+    "oxlint-tsgolint": "^7.0.2001"
   },
   "publishConfig": {
     "access": "public"
