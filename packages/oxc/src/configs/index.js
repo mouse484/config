@@ -2,12 +2,14 @@ import eslint from './eslint.js'
 import oxc from './oxc.js'
 import perfectionist from './perfectionist.js'
 import tanstackRouter from './tanstack-router.js'
+import typeAware from './type-aware.js'
 import typescript from './typescript.js'
 
 /**
  * @satisfies {Record<string, { enabled: boolean, config: import('oxlint').OxlintConfig }>}
  */
 const customs = {
+  typeAware: { enabled: true, config: typeAware },
   tanstackRouter: { enabled: false, config: tanstackRouter },
   perfectionist: { enabled: true, config: perfectionist },
 }

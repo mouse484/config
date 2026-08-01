@@ -9,6 +9,7 @@ export default defineConfig({
     'eslint/no-ternary': ['off'],
     'eslint/no-nested-ternary': ['error'],
     'eslint/no-unneeded-ternary': ['error'],
+    'eslint/no-void': ['error', { allowAsStatement: true }],
     /**
      * Prefer `perfectionist` plugin for sorting
      */
