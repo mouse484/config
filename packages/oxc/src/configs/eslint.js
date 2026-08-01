@@ -4,6 +4,9 @@ export default defineConfig({
   rules: {
     'eslint/id-length': ['off'],
     'eslint/func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    'eslint/no-magic-numbers': ['error', { ignore: [0, 1, -1] }],
+    'eslint/no-undefined': ['off'],
+    'eslint/no-ternary': ['off'],
     /**
      * Prefer `perfectionist` plugin for sorting
      */
