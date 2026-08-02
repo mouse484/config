@@ -6,5 +6,8 @@ export default defineConfig({
     rules: {
       'eslint/no-use-before-define': ['off'],
     },
+    ignorePatterns: [
+      'src/routeTree.gen.ts',
+    ],
   }],
 })
