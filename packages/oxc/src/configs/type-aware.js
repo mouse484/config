@@ -1,11 +1,16 @@
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
-export default defineConfig({
-  options: {
-    typeAware: true,
-    typeCheck: true,
-  },
-  rules: {
-    'typescript/prefer-readonly-parameter-types': ['off'],
-  },
+export default createConfigs({
+  name: 'typeAware',
+  configs: [
+    {
+      options: {
+        typeAware: true,
+        typeCheck: true,
+      },
+      rules: {
+        'typescript/prefer-readonly-parameter-types': 'off',
+      },
+    },
+  ],
 })

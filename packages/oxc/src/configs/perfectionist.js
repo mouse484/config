@@ -1,9 +1,14 @@
 import perfectionist from 'eslint-plugin-perfectionist'
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
-export default defineConfig({
-  jsPlugins: ['eslint-plugin-perfectionist'],
-  rules: {
-    ...perfectionist.configs['recommended-natural'].rules,
-  },
+export default createConfigs({
+  name: 'perfectionist',
+  configs: [
+    {
+      jsPlugins: ['eslint-plugin-perfectionist'],
+      rules: {
+        ...perfectionist.configs['recommended-natural'].rules,
+      },
+    },
+  ],
 })

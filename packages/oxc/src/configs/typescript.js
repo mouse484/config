@@ -1,8 +1,13 @@
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
-export default defineConfig({
-  rules: {
-    'typescript/explicit-function-return-type': ['off'],
-    'typescript/explicit-module-boundary-types': ['off'],
-  },
+export default createConfigs({
+  name: 'typescript',
+  configs: [
+    {
+      rules: {
+        'typescript/explicit-function-return-type': 'off',
+        'typescript/explicit-module-boundary-types': 'off',
+      },
+    },
+  ],
 })

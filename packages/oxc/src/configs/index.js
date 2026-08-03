@@ -1,31 +1,37 @@
+import defu from 'defu'
 import eslint from './eslint.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
 import perfectionist from './perfectionist.js'
 import stylistic from './stylistic.js'
+import tailwind from './tailwind.js'
 import tanstackRouter from './tanstack-router.js'
 import typeAware from './type-aware.js'
 import typescript from './typescript.js'
 
-/**
- * @satisfies {Record<string, [boolean, import('oxlint').OxlintConfig ]>}
- */
-const _configs = {
-  eslint: [true, eslint],
-  opinionated: [true, opinionated],
-  oxc: [true, oxc],
-  perfectionist: [true, perfectionist],
-  stylistic: [true, stylistic],
-  tanstackRouter: [false, tanstackRouter],
-  typeAware: [true, typeAware],
-  typescript: [true, typescript],
-}
+const CONFIGS = /** @type {const} */[
+  eslint,
+  opinionated,
+  oxc,
+  perfectionist,
+  stylistic,
+  tailwind,
+  tanstackRouter,
+  typeAware,
+  typescript,
+]
 
-/** @typedef {Partial<Record<keyof typeof _configs, boolean>>} ConfigOptions */
-
-/** @param {ConfigOptions} [options] */
-export default function configs(options = {}) {
-  return Object.entries(_configs).flatMap(([name, [defaultEnabled, config]]) => {
-    return (Object.hasOwn(options, name) ? options[/** @type {keyof ConfigOptions} */ (name)] : defaultEnabled) ? [config] : []
+/** @type {import(".").buildConfigs} */
+export default function buildConfigs(options) {
+  const configs = CONFIGS.flatMap(({ name, build, defaultEnabled, options: defaultOptions }) => {
+    const option = options[name]
+    if (option === false || (option === undefined && defaultEnabled === false)) {
+      return []
+    }
+    // @ts-expect-error - build configs with options
+    // eslint-disable-next-line unicorn/prefer-minimal-ternary
+    return typeof option === 'object' ? build(defu(option, defaultOptions)) : build(defaultOptions)
   })
+
+  return configs
 }

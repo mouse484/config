@@ -13,14 +13,23 @@
     "url": "https://github.com/mouse484/config/issues"
   },
   "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "typegen": "node scripts/typegen.js"
+  },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
+    "defu": "^6.1.7",
     "eslint-plugin-antfu": "^3.2.3",
+    "eslint-plugin-better-tailwindcss": "^4.7.0",
     "eslint-plugin-perfectionist": "^5.10.0",
     "oxlint": "^1.76.0",
     "oxlint-tsgolint": "^7.0.2001"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "ts-morph": "^28.0.0"
   }
 }
