@@ -1,12 +1,12 @@
-import eslint from './eslint'
-import opinionated from './opinionated'
-import oxc from './oxc'
-import perfectionist from './perfectionist'
-import stylistic from './stylistic'
-import tailwind from './tailwind'
-import tanstackRouter from './tanstack-router'
-import typeAware from './type-aware'
-import typescript from './typescript'
+import eslint from './eslint.js'
+import opinionated from './opinionated.js'
+import oxc from './oxc.js'
+import perfectionist from './perfectionist.js'
+import stylistic from './stylistic.js'
+import tailwind from './tailwind.js'
+import tanstackRouter from './tanstack-router.js'
+import typeAware from './type-aware.js'
+import typescript from './typescript.js'
 
 const CONFIGS = /** @type {const} */ [
   eslint,

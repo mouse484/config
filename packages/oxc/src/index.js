@@ -1,5 +1,5 @@
 import { defineConfig } from 'oxlint'
-import buildConfigs from './configs'
+import buildConfigs from './configs/index.js'
 
 /** @type {import('.').lint} */
 export function lint(options) {
@@ -13,7 +13,8 @@ export function lint(options) {
       restriction: 'warn',
       nursery: 'warn',
     },
-    // @ts-expect-error - build configs with options
-    extends: [buildConfigs(options)],
+    // @ts-expect-error - buildConfigs returns a Config[]
+    // eslint-disable-next-line ts/no-unsafe-assignment
+    extends: buildConfigs(options),
   })
 }
