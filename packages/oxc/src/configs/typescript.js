@@ -5,8 +5,8 @@ export default createConfigs({
   configs: [
     {
       rules: {
-        'typescript/explicit-function-return-type': ['off'],
-        'typescript/explicit-module-boundary-types': ['off'],
+        'typescript/explicit-function-return-type': 'off',
+        'typescript/explicit-module-boundary-types': 'off',
       },
     },
   ],

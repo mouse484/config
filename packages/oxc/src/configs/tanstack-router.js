@@ -5,15 +5,15 @@ export default createConfigs({
   name: 'tanstackRouter',
   configs: [
     {
-      overrides: [{
-        files: ['src/routes/**/*.tsx'],
-        rules: {
-          'eslint/no-use-before-define': ['off'],
+      ignorePatterns: ['**/src/routeTree.gen.ts'],
+      overrides: [
+        {
+          files: ['src/routes/**/*.tsx'],
+          rules: {
+            'eslint/no-use-before-define': 'off',
+          },
         },
-        excludeFiles: [
-          'src/routeTree.gen.ts',
-        ],
-      }],
+      ],
     },
   ],
 })

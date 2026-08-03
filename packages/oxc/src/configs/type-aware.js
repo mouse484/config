@@ -9,7 +9,7 @@ export default createConfigs({
         typeCheck: true,
       },
       rules: {
-        'typescript/prefer-readonly-parameter-types': ['off'],
+        'typescript/prefer-readonly-parameter-types': 'off',
       },
     },
   ],

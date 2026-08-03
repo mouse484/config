@@ -1,6 +1,6 @@
 import type { OxlintConfig } from 'oxlint'
 import type { Options } from './configs'
 
-declare function lint(options?: Options): OxlintConfig
+declare function lint(options?: Options, config?: OxlintConfig): OxlintConfig
 
 export { lint }

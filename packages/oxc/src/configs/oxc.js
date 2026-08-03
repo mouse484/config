@@ -5,8 +5,8 @@ export default createConfigs({
   configs: [
     {
       rules: {
-        'oxc/no-async-await': ['off'],
-        'oxc/no-rest-spread-properties': ['off'],
+        'oxc/no-async-await': 'off',
+        'oxc/no-rest-spread-properties': 'off',
       },
     },
   ],
