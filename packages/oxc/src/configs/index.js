@@ -1,3 +1,4 @@
+import defu from 'defu'
 import eslint from './eslint.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
@@ -29,7 +30,7 @@ export default function buildConfigs(options) {
     }
     // @ts-expect-error - build configs with options
     // eslint-disable-next-line unicorn/prefer-minimal-ternary
-    return typeof option === 'object' ? build(option) : build(defaultOptions)
+    return typeof option === 'object' ? build(defu(option, defaultOptions)) : build(defaultOptions)
   })
 
   return configs
