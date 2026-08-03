@@ -1,8 +1,8 @@
 import { defineConfig } from 'oxlint'
-import configs from './configs/index.js'
+import buildConfigs from './configs'
 
-/** @param {import('.').Options} [options] */
-export function lint(options = {}) {
+/** @type {import('.').lint} */
+export function lint(options) {
   return defineConfig({
     categories: {
       correctness: 'error',
@@ -13,6 +13,7 @@ export function lint(options = {}) {
       restriction: 'warn',
       nursery: 'warn',
     },
-    extends: configs(options),
+    // @ts-expect-error - build configs with options
+    extends: [buildConfigs(options)],
   })
 }

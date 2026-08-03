@@ -1,13 +1,19 @@
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
-export default defineConfig({
-  overrides: [{
-    files: ['src/routes/**/*.tsx'],
-    rules: {
-      'eslint/no-use-before-define': ['off'],
+export default createConfigs({
+  defaultEnabled: false,
+  name: 'tanstackRouter',
+  configs: [
+    {
+      overrides: [{
+        files: ['src/routes/**/*.tsx'],
+        rules: {
+          'eslint/no-use-before-define': ['off'],
+        },
+        excludeFiles: [
+          'src/routeTree.gen.ts',
+        ],
+      }],
     },
-    ignorePatterns: [
-      'src/routeTree.gen.ts',
-    ],
-  }],
+  ],
 })

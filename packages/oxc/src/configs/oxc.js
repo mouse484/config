@@ -1,8 +1,13 @@
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
-export default defineConfig({
-  rules: {
-    'oxc/no-async-await': ['off'],
-    'oxc/no-rest-spread-properties': ['off'],
-  },
+export default createConfigs({
+  name: 'oxc',
+  configs: [
+    {
+      rules: {
+        'oxc/no-async-await': ['off'],
+        'oxc/no-rest-spread-properties': ['off'],
+      },
+    },
+  ],
 })

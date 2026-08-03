@@ -1,5 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin'
-import { defineConfig } from 'oxlint'
+import { createConfigs } from '../lib/factory.js'
 
 const { rules } = stylistic.configs.customize({
   indent: 2,
@@ -8,7 +8,12 @@ const { rules } = stylistic.configs.customize({
   jsx: true,
 })
 
-export default defineConfig({
-  jsPlugins: ['@stylistic/eslint-plugin'],
-  rules,
+export default createConfigs ({
+  name: 'stylistic',
+  configs: [
+    {
+      jsPlugins: ['@stylistic/eslint-plugin'],
+      rules,
+    },
+  ],
 })
