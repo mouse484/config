@@ -8,7 +8,7 @@ import tanstackRouter from './tanstack-router.js'
 import typeAware from './type-aware.js'
 import typescript from './typescript.js'
 
-const CONFIGS = /** @type {const} */ [
+const CONFIGS = /** @type {const} */[
   eslint,
   opinionated,
   oxc,
@@ -22,16 +22,14 @@ const CONFIGS = /** @type {const} */ [
 
 /** @type {import(".").buildConfigs} */
 export default function buildConfigs(options) {
-  const configs = CONFIGS.flatMap(({ name, build }) => {
+  const configs = CONFIGS.flatMap(({ name, build, defaultEnabled, options: defaultOptions }) => {
     const option = options[name]
-    if (option === false || option === undefined) {
+    if (option === false || (option === undefined && defaultEnabled === false)) {
       return []
     }
-
-    return typeof option === 'object'
     // @ts-expect-error - build configs with options
-      ? build(option)
-      : build()
+    // eslint-disable-next-line unicorn/prefer-minimal-ternary
+    return typeof option === 'object' ? build(option) : build(defaultOptions)
   })
 
   return configs
