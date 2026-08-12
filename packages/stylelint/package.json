@@ -20,7 +20,6 @@
     "stylelint-config-standard": "^40.0.0"
   },
   "devDependencies": {
-    "postcss-html": "^2.0.0",
     "stylelint": "17.14.1"
   },
   "publishConfig": {

@@ -15,6 +15,12 @@
     "lint:fix": "eslint --fix .",
     "lint:view": "npx @eslint/config-inspector"
   },
+  "allowScripts": {
+    "lefthook@2.1.10": true
+  },
+  "dependencies": {
+    "postcss-html": "^2.0.0"
+  },
   "devDependencies": {
     "@anolilab/multi-semantic-release": "4.4.6",
     "@mouse_484/eslint-config": "*",
@@ -28,8 +34,5 @@
     "ini": "7.0.0",
     "lefthook": "2.1.10",
     "semantic-release": "25.0.9"
-  },
-  "allowScripts": {
-    "lefthook@2.1.10": true
   }
 }
