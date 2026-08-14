@@ -1,4 +1,6 @@
-/** @type {import('./factory').createConfigs} */
+/**
+@type {import('./factory').createConfigs}
+ */
 export function createConfigs({ name, defaultEnabled, options, configs }) {
   return {
     name,

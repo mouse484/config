@@ -1,7 +1,9 @@
 import defu from 'defu'
 import buildConfigs from './configs/index.js'
 
-/** @type {import('.').lint} */
+/**
+@type {import('.').lint}
+ */
 export function lint(options, config = {}) {
   // @ts-expect-error - deep merge config with default config
   return defu(

@@ -20,7 +20,9 @@ function createConfig(name, withOptions, config) {
   }
 }
 
-/** @type {import('./factory').createConfigs} */
+/**
+@type {import('./factory').createConfigs}
+ */
 export function createConfigs({ name, baseWithOption, configs }) {
   return (options) => {
     return configs.flatMap((configItem) => {
