@@ -5,6 +5,7 @@ export default createConfigs({
   defaultEnabled: true,
   configs: [
     {
+      plugins: ['eslint'],
       rules: {
         'eslint/id-length': 'off',
         'eslint/func-style': ['error', 'declaration', { allowArrowFunctions: true }],

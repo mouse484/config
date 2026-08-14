@@ -1,11 +1,11 @@
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
-  name: 'jsdoc',
+  name: 'javascript',
   defaultEnabled: true,
   configs: [
     {
-      plugins: ['jsdoc'],
+      plugins: ['jsdoc', 'promise'],
     },
   ],
 })

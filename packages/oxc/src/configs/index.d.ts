@@ -60,20 +60,15 @@ export interface Options {
    */
   vitest?: boolean
   /**
-   * `promise` option
-   * @default true
-   */
-  promise?: boolean
-  /**
    * `node` option
    * @default false
    */
   node?: boolean
   /**
-   * `jsdoc` option
+   * `javascript` option
    * @default true
    */
-  jsdoc?: boolean
+  javascript?: boolean
   /**
    * `unicorn` option
    * @default true

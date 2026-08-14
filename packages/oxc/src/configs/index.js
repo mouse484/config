@@ -1,11 +1,10 @@
 import defu from 'defu'
 import eslint from './eslint.js'
-import jsdoc from './jsdoc.js'
+import javascript from './javascript.js'
 import node from './node.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
 import perfectionist from './perfectionist.js'
-import promise from './promise.js'
 import react from './react.js'
 import stylistic from './stylistic.js'
 import tailwind from './tailwind.js'
@@ -27,17 +26,18 @@ const CONFIGS = /** @type {const} */[
   typescript,
   react,
   vitest,
-  promise,
   node,
-  jsdoc,
+  javascript,
   unicorn,
 ]
 
-/** @type {import(".").buildConfigs} */
+/**
+@type {import(".").buildConfigs}
+ */
 export default function buildConfigs(options) {
   const configs = CONFIGS.flatMap(({ name, build, defaultEnabled, options: defaultOptions }) => {
     const option = options[name]
-    if (option === false || (option === undefined && defaultEnabled === false)) {
+    if (option === false || (option === undefined && !defaultEnabled)) {
       return []
     }
     // @ts-expect-error - build configs with options
