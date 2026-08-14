@@ -9,6 +9,7 @@ export default createConfigs({
       rules: {
         'typescript/explicit-function-return-type': 'off',
         'typescript/explicit-module-boundary-types': 'off',
+        'eslint/no-undef': 'off',
       },
     },
   ],

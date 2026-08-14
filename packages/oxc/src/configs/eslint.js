@@ -15,11 +15,7 @@ export default createConfigs({
         'eslint/no-nested-ternary': 'error',
         'eslint/no-unneeded-ternary': 'error',
         'eslint/no-void': ['error', { allowAsStatement: true }],
-        /**
-         * Prefer `perfectionist` plugin for sorting
-         */
-        'eslint/sort-imports': 'off',
-        'eslint/sort-keys': 'off',
+        'eslint/one-var': 'off',
       },
     },
   ],

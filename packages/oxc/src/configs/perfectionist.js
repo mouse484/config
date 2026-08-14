@@ -11,5 +11,11 @@ export default createConfigs({
         ...perfectionist.configs['recommended-natural'].rules,
       },
     },
+    {
+      rules: {
+        'eslint/sort-imports': 'off',
+        'eslint/sort-keys': 'off',
+      },
+    },
   ],
 })
