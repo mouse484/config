@@ -56,7 +56,7 @@ export interface Options {
   react?: boolean
   /**
    * `vitest` option
-   * @default true
+   * @default false
    */
   vitest?: boolean
   /**
@@ -66,7 +66,7 @@ export interface Options {
   promise?: boolean
   /**
    * `node` option
-   * @default true
+   * @default false
    */
   node?: boolean
   /**

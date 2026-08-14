@@ -6,12 +6,12 @@ declare function createConfigs<
 >(
   parameters: {
     name: TName
-    defaultEnabled?: boolean
+    defaultEnabled: boolean
     options?: TOptions
     configs: OxlintConfig[] | ((options: TOptions) => OxlintConfig[])
   }): {
   name: TName
-  defaultEnabled?: boolean
+  defaultEnabled: boolean
   options?: TOptions
   build: (options?: TOptions) => OxlintConfig[]
 }

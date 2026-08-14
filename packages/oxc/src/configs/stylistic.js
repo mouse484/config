@@ -10,6 +10,7 @@ const { rules } = stylistic.configs.customize({
 
 export default createConfigs ({
   name: 'stylistic',
+  defaultEnabled: true,
   configs: [
     {
       jsPlugins: ['@stylistic/eslint-plugin'],

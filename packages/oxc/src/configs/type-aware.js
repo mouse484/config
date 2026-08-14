@@ -2,6 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'typeAware',
+  defaultEnabled: true,
   configs: [
     {
       options: {
