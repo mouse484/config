@@ -1,13 +1,19 @@
 import defu from 'defu'
 import eslint from './eslint.js'
+import jsdoc from './jsdoc.js'
+import node from './node.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
 import perfectionist from './perfectionist.js'
+import promise from './promise.js'
+import react from './react.js'
 import stylistic from './stylistic.js'
 import tailwind from './tailwind.js'
 import tanstackRouter from './tanstack-router.js'
 import typeAware from './type-aware.js'
 import typescript from './typescript.js'
+import unicorn from './unicorn.js'
+import vitest from './vitest.js'
 
 const CONFIGS = /** @type {const} */[
   eslint,
@@ -19,6 +25,12 @@ const CONFIGS = /** @type {const} */[
   tanstackRouter,
   typeAware,
   typescript,
+  react,
+  vitest,
+  promise,
+  node,
+  jsdoc,
+  unicorn,
 ]
 
 /** @type {import(".").buildConfigs} */
@@ -33,5 +45,16 @@ export default function buildConfigs(options) {
     return typeof option === 'object' ? build(defu(option, defaultOptions)) : build(defaultOptions)
   })
 
-  return configs
+  const plugins = [...new Set(configs.flatMap(config => config.plugins ?? []))]
+  if (plugins.length === 0) {
+    return configs
+  }
+  return configs.map((config, index) => {
+    if (index === 0) {
+      return { ...config, plugins }
+    }
+    const rest = { ...config }
+    delete rest.plugins
+    return rest
+  })
 }

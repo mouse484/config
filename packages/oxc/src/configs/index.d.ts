@@ -49,4 +49,34 @@ export interface Options {
    * @default true
    */
   typescript?: boolean
+  /**
+   * `react` option
+   * @default true
+   */
+  react?: boolean
+  /**
+   * `vitest` option
+   * @default true
+   */
+  vitest?: boolean
+  /**
+   * `promise` option
+   * @default true
+   */
+  promise?: boolean
+  /**
+   * `node` option
+   * @default true
+   */
+  node?: boolean
+  /**
+   * `jsdoc` option
+   * @default true
+   */
+  jsdoc?: boolean
+  /**
+   * `unicorn` option
+   * @default true
+   */
+  unicorn?: boolean
 }
