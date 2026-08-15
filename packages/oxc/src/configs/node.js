@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'node',
-  enable: false,
+  enable: ({ isPackageExists }) => isPackageExists('@types/node'),
   configs: [
     {
       plugins: ['node'],

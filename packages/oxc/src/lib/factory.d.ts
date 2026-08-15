@@ -1,14 +1,14 @@
 import type { OxlintConfig } from 'oxlint'
 import type { Options } from '../configs'
 
-interface EnableContext {
+interface EnableContext<TOptions = Options> {
   isPackageExists: (name: string) => boolean
-  options: Options
+  options: TOptions
 }
 
 type Enable = boolean | ((context: EnableContext) => boolean)
 
-type ConfigItem<TOptions> = OxlintConfig | undefined | ((context: EnableContext & { options: TOptions }) => OxlintConfig | undefined)
+type ConfigItem<TOptions> = OxlintConfig | undefined | ((context: EnableContext<TOptions>) => OxlintConfig | undefined)
 
 declare function createConfigs<
   TName extends string,

@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'react',
-  enable: true,
+  enable: ({ isPackageExists }) => isPackageExists('react'),
   configs: [
     {
       plugins: ['react'],

@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'typescript',
-  enable: true,
+  enable: ({ isPackageExists }) => isPackageExists('typescript'),
   options: {
     typeAware: true,
   },

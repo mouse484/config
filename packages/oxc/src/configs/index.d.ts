@@ -30,7 +30,7 @@ export interface Options {
   stylistic?: boolean
   /**
    * `tailwind` option
-   * @default false
+   * @default auto
    * @options {
    *     entryPoint: 'src/global.css',
    *   }
@@ -38,12 +38,12 @@ export interface Options {
   tailwind?: boolean | { entryPoint: string } | undefined
   /**
    * `tanstack` option
-   * @default false
+   * @default true
    */
   tanstack?: boolean
   /**
    * `typescript` option
-   * @default true
+   * @default auto
    * @options {
    *     typeAware: true,
    *   }
@@ -51,17 +51,17 @@ export interface Options {
   typescript?: boolean | { typeAware: boolean } | undefined
   /**
    * `react` option
-   * @default true
+   * @default auto
    */
   react?: boolean
   /**
    * `vitest` option
-   * @default false
+   * @default auto
    */
   vitest?: boolean
   /**
    * `node` option
-   * @default false
+   * @default auto
    */
   node?: boolean
   /**
