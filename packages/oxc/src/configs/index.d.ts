@@ -1,4 +1,6 @@
-export declare function buildConfigs(options: Options): OxlintConfig[]
+import type { OxlintConfig } from 'oxlint'
+
+export default function buildConfigs(options: Options): OxlintConfig[]
 
 export interface Options {
   /**
@@ -17,10 +19,10 @@ export interface Options {
    */
   oxc?: boolean
   /**
-   * `perfectionist` option
+   * `import` option
    * @default true
    */
-  perfectionist?: boolean
+  import?: boolean
   /**
    * `stylistic` option
    * @default true
@@ -28,25 +30,48 @@ export interface Options {
   stylistic?: boolean
   /**
    * `tailwind` option
-   * @default false
+   * @default auto
    * @options {
    *     entryPoint: 'src/global.css',
    *   }
    */
   tailwind?: boolean | { entryPoint: string } | undefined
   /**
-   * `tanstackRouter` option
-   * @default false
-   */
-  tanstackRouter?: boolean
-  /**
-   * `typeAware` option
+   * `tanstack` option
    * @default true
    */
-  typeAware?: boolean
+  tanstack?: boolean
   /**
    * `typescript` option
+   * @default auto
+   * @options {
+   *     typeAware: true,
+   *   }
+   */
+  typescript?: boolean | { typeAware: boolean } | undefined
+  /**
+   * `react` option
+   * @default auto
+   */
+  react?: boolean
+  /**
+   * `vitest` option
+   * @default auto
+   */
+  vitest?: boolean
+  /**
+   * `node` option
+   * @default auto
+   */
+  node?: boolean
+  /**
+   * `javascript` option
    * @default true
    */
-  typescript?: boolean
+  javascript?: boolean
+  /**
+   * `unicorn` option
+   * @default true
+   */
+  unicorn?: boolean
 }

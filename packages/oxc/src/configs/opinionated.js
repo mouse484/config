@@ -2,6 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'opinionated',
+  enable: true,
   configs: [
     {
       jsPlugins: ['eslint-plugin-antfu'],

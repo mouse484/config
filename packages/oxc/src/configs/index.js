@@ -1,37 +1,52 @@
-import defu from 'defu'
+import { isPackageExists } from 'local-pkg'
 import eslint from './eslint.js'
+import importConfig from './import.js'
+import javascript from './javascript.js'
+import node from './node.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
-import perfectionist from './perfectionist.js'
+import react from './react.js'
 import stylistic from './stylistic.js'
 import tailwind from './tailwind.js'
-import tanstackRouter from './tanstack-router.js'
-import typeAware from './type-aware.js'
+import tanstack from './tanstack.js'
 import typescript from './typescript.js'
+import unicorn from './unicorn.js'
+import vitest from './vitest.js'
 
 const CONFIGS = /** @type {const} */[
   eslint,
   opinionated,
   oxc,
-  perfectionist,
+  importConfig,
   stylistic,
   tailwind,
-  tanstackRouter,
-  typeAware,
+  tanstack,
   typescript,
+  react,
+  vitest,
+  node,
+  javascript,
+  unicorn,
 ]
 
-/** @type {import(".").buildConfigs} */
+/**
+@param {import(".").Options} options
+@returns {import("oxlint").OxlintConfig[]} Generated configs for the enabled options
+ */
 export default function buildConfigs(options) {
-  const configs = CONFIGS.flatMap(({ name, build, defaultEnabled, options: defaultOptions }) => {
+  const context = { isPackageExists, options }
+  return CONFIGS.flatMap(({ name, build, enable = true }) => {
     const option = options[name]
-    if (option === false || (option === undefined && defaultEnabled === false)) {
+    if (option === false) {
       return []
     }
+    if (option === undefined) {
+      const isEnabled = typeof enable === 'function' ? enable(context) : enable
+      if (!isEnabled) {
+        return []
+      }
+    }
     // @ts-expect-error - build configs with options
-    // eslint-disable-next-line unicorn/prefer-minimal-ternary
-    return typeof option === 'object' ? build(defu(option, defaultOptions)) : build(defaultOptions)
+    return build(context, typeof option === 'object' ? option : undefined)
   })
-
-  return configs
 }

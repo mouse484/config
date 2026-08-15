@@ -8,7 +8,9 @@ import tailwind from './configs/tailwind.js'
 import typescript from './configs/typescript.js'
 import unicorn from './configs/unicorn.js'
 
-/** @type {import('.').mouse} */
+/**
+@type {import('.').mouse}
+ */
 export default async function mouse(options, ...userConfigs) {
   options = {
     unicorn: {
@@ -47,7 +49,9 @@ export default async function mouse(options, ...userConfigs) {
     && 'allowJS' in options.typescript
     && options.typescript.allowJS
   ) {
-    /** @type {import("eslint").Linter.Config} */
+    /**
+    @type {import("eslint").Linter.Config}
+     */
     const overrideTypeScriptAllowJS = { files: [GLOB_JS, GLOB_JSX] }
 
     await composer.override('antfu/typescript/parser', overrideTypeScriptAllowJS)

@@ -3,12 +3,12 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'tailwind',
-  defaultEnabled: false,
+  enable: ({ isPackageExists }) => isPackageExists('tailwindcss'),
   options: {
     entryPoint: 'src/global.css',
   },
-  configs: ({ entryPoint }) => ([
-    {
+  configs: [
+    ({ options: { entryPoint } }) => ({
       jsPlugins: [
         'eslint-plugin-better-tailwindcss',
       ],
@@ -23,6 +23,6 @@ export default createConfigs({
           entryPoint,
         },
       },
-    },
-  ]),
+    }),
+  ],
 })

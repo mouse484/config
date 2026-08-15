@@ -1,4 +1,14 @@
 import type { OxlintConfig } from 'oxlint'
+import type { Options } from '../configs'
+
+interface EnableContext<TOptions = Options> {
+  isPackageExists: (name: string) => boolean
+  options: TOptions
+}
+
+type Enable = boolean | ((context: EnableContext) => boolean)
+
+type ConfigItem<TOptions> = OxlintConfig | undefined | ((context: EnableContext<TOptions>) => OxlintConfig | undefined)
 
 declare function createConfigs<
   TName extends string,
@@ -6,14 +16,15 @@ declare function createConfigs<
 >(
   parameters: {
     name: TName
-    defaultEnabled?: boolean
+    enable?: Enable
     options?: TOptions
-    configs: OxlintConfig[] | ((options: TOptions) => OxlintConfig[])
+    configs: ConfigItem<TOptions>[]
   }): {
   name: TName
-  defaultEnabled?: boolean
+  enable?: Enable
   options?: TOptions
-  build: (options?: TOptions) => OxlintConfig[]
+  build: (context: EnableContext, options?: TOptions) => OxlintConfig[]
 }
 
 export { createConfigs }
+export type { ConfigItem, Enable, EnableContext }

@@ -1,18 +1,17 @@
-/** @type {import('./factory').createConfigs} */
-export function createConfigs({ name, defaultEnabled, options, configs }) {
+/**
+@type {import('./factory').createConfigs}
+ */
+export function createConfigs({ name, enable = true, options, configs }) {
   return {
     name,
-    defaultEnabled,
+    enable,
     options,
-    build: (overriddenOptions) => {
-      if (typeof configs === 'function') {
-        // @ts-expect-error - build configs
-        return configs({
-          ...options,
-          ...overriddenOptions,
-        })
-      }
-      return configs
+    build: (context, overriddenOptions) => {
+      const local = { ...context, options: { ...options, ...overriddenOptions } }
+      return configs.flatMap((item) => {
+        const config = typeof item === 'function' ? item(local) : item
+        return config ? [config] : []
+      })
     },
   }
 }
