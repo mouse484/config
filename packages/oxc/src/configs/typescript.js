@@ -6,7 +6,7 @@ export default createConfigs({
   options: {
     typeAware: true,
   },
-  configs: ({ typeAware }) => [
+  configs: [
     {
       plugins: ['typescript'],
       rules: {
@@ -15,7 +15,7 @@ export default createConfigs({
         'eslint/no-undef': 'off',
       },
     },
-    typeAware
+    ({ options: { typeAware } }) => typeAware
       ? {
           options: {
             typeAware: true,

@@ -8,7 +8,7 @@ interface EnableContext {
 
 type Enable = boolean | ((context: EnableContext) => boolean)
 
-type ConfigItem = OxlintConfig | undefined | ((context: EnableContext) => OxlintConfig | undefined)
+type ConfigItem<TOptions> = OxlintConfig | undefined | ((context: EnableContext & { options: TOptions }) => OxlintConfig | undefined)
 
 declare function createConfigs<
   TName extends string,
@@ -18,7 +18,7 @@ declare function createConfigs<
     name: TName
     enable?: Enable
     options?: TOptions
-    configs: ConfigItem[] | ((options: TOptions) => ConfigItem[])
+    configs: ConfigItem<TOptions>[]
   }): {
   name: TName
   enable?: Enable

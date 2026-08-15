@@ -7,8 +7,8 @@ export default createConfigs({
   options: {
     entryPoint: 'src/global.css',
   },
-  configs: ({ entryPoint }) => ([
-    {
+  configs: [
+    ({ options: { entryPoint } }) => ({
       jsPlugins: [
         'eslint-plugin-better-tailwindcss',
       ],
@@ -23,6 +23,6 @@ export default createConfigs({
           entryPoint,
         },
       },
-    },
-  ]),
+    }),
+  ],
 })
