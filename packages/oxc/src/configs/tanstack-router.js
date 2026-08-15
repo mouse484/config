@@ -1,7 +1,7 @@
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
-  defaultEnabled: false,
+  enable: false,
   name: 'tanstackRouter',
   configs: [
     {

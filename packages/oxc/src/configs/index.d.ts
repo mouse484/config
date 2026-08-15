@@ -1,4 +1,6 @@
-export declare function buildConfigs(options: Options): OxlintConfig[]
+import type { OxlintConfig } from 'oxlint'
+
+export default function buildConfigs(options: Options): OxlintConfig[]
 
 export interface Options {
   /**

@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'oxc',
-  defaultEnabled: true,
+  enable: true,
   configs: [
     {
       plugins: ['oxc'],

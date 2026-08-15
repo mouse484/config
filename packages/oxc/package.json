@@ -19,10 +19,10 @@
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
-    "defu": "^6.1.7",
     "eslint-plugin-antfu": "^3.2.3",
     "eslint-plugin-better-tailwindcss": "^4.7.0",
     "eslint-plugin-perfectionist": "^5.10.1",
+    "local-pkg": "^1.2.1",
     "oxlint": "^1.78.0",
     "oxlint-tsgolint": "^7.0.2001"
   },

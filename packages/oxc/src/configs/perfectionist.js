@@ -3,7 +3,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'perfectionist',
-  defaultEnabled: true,
+  enable: true,
   configs: [
     {
       jsPlugins: ['eslint-plugin-perfectionist'],

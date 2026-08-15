@@ -34,7 +34,7 @@ function getConfigLiteral(/** @type {string} */ importedName) {
     return {}
   }
   return {
-    defaultEnabled: literal.getProperty('defaultEnabled')
+    enable: literal.getProperty('enable')
       ?.asKind(ts.SyntaxKind.PropertyAssignment)
       ?.getInitializer()
       ?.getText(),
@@ -62,9 +62,15 @@ dtsFile.addInterface({
       const options = node.getProperty('options')
         ?.getTypeAtLocation(variable)
         .getConstraint()
-      const { defaultEnabled, options: defaultOptions } = getConfigLiteral(name)
+      const { enable, options: defaultOptions } = getConfigLiteral(name)
+      let defaultText = 'auto'
+      if (enable === undefined) {
+        defaultText = 'true'
+      } else if (enable === 'true' || enable === 'false') {
+        defaultText = enable
+      }
       const tags = [
-        { tagName: 'default', text: defaultEnabled ?? 'true' },
+        { tagName: 'default', text: defaultText },
       ]
       if (defaultOptions !== undefined) {
         tags.push({ tagName: 'options', text: defaultOptions })

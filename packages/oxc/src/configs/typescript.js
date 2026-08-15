@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'typescript',
-  defaultEnabled: true,
+  enable: true,
   configs: [
     {
       plugins: ['typescript'],

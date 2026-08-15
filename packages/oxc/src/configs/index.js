@@ -1,4 +1,4 @@
-import defu from 'defu'
+import { isPackageExists } from 'local-pkg'
 import eslint from './eslint.js'
 import javascript from './javascript.js'
 import node from './node.js'
@@ -32,29 +32,23 @@ const CONFIGS = /** @type {const} */[
 ]
 
 /**
-@type {import(".").buildConfigs}
+@param {import(".").Options} options
+@returns {import("oxlint").OxlintConfig[]} Generated configs for the enabled options
  */
 export default function buildConfigs(options) {
-  const configs = CONFIGS.flatMap(({ name, build, defaultEnabled, options: defaultOptions }) => {
+  const context = { isPackageExists, options }
+  return CONFIGS.flatMap(({ name, build, enable = true }) => {
     const option = options[name]
-    if (option === false || (option === undefined && !defaultEnabled)) {
+    if (option === false) {
       return []
     }
-    // @ts-expect-error - build configs with options
-    // eslint-disable-next-line unicorn/prefer-minimal-ternary
-    return typeof option === 'object' ? build(defu(option, defaultOptions)) : build(defaultOptions)
-  })
-
-  const plugins = [...new Set(configs.flatMap(config => config.plugins ?? []))]
-  if (plugins.length === 0) {
-    return configs
-  }
-  return configs.map((config, index) => {
-    if (index === 0) {
-      return { ...config, plugins }
+    if (option === undefined) {
+      const isEnabled = typeof enable === 'function' ? enable(context) : enable
+      if (!isEnabled) {
+        return []
+      }
     }
-    const rest = { ...config }
-    delete rest.plugins
-    return rest
+    // @ts-expect-error - build configs with options
+    return build(context, typeof option === 'object' ? option : undefined)
   })
 }

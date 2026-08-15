@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'node',
-  defaultEnabled: false,
+  enable: false,
   configs: [
     {
       plugins: ['node'],

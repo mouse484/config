@@ -3,7 +3,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'tailwind',
-  defaultEnabled: false,
+  enable: false,
   options: {
     entryPoint: 'src/global.css',
   },
