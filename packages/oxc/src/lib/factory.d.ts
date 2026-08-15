@@ -8,7 +8,7 @@ interface EnableContext {
 
 type Enable = boolean | ((context: EnableContext) => boolean)
 
-type ConfigItem = OxlintConfig | ((context: EnableContext) => OxlintConfig | undefined)
+type ConfigItem = OxlintConfig | undefined | ((context: EnableContext) => OxlintConfig | undefined)
 
 declare function createConfigs<
   TName extends string,

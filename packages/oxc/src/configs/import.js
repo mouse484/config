@@ -2,7 +2,7 @@ import perfectionist from 'eslint-plugin-perfectionist'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
-  name: 'perfectionist',
+  name: 'import',
   enable: true,
   configs: [
     {

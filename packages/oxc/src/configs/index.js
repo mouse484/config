@@ -1,15 +1,14 @@
 import { isPackageExists } from 'local-pkg'
 import eslint from './eslint.js'
+import importConfig from './import.js'
 import javascript from './javascript.js'
 import node from './node.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
-import perfectionist from './perfectionist.js'
 import react from './react.js'
 import stylistic from './stylistic.js'
 import tailwind from './tailwind.js'
-import tanstackRouter from './tanstack-router.js'
-import typeAware from './type-aware.js'
+import tanstack from './tanstack.js'
 import typescript from './typescript.js'
 import unicorn from './unicorn.js'
 import vitest from './vitest.js'
@@ -18,11 +17,10 @@ const CONFIGS = /** @type {const} */[
   eslint,
   opinionated,
   oxc,
-  perfectionist,
+  importConfig,
   stylistic,
   tailwind,
-  tanstackRouter,
-  typeAware,
+  tanstack,
   typescript,
   react,
   vitest,

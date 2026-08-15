@@ -2,7 +2,7 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   enable: false,
-  name: 'tanstackRouter',
+  name: 'tanstack',
   configs: [
     {
       ignorePatterns: ['**/src/routeTree.gen.ts'],

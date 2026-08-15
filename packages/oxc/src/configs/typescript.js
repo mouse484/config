@@ -3,7 +3,10 @@ import { createConfigs } from '../lib/factory.js'
 export default createConfigs({
   name: 'typescript',
   enable: true,
-  configs: [
+  options: {
+    typeAware: true,
+  },
+  configs: ({ typeAware }) => [
     {
       plugins: ['typescript'],
       rules: {
@@ -12,5 +15,16 @@ export default createConfigs({
         'eslint/no-undef': 'off',
       },
     },
+    typeAware
+      ? {
+          options: {
+            typeAware: true,
+            typeCheck: true,
+          },
+          rules: {
+            'typescript/prefer-readonly-parameter-types': 'off',
+          },
+        }
+      : undefined,
   ],
 })

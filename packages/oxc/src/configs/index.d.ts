@@ -19,10 +19,10 @@ export interface Options {
    */
   oxc?: boolean
   /**
-   * `perfectionist` option
+   * `import` option
    * @default true
    */
-  perfectionist?: boolean
+  import?: boolean
   /**
    * `stylistic` option
    * @default true
@@ -37,20 +37,18 @@ export interface Options {
    */
   tailwind?: boolean | { entryPoint: string } | undefined
   /**
-   * `tanstackRouter` option
+   * `tanstack` option
    * @default false
    */
-  tanstackRouter?: boolean
-  /**
-   * `typeAware` option
-   * @default true
-   */
-  typeAware?: boolean
+  tanstack?: boolean
   /**
    * `typescript` option
    * @default true
+   * @options {
+   *     typeAware: true,
+   *   }
    */
-  typescript?: boolean
+  typescript?: boolean | { typeAware: boolean } | undefined
   /**
    * `react` option
    * @default true

@@ -14,11 +14,8 @@ export function createConfigs({ name, enable = true, options, configs }) {
           })
         : configs
       return built.flatMap((item) => {
-        if (typeof item === 'function') {
-          const config = item(context)
-          return config ? [config] : []
-        }
-        return [item]
+        const config = typeof item === 'function' ? item(context) : item
+        return config ? [config] : []
       })
     },
   }
