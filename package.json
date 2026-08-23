@@ -22,7 +22,7 @@
     "postcss-html": "^2.0.0"
   },
   "devDependencies": {
-    "@anolilab/multi-semantic-release": "4.4.8",
+    "@anolilab/multi-semantic-release": "4.4.9",
     "@mouse_484/eslint-config": "*",
     "@semantic-release/changelog": "7.0.0",
     "@semantic-release/commit-analyzer": "13.0.1",
