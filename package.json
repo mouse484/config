@@ -32,7 +32,7 @@
     "@types/node": "24.13.3",
     "eslint": "10.9.1",
     "ini": "7.0.0",
-    "lefthook": "2.1.10",
+    "lefthook": "2.1.12",
     "semantic-release": "25.0.9"
   }
 }
