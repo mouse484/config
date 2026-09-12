@@ -23,6 +23,7 @@ export default createConfigs({
           },
           rules: {
             'typescript/prefer-readonly-parameter-types': 'off',
+            'eslint/require-await': 'off',
           },
         }
       : undefined,
