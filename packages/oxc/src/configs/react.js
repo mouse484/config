@@ -11,6 +11,7 @@ export default createConfigs({
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-max-depth': ['error', { max: 5 }],
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+        'react/jsx-no-literals': 'off',
       },
     },
     {
