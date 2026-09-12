@@ -20,7 +20,9 @@ const HOISTED_KEYS = [...OBJECT_KEYS, ...ARRAY_KEYS, 'categories']
 export function lint(options, config = {}) {
   const all = [...buildConfigs(options), config]
 
-  /** @type {Record<string, any>} */
+  /**
+  @type {Record<string, any>}
+   */
   const root = {
     categories: { ...DEFAULT_CATEGORIES, ...config.categories },
   }
