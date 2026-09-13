@@ -6,6 +6,9 @@ export default createConfigs({
   configs: [
     {
       plugins: ['jsdoc', 'promise'],
+      rules: {
+        'promise/prefer-await-to-callbacks': 'off',
+      },
     },
   ],
 })
