@@ -12,6 +12,7 @@ export default createConfigs({
         'react/jsx-max-depth': ['error', { max: 5 }],
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
         'react/jsx-no-literals': 'off',
+        'react/forbid-component-props': ['error', { forbid: ['style'] }],
       },
     },
     {
