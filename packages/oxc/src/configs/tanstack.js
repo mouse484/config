@@ -11,7 +11,7 @@ export default createConfigs({
             {
               files: ['src/routes/**/*.tsx'],
               rules: {
-                'eslint/no-use-before-define': 'off',
+                'no-use-before-define': ['error', { functions: false }],
                 'react/only-export-components': ['error', { customHOCs: ['createRootRoute', 'createFileRoute'] }],
               },
             },
