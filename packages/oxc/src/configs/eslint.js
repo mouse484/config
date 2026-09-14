@@ -16,6 +16,7 @@ export default createConfigs({
         'no-unneeded-ternary': 'error',
         'no-void': ['error', { allowAsStatement: true }],
         'one-var': 'off',
+        'no-warning-comments': 'off',
       },
     },
   ],

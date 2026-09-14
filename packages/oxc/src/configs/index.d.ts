@@ -30,7 +30,7 @@ export interface Options {
   stylistic?: boolean
   /**
    * `tailwind` option
-   * @default auto
+   * @default false
    * @options {
    *     entryPoint: 'src/global.css',
    *   }
