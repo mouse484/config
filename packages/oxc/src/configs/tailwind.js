@@ -3,7 +3,8 @@ import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
   name: 'tailwind',
-  enable: ({ isPackageExists }) => isPackageExists('tailwindcss'),
+  enable: false,
+  // enable: ({ isPackageExists }) => isPackageExists('tailwindcss'),
   options: {
     entryPoint: 'src/global.css',
   },
