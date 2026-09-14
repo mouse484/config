@@ -19,7 +19,6 @@ export default createConfigs({
       ? {
           options: {
             typeAware: true,
-            typeCheck: true,
           },
           rules: {
             'typescript/prefer-readonly-parameter-types': 'off',
