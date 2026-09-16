@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^9.5.1",
-    "baseline-browser-mapping": "^2.11.22",
+    "baseline-browser-mapping": "^2.11.23",
     "eslint-plugin-better-tailwindcss": "^4.7.0",
     "package-manager-detector": "^1.8.0"
   },
