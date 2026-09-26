@@ -23,7 +23,7 @@
     "eslint-plugin-better-tailwindcss": "^4.7.0",
     "eslint-plugin-perfectionist": "^5.12.0",
     "local-pkg": "^1.2.1",
-    "oxlint": "^1.83.0",
+    "oxlint": "^1.85.0",
     "oxlint-tsgolint": "^7.0.2002"
   },
   "publishConfig": {
