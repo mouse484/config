@@ -24,7 +24,7 @@
     "eslint-plugin-perfectionist": "^5.12.1",
     "local-pkg": "^1.2.1",
     "oxlint": "^1.85.0",
-    "oxlint-tsgolint": "^7.0.2002"
+    "oxlint-tsgolint": "^7.0.2003"
   },
   "publishConfig": {
     "access": "public"
