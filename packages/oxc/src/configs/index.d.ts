@@ -24,19 +24,6 @@ export interface Options {
    */
   import?: boolean
   /**
-   * `stylistic` option
-   * @default true
-   */
-  stylistic?: boolean
-  /**
-   * `tailwind` option
-   * @default false
-   * @options {
-   *     entryPoint: 'src/global.css',
-   *   }
-   */
-  tailwind?: boolean | { entryPoint: string } | undefined
-  /**
    * `tanstack` option
    * @default true
    */
