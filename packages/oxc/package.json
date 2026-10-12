@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "eslint-plugin-antfu": "^3.2.3",
-    "eslint-plugin-better-tailwindcss": "^4.9.0",
     "eslint-plugin-perfectionist": "^5.12.1",
     "local-pkg": "^1.2.1",
     "oxfmt": "^0.72.0",

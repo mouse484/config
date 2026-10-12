@@ -6,7 +6,6 @@ import node from './node.js'
 import opinionated from './opinionated.js'
 import oxc from './oxc.js'
 import react from './react.js'
-import tailwind from './tailwind.js'
 import tanstack from './tanstack.js'
 import typescript from './typescript.js'
 import unicorn from './unicorn.js'
@@ -17,7 +16,6 @@ const CONFIGS = /** @type {const} */[
   opinionated,
   oxc,
   importConfig,
-  tailwind,
   tanstack,
   typescript,
   react,
