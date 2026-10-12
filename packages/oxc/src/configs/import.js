@@ -1,4 +1,3 @@
-import perfectionist from 'eslint-plugin-perfectionist'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -8,7 +7,11 @@ export default createConfigs({
     {
       jsPlugins: ['eslint-plugin-perfectionist'],
       rules: {
-        ...perfectionist.configs['recommended-natural'].rules,
+        // `sort-imports` is handled by oxfmt (`sortImports`)
+        'perfectionist/sort-imports': 'off',
+        'perfectionist/sort-named-imports': ['error', { type: 'natural', order: 'asc' }],
+        'perfectionist/sort-named-exports': ['error', { type: 'natural', order: 'asc' }],
+        'perfectionist/sort-exports': ['error', { type: 'natural', order: 'asc' }],
       },
     },
     {
