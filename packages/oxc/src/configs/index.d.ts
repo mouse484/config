@@ -24,11 +24,6 @@ export interface Options {
    */
   import?: boolean
   /**
-   * `stylistic` option
-   * @default true
-   */
-  stylistic?: boolean
-  /**
    * `tailwind` option
    * @default false
    * @options {
