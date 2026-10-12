@@ -2,6 +2,7 @@ const DEFAULT_FORMAT = /** @type {import('oxfmt').OxfmtConfig} */ ({
   printWidth: 120,
   semi: false,
   singleQuote: true,
+  sortImports: true,
   tabWidth: 2,
   trailingComma: 'all',
 })
