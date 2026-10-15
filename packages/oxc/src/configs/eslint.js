@@ -17,6 +17,7 @@ export default createConfigs({
         'no-void': ['error', { allowAsStatement: true }],
         'one-var': 'off',
         'no-warning-comments': 'off',
+        'capitalized-comments': 'off',
       },
     },
   ],
