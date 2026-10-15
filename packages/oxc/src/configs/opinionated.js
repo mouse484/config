@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -5,7 +6,10 @@ export default createConfigs({
   enable: true,
   configs: [
     {
-      jsPlugins: ['eslint-plugin-antfu'],
+      jsPlugins: [{
+        name: 'antfu',
+        specifier: fileURLToPath(import.meta.resolve('eslint-plugin-antfu')),
+      }],
       rules: {
         'antfu/top-level-function': 'error',
         'antfu/consistent-chaining': 'error',

@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { createConfigs } from '../lib/factory.js'
 
 export default createConfigs({
@@ -5,7 +6,10 @@ export default createConfigs({
   enable: true,
   configs: [
     {
-      jsPlugins: ['eslint-plugin-perfectionist'],
+      jsPlugins: [{
+        name: 'perfectionist',
+        specifier: fileURLToPath(import.meta.resolve('eslint-plugin-perfectionist')),
+      }],
       rules: {
         // `sort-imports` is handled by oxfmt (`sortImports`)
         'perfectionist/sort-imports': 'off',
