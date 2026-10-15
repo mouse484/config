@@ -16,7 +16,7 @@ export default createConfigs({
       },
     },
     {
-      plugins: ['jsx-a11y'],
+      plugins: ['jsx-a11y', 'react-perf'],
     },
   ],
 })
