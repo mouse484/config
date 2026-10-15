@@ -5,7 +5,10 @@ export default createConfigs({
   enable: true,
   configs: [
     {
-      jsPlugins: ['eslint-plugin-antfu'],
+      jsPlugins: [{
+        name: 'antfu',
+        specifier: import.meta.resolve('eslint-plugin-antfu'),
+      }],
       rules: {
         'antfu/top-level-function': 'error',
         'antfu/consistent-chaining': 'error',

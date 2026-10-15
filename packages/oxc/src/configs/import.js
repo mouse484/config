@@ -5,7 +5,10 @@ export default createConfigs({
   enable: true,
   configs: [
     {
-      jsPlugins: ['eslint-plugin-perfectionist'],
+      jsPlugins: [{
+        name: 'perfectionist',
+        specifier: import.meta.resolve('eslint-plugin-perfectionist'),
+      }],
       rules: {
         // `sort-imports` is handled by oxfmt (`sortImports`)
         'perfectionist/sort-imports': 'off',
