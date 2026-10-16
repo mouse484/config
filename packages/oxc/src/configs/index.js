@@ -1,4 +1,4 @@
-import { isPackageExists } from 'local-pkg'
+import { createPackageDetector } from '../lib/packages.js'
 import eslint from './eslint.js'
 import importConfig from './import.js'
 import javascript from './javascript.js'
@@ -30,7 +30,7 @@ const CONFIGS = /** @type {const} */[
 @returns {import("oxlint").OxlintConfig[]} Generated configs for the enabled options
  */
 export default function buildConfigs(options) {
-  const context = { isPackageExists, options }
+  const context = { isPackageExists: createPackageDetector(), options }
   return CONFIGS.flatMap(({ name, build, enable = true }) => {
     const option = options[name]
     if (option === false) {
