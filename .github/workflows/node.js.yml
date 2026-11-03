@@ -13,10 +13,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [22.x, 24.x, 26.x]
+        include:
+          - node-version: 24.x
+            experimental: false
+          - node-version: 26.x
+            experimental: false
+          # Test the current Node 27 alpha without blocking merges.
+          - node-version: 27.0.0-alpha.0.0.0
+            experimental: true
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
