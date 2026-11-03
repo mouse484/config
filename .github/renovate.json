@@ -1,3 +1,10 @@
 {
-  "extends": ["github>mouse484/config//packages/renovate/default"]
+  "extends": ["github>mouse484/config//packages/renovate/default"],
+  "packageRules": [
+    {
+      "description": "Keep Node.js types aligned with the minimum supported major",
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "<25"
+    }
+  ]
 }
