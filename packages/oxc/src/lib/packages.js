@@ -6,7 +6,11 @@ import { createResolver } from 'exsolve'
  * @returns {(name: string) => boolean} Package detector
  */
 export function createPackageDetector(cwd) {
-  const { resolveModulePath } = createResolver({ from: cwd, cache: false })
+  const { resolveModulePath } = createResolver({
+    from: cwd,
+    cache: false,
+    conditions: ['node', 'import', 'types'],
+  })
 
   return (name) => {
     // Check the manifest first to support packages containing only types.

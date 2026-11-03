@@ -15,6 +15,7 @@ void test('detects packages from the consumer, including import-only and types-o
   const fixtures = {
     'import-only': { exports: { import: './index.js' }, type: 'module' },
     'hidden-manifest': { exports: './index.js', type: 'module' },
+    'types-only-export': { exports: { '.': { types: './index.d.ts' } } },
     '@types/example': { types: './index.d.ts' },
     'conditional': { exports: { import: './index.js', require: './missing.cjs' }, type: 'module' },
   }
