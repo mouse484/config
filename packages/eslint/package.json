@@ -25,11 +25,11 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^9.5.1",
-    "baseline-browser-mapping": "^2.11.28",
-    "eslint-plugin-better-tailwindcss": "^4.9.0",
+    "baseline-browser-mapping": "^2.11.34",
+    "eslint-plugin-better-tailwindcss": "^4.10.0",
     "package-manager-detector": "^1.9.0"
   },
   "devDependencies": {
-    "eslint-typegen": "2.3.1"
+    "eslint-typegen": "2.3.2"
   }
 }
