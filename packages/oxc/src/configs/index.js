@@ -30,19 +30,26 @@ const CONFIGS = /** @type {const} */[
 @returns {import("oxlint").OxlintConfig[]} Generated configs for the enabled options
  */
 export default function buildConfigs(options) {
-  const context = { isPackageExists: createPackageDetector(), options }
+  const context = {
+    isPackageExists: createPackageDetector(),
+    options,
+  }
   return CONFIGS.flatMap(({ name, build, enable = true }) => {
     const option = options[name]
     if (option === false) {
       return []
     }
     if (option === undefined) {
-      const isEnabled = typeof enable === 'function' ? enable(context) : enable
+      const isEnabled = typeof enable === 'function'
+        ? enable(context)
+        : enable
       if (!isEnabled) {
         return []
       }
     }
     // @ts-expect-error - build configs with options
-    return build(context, typeof option === 'object' ? option : undefined)
+    return build(context, typeof option === 'object'
+      ? option
+      : undefined)
   })
 }

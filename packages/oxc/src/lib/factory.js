@@ -7,10 +7,20 @@ export function createConfigs({ name, enable = true, options, configs }) {
     enable,
     options,
     build: (context, overriddenOptions) => {
-      const local = { ...context, options: { ...options, ...overriddenOptions } }
+      const local = {
+        ...context,
+        options: {
+          ...options,
+          ...overriddenOptions,
+        },
+      }
       return configs.flatMap((item) => {
-        const config = typeof item === 'function' ? item(local) : item
-        return config ? [config] : []
+        const config = typeof item === 'function'
+          ? item(local)
+          : item
+        return config
+          ? [config]
+          : []
       })
     },
   }

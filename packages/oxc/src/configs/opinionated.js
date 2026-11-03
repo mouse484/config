@@ -5,14 +5,19 @@ export default createConfigs({
   enable: true,
   configs: [
     {
-      jsPlugins: [{
-        name: 'antfu',
-        specifier: import.meta.resolve('eslint-plugin-antfu'),
-      }],
+      jsPlugins: [
+        {
+          name: 'antfu',
+          specifier: import.meta.resolve('eslint-plugin-antfu'),
+        },
+      ],
       rules: {
         'antfu/top-level-function': 'error',
         'antfu/import-dedupe': 'error',
-        'antfu/indent-unindent': ['error', { indent: 2 }],
+        'antfu/indent-unindent': [
+          'error',
+          { indent: 2 },
+        ],
         'antfu/no-ts-export-equal': 'error',
       },
     },

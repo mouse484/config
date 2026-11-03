@@ -14,9 +14,12 @@ export default createConfigs({
           eslintPluginBetterTailwindcss.configs.recommended,
         ],
         rules: {
-          'better-tailwindcss/no-unknown-classes': ['error', {
-            detectComponentClasses: true,
-          }],
+          'better-tailwindcss/no-unknown-classes': [
+            'error',
+            {
+              detectComponentClasses: true,
+            },
+          ],
         },
         settings: {
           'better-tailwindcss': {
