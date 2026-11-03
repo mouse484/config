@@ -77,12 +77,16 @@ dtsFile.addInterface({
       }
       return {
         name,
-        type: options ? `boolean | ${options.getText()}` : 'boolean',
+        type: options
+          ? `boolean | ${options.getText()}`
+          : 'boolean',
         hasQuestionToken: true,
-        docs: [{
-          description: `\`${name}\` option`,
-          tags,
-        }],
+        docs: [
+          {
+            description: `\`${name}\` option`,
+            tags,
+          },
+        ],
       }
     }),
 })

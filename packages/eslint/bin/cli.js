@@ -69,7 +69,9 @@ async function main() {
     packageManager.agent,
     'execute',
     [
-      ...(packageManager.agent === 'npm' ? ['-y'] : []),
+      ...(packageManager.agent === 'npm'
+        ? ['-y']
+        : []),
       `${PACKAGE_NAME.BASE}@latest`,
     ],
   )
@@ -106,7 +108,9 @@ async function main() {
   await writeFile(packageJsonPath, JSON.stringify(packageJson, undefined, 2), 'utf8')
 
   logger('Updating config file')
-  const configPath = path.join(cwd, `eslint.config.${packageJson.type === 'module' ? 'js' : 'mjs'}`)
+  const configPath = path.join(cwd, `eslint.config.${packageJson.type === 'module'
+    ? 'js'
+    : 'mjs'}`)
   const config = await readFile(configPath, 'utf8')
   await writeFile(
     configPath,

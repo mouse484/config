@@ -7,9 +7,7 @@
  */
 function createConfig(name, withOptions, config) {
   return (options) => {
-    const canApply = withOptions
-      ? withOptions.every(key => Object.hasOwn(options, key))
-      : true
+    const canApply = !withOptions || withOptions.every(key => Object.hasOwn(options, key))
     if (!canApply) {
       return []
     }
@@ -32,7 +30,9 @@ export function createConfigs({ name, baseWithOption, configs }) {
         }
         const meta = options[baseWithOption]
         // @ts-expect-error: may be undefined
-        configItem = configItem(typeof meta === 'object' ? meta : undefined)
+        configItem = configItem(typeof meta === 'object'
+          ? meta
+          : undefined)
       }
       if (configItem === undefined) {
         return []
@@ -40,7 +40,9 @@ export function createConfigs({ name, baseWithOption, configs }) {
       const { name: configName, withOptions = [], ...restConfig } = configItem
       return createConfig(
         `${name}/${configName}`,
-        baseWithOption ? [baseWithOption, ...withOptions] : withOptions,
+        baseWithOption
+          ? [baseWithOption, ...withOptions]
+          : withOptions,
         restConfig,
       )(options)
     })

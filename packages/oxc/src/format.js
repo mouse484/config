@@ -13,5 +13,8 @@ const DEFAULT_FORMAT = /** @type {import('oxfmt').OxfmtConfig} */ ({
  * @param {import('oxfmt').OxfmtConfig} [config]
  */
 export function format(config = {}) {
-  return { ...DEFAULT_FORMAT, ...config }
+  return {
+    ...DEFAULT_FORMAT,
+    ...config,
+  }
 }

@@ -36,7 +36,9 @@ export default async function mouse(options, ...userConfigs) {
 
   const normalizedOptions = {
     ...options,
-    ignores: typeof options?.ignores === 'function' ? options.ignores([]) : options?.ignores,
+    ignores: typeof options?.ignores === 'function'
+      ? options.ignores([])
+      : options?.ignores,
   }
 
   const composer = antfu(normalizedOptions, ...configs, ...userConfigs)
@@ -52,7 +54,9 @@ export default async function mouse(options, ...userConfigs) {
     /**
     @type {import("eslint").Linter.Config}
      */
-    const overrideTypeScriptAllowJS = { files: [GLOB_JS, GLOB_JSX] }
+    const overrideTypeScriptAllowJS = {
+      files: [GLOB_JS, GLOB_JSX],
+    }
 
     await composer.override('antfu/typescript/parser', overrideTypeScriptAllowJS)
     await composer.override('antfu/typescript/rules', overrideTypeScriptAllowJS)
