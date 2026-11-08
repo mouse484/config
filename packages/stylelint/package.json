@@ -13,6 +13,9 @@
     "url": "https://github.com/mouse484/config/issues"
   },
   "main": "index.js",
+  "peerDependencies": {
+    "stylelint": "^18.0.0"
+  },
   "dependencies": {
     "@stylistic/stylelint-config": "^6.0.0",
     "stylelint-config-clean-order": "^10.0.0",
