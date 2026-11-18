@@ -3,13 +3,14 @@
 Oxlint Config by me
 
 ## Requirements
-- Oxlint: recomended latest (required `jsPlugin` support)
+- Oxlint: 1.94.0 or later
+- tsrs: Oxlint detects it automatically for type-aware linting
 - Oxfmt: recomended latest (for formatting)
 
 ## Usage
 Install the packages
 ```sh
-npm install -D oxlint oxfmt @mouse_484/oxc-config
+npm install -D oxlint oxfmt tsrs @mouse_484/oxc-config
 ```
 
 Create a `oxlint.config.ts` and add the following code:
