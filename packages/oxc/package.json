@@ -23,7 +23,7 @@
     "eslint-plugin-perfectionist": "^5.14.0",
     "exsolve": "^1.2.0",
     "oxfmt": "^0.80.0",
-    "oxlint": "^1.94.0",
+    "oxlint": "^1.95.0",
     "tsrs": "^0.25.0-ts7.1.0-beta"
   },
   "publishConfig": {
